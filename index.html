@@ -3,26 +3,74 @@
 <head>
 	<title>Wright Rickman</title>
 	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
 	<script src="javascripts/jquery.js"></script>
 	<script src="javascripts/underscore.js"></script>
 	<script src="javascripts/backbone.js"></script>
 	<script src="javascripts/site.js"></script>
+
 </head>
 <body>
-	<img src="images/LandscapeResume.jpg"></img>
-<!-- 	<div id="container">
-		<div id="cube">
-			<div class="face" id="front"></div>
-			<div class="face" id="back"></div>
-			<div class="face" id="left"></div>
-			<div class="face" id="right"></div>
-			<div class="face" id="top"></div>
-			<div class="face" id="bottom"></div>
+	<div id="wrapper">
+	</div> 
+	
+	<script id="home_template" type="text/template">
+		<div id="splash_wrapper">
+			<h1 id="name">Wright Rickman</h1>
+			<div id="links">
+				<div id="project_link" class="link">Projects</div>
+				<div id="resume_link" class="link">Resume</div>
+				<div id="contact_link" class="link">Contact</div>
+			</div>
 		</div>
+	</script>
 
-		<button id="turn">Turn</button>
-	</div> -->
+	<script id="resume_template" type="text/template">
+		<div id="splash_wrapper">
+			<img src="images/LandscapeResume.jpg"></img>
+			<div id="links">
+				<div id="home_link" class="link">Home</div>
+				<div id="project_link" class="link">Projects</div>
+				<div id="contact_link" class="link">Contact</div>
+			</div>
+		</div>
+	</script>
 
+	<script id="contact_template" type="text/template">
+	<div id="splash_wrapper">
+		<div id="links">
+			<div id="home_link" class="link">Home</div>
+			<div id="project_link" class="link">Projects</div>
+			<div id="resume_link" class="link">Resume</div>
+		</div>
+		<div id="contact_info">
+			<p>516.655.2432</p>
+			<a href="mailto:wrightrickman@gmail.com">wrightrickman@gmail.com</a>
+			<br />
+			<a href="http://linkedin.com/in/wrightrickman">LinkedIn</a>
+			<br />
+			<a href="http://github.com/bastiongamma">GitHub</a>
+			<br />
+			<a href="http://shitwrightfound.tumblr.com">Tumblr</a>
+		</div>
+	</div>
+
+	</script>
+	<script id="project_template" type="text/template">
+		<div id="splash_wrapper">
+			<div id="links">
+				<div id="home_link" class="link">Home</div>
+				<div id="resume_link" class="link">Resume</div>
+				<div id="contact_link" class="link">Contact</div>
+			</div>
+			<div id="projects"> 
+				<div>
+					<a href="http://vitriol.herokuapp.com"><img src="images/vitriol.png"></img></a>
+					<p>Vitriol</p>
+				</div>
+			</div>
+		</div>
+	</script>
 </body>
 </html>
