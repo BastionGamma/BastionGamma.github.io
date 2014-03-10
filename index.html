@@ -6,71 +6,147 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
 	<script src="javascripts/jquery.js"></script>
-	<script src="javascripts/underscore.js"></script>
-	<script src="javascripts/backbone.js"></script>
 	<script src="javascripts/site.js"></script>
 
 </head>
 <body>
 	<div id="wrapper">
-	</div> 
-	
-	<script id="home_template" type="text/template">
-		<div id="splash_wrapper">
-			<h1 id="name">Wright Rickman</h1>
-			<div id="links">
-				<div id="project_link" class="link">Projects</div>
-				<div id="resume_link" class="link">Resume</div>
-				<div id="contact_link" class="link">Contact</div>
-			</div>
-		</div>
-	</script>
 
-	<script id="resume_template" type="text/template">
-		<div id="splash_wrapper">
-			<img src="images/LandscapeResume.jpg"></img>
-			<div id="links">
-				<div id="home_link" class="link">Home</div>
-				<div id="project_link" class="link">Projects</div>
-				<div id="contact_link" class="link">Contact</div>
-			</div>
-		</div>
-	</script>
+		<nav id="primary">
+			<ul>
+				<li>
+					<h1>Home</h1>
+					<a class="home_link" href="#home_link">View</a>
+				</li>
+				<li>
+					<h1>Projects</h1>
+					<a class="project_link" href="#project_link">View</a>
+				</li>
+				<li>
+					<h1>About</h1>
+					<a class="resume_link" href="#resume_link">View</a>
+				</li>
+				<li>
+					<h1>Contact</h1>
+					<a class="contact_link" href="#contact_link">View</a>
+				</li>
+			</ul>
+		</nav>
 
-	<script id="contact_template" type="text/template">
-	<div id="splash_wrapper">
-		<div id="links">
-			<div id="home_link" class="link">Home</div>
-			<div id="project_link" class="link">Projects</div>
-			<div id="resume_link" class="link">Resume</div>
-		</div>
-		<div id="contact_info">
-			<p>516.655.2432</p>
-			<a href="mailto:wrightrickman@gmail.com">wrightrickman@gmail.com</a>
-			<br />
-			<a href="http://linkedin.com/in/wrightrickman">LinkedIn</a>
-			<br />
-			<a href="http://github.com/bastiongamma">GitHub</a>
-			<br />
-			<a href="http://shitwrightfound.tumblr.com">Tumblr</a>
+		<div id="content">
+			<article id="home_link">
+				<div id="name">
+					<h1>Wright Rickman</h1>
+					<h3>Full-Stack Development | Visual Design | Bow Ties</h3>
+				</div>
+				<div id="down_arrow">
+					<img src="images/downarrow.png"></img>
+				</div>
+			</article>
+
+			<article id="project_link">
+				<div id="portfolio">
+					<div id="umbra_info">
+						<h3> Operation Umbra </h3>
+						<a href="http://operationumbra.herokuapp.com"><img src="images/operationumbra.png"></a>
+						<div>
+							<h4>Gather intel & expose double-agents in this city-spanning alternate reality game.</h4>
+							<h4>Technologies:</h4>
+							<p>Javascript | Ruby | Rails 4 | Backbone | Handlebars | ActiveRecord | PostgreSQL | AJAX | Mobile-First Design | Game Theory</p>
+						</div>
+					</div>
+
+					<div id="vitriol_info">
+						<h3>Vitriol</h3>
+						<a href="http://vitriol.herokuapp.com"><img src="images/vitriol.png"></img></a>
+						<div> 
+							<h4>A new way to argue on the internet. Pick your side and duke it out.</h4>
+							<h4>Technologies:</h4>
+							<p>Ruby | Rails 3 | Javascript | ActiveRecord | PostgreSQL | AJAX | JQuery Animation | CSS3 Transformations | Emotional Design</p>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article id="resume_link">
+				<div id="resume">
+					<div id="col1">
+						<h3>About</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et consequat leo. Praesent ut dolor commodo, pulvinar libero posuere, aliquam lacus. Donec justo leo, lobortis in dui vel, ornare lobortis lectus. Nullam ut sodales arcu. Fusce consectetur gravida molestie. In tempus, eros at ultrices aliquet, mi metus dapibus diam, nec posuere nibh augue a libero. Maecenas nisi neque, feugiat a consequat vitae, ornare non dui. Vestibulum id porttitor erat.
+						Nulla nunc ipsum, varius adipiscing nisl ut, accumsan facilisis justo. Pellentesque porttitor ullamcorper massa sed lacinia. Praesent magna neque, facilisis eget.</p>
+						<img src="images/wright_face.png"></img>
+					</div>
+
+					<div id="col2">
+						<h3>Skills</h3>
+
+						<h4>Languages</h4>
+						<ul>
+							<li>Ruby</li>
+							<li>Javascript | Node.js</li>
+							<li>HTML | HTML5 | CSS | CSS3</li>
+						</ul>
+
+						<h4>Frameworks</h4>
+						<ul>
+							<li>Rails v3.2 | v4</li>
+							<li>Sinatra</li>
+							<li>JQuery | Backbone | Handlebars</li>
+						</ul>
+
+						<h4>Content | Database</h4>
+						<ul>
+							<li>ActiveRecord</li>
+							<li>SQL | PostgreSQL | MongoDB</li>
+							<li>Data Analysis | Data QA | Curation</li>
+						</ul>
+
+						<h4>Design</h4>
+						<ul>
+							<li>Adobe Illustrator | Photoshop | InDesign | After Effects</li>
+							<li>Sketch | OmniGraffle</li>
+							<li>Visual Design | Motion Graphics</li>
+							<li>User Experience | Workflows | Wireframes</li>
+						</ul>
+
+						<h4>Management</h4>
+						<ul>
+							<li>Agile | Pivotal Tracker | Github</li>
+							<li>Team Management</li>
+							<li>Customer Service</li>
+						</ul>
+
+						<h4>Administrative</h4>
+						<ul>
+							<li>Microsoft Word | Powerpoint | Excel</li>
+							<li>Apple Pages | Keynote | Numbers</li>
+						</ul>
+					</div>
+
+					<div id="col3">
+						<h3>Awards</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et consequat leo. Praesent ut dolor commodo, pulvinar libero posuere, aliquam lacus. Donec justo leo, lobortis in dui vel, ornare lobortis lectus. Nullam ut sodales arcu. Fusce consectetur gravida molestie. In tempus, eros at ultrices aliquet, mi metus dapibus diam, nec posuere nibh augue a libero. Maecenas nisi neque, feugiat a consequat vitae, ornare non dui. Vestibulum id porttitor erat.
+						Nulla nunc ipsum, varius adipiscing nisl ut, accumsan facilisis justo. Pellentesque porttitor ullamcorper massa sed lacinia. Praesent magna neque, facilisis eget.</p>
+
+					</div>			
+				</div>	
+			</article>
+
+			<article id="contact_link">
+				<div id="contact_info">
+					<p>516.655.2432</p>
+					<a href="mailto:wrightrickman@gmail.com">wrightrickman@gmail.com</a>
+					<br />
+					<a href="http://linkedin.com/in/wrightrickman">LinkedIn</a>
+					<br />
+					<a href="http://github.com/bastiongamma">GitHub</a>
+					<br />
+					<a href="http://shitwrightfound.tumblr.com">Tumblr</a>
+					<br />
+					<a href="https://www.behance.net/wrightrickman">Behance</a>
+				</div>
+			</article>
 		</div>
 	</div>
-
-	</script>
-	<script id="project_template" type="text/template">
-		<div id="splash_wrapper">
-			<div id="links">
-				<div id="home_link" class="link">Home</div>
-				<div id="resume_link" class="link">Resume</div>
-				<div id="contact_link" class="link">Contact</div>
-			</div>
-			<div id="projects"> 
-				<div>
-					<a href="http://vitriol.herokuapp.com"><img src="images/vitriol.png"></img></a>
-					<p>Vitriol</p>
-				</div>
-			</div>
-		</div>
-	</script>
 </body>
 </html>

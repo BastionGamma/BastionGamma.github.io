@@ -1,83 +1,43 @@
-var showHome = function(){
-	$('#wrapper').empty()
-	$('#wrapper').hide().append($('#home_template').html()).fadeIn(300)
-
-	$('#project_link').on("click", function(){
-		showProject();
-	})
-
-	$('#resume_link').on("click", function(){
-		showResume();
-	})
-
-	$('#contact_link').on("click", function(){
-		showContact();
-	})
-}
-
-var showResume = function(){
-	$('#wrapper').empty()
-	$('#wrapper').hide().append($('#resume_template').html()).fadeIn(300)
-
-	$('#home_link').on("click", function(){
-		showHome();
-	})
-
-	$('#project_link').on("click", function(){
-		showProject();
-	})
-
-	$('#contact_link').on("click", function(){
-		showContact();
-	})
-}
-
-var showContact = function(){
-	$('#wrapper').empty()
-	$('#wrapper').hide().append($('#contact_template').html()).fadeIn(300)
-
-	$('#home_link').on("click", function(){
-		showHome();
-	})
-
-	$('#project_link').on("click", function(){
-		showProject();
-	})
-
-	$('#resume_link').on("click", function(){
-		showResume();
-	})
-}
-
-var showProject = function(){
-	$('#wrapper').empty()
-	$('#wrapper').hide().append($('#project_template').html()).fadeIn(300)
-
-	$('#home_link').on("click", function(){
-		showHome();
-	})
-
-	$('#resume_link').on("click", function(){
-		showResume();
-	})
-
-	$('#contact_link').on("click", function(){
-		showContact();
-	})
-}
-
 $(function(){
-	$('#wrapper').append($('#home_template').html())
 
-	$('#project_link').on("click", function(){
-		showProject();
-	})
+	redrawDotNav();
 
-	$('#resume_link').on("click", function(){
-		showResume();
-	})
+	$(window).bind('scroll', function(e){
+		parallaxScroll();
+		redrawDotNav();
+	});
 
-	$('#contact_link').on("click", function(){
-		showContact();
-	})
-})
+	$('nav#primary a').hover(
+		function(){
+			$(this).prev('h1').show();
+		},
+		function(){
+			$(this).prev('h1').hide();
+		}
+	);
+
+});
+
+function parallaxScroll(){
+	var scrolled = $(window).scrollTop();
+	$('#parallax-bg').css('top', (0 - (scrolled * .25)) + 'px');
+	$('#parallax-bg2').css('top', (0 - (scrolled * .50)) + 'px');
+	$('#parallax-bg3').css('top', (0 - (scrolled * .75)) + 'px');
+}
+
+function redrawDotNav(){
+	var section1Top =  0;
+	var section2Top =  $('#project_link').offset().top - (($('#resume_link').offset().top - $('#project_link').offset().top) / 2);
+	var section3Top =  $('#resume_link').offset().top - (($('#contact_link').offset().top - $('#resume_link').offset().top) / 2);
+	var section4Top =  $('#contact_link').offset().top - (($(document).height() - $('#contact_link').offset().top) / 2);;
+	$('nav#primary a').removeClass('active');
+	if($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
+		$('nav#primary a.home_link').addClass('active');
+	} else if ($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
+		$('nav#primary a.project_link').addClass('active');
+	} else if ($(document).scrollTop() >= section3Top && $(document).scrollTop() < section4Top){
+		$('nav#primary a.resume_link').addClass('active');
+	} else if ($(document).scrollTop() >= section4Top){
+		$('nav#primary a.contact_link').addClass('active');
+	}
+}
