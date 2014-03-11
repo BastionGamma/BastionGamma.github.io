@@ -7,6 +7,7 @@
 
 	<script src="javascripts/jquery.js"></script>
 	<script src="javascripts/site.js"></script>
+	<script src="javascripts/modernizr.custom.37797.js"></script> 
 
 </head>
 <body>
@@ -19,8 +20,12 @@
 					<a class="home_link" href="#home_link">View</a>
 				</li>
 				<li>
-					<h1>Projects</h1>
-					<a class="project_link" href="#project_link">View</a>
+					<h1>Development</h1>
+					<a class="dev_link" href="#dev_link">View</a>
+				</li>
+				<li>
+					<h1>Film</h1>
+					<a class="design_link" href="#design_link">View</a>
 				</li>
 				<li>
 					<h1>About</h1>
@@ -29,6 +34,26 @@
 				<li>
 					<h1>Contact</h1>
 					<a class="contact_link" href="#contact_link">View</a>
+				</li>
+			</ul>
+		</nav>
+
+		<nav id="secondary">
+			<ul>
+				<li>
+					<a class="home_link" href="#home_link">Home</a>
+				</li>
+				<li>
+					<a class="dev_link" href="#dev_link">Development</a>
+				</li>
+				<li>
+					<a class="design_link" href="#design_link">Film</a>
+				</li>
+				<li>
+					<a class="resume_link" href="#resume_link">About</a>
+				</li>
+				<li>
+					<a class="contact_link" href="#contact_link">Contact</a>
 				</li>
 			</ul>
 		</nav>
@@ -44,9 +69,10 @@
 				</div>
 			</article>
 
-			<article id="project_link">
+			<article id="dev_link">
 				<div id="portfolio">
 					<div id="umbra_info">
+						<h1>Development</h1>
 						<h3> Operation Umbra </h3>
 						<a href="http://operationumbra.herokuapp.com"><img src="images/operationumbra.png"></a>
 						<div>
@@ -68,13 +94,41 @@
 				</div>
 			</article>
 
+			<article id="design_link">
+				<div id="gallery">
+					<h1>Film</h1>
+					<div id="film">
+						<div>
+							<a href="https://www.youtube.com/watch?v=4wni1q7UDjY"><img src="images/platonic.png"></img></a>
+							<a href="https://www.youtube.com/watch?v=4wni1q7UDjY"><h4>"Platonic Parts"</h4></a>
+							<p>Assistant Director | Writer</p>
+							<p>Answering the age old question: Can a man just be friends <br /> with a sex robot?</p>
+							<p>Winner of the Audience Choice Award & Best Writing <br /> for the 48 Hour Film Project 2013.</p>
+						</div>
+
+						<div>
+							<a href="http://www.avclub.com/video/the-adventures-of-craig-88639"><img src="images/craig.png"></img></a>
+								<a href="http://www.avclub.com/video/the-adventures-of-craig-88639"><h4>"The Adventures of Craig"</h4></a>
+								<p>Animator | Writer | Actor</p>
+								<p>A stop-motion film for the A.V. Club about a stop-motion guy <br /> making a stop-motion film for the A.V. Club</p>
+								<p>Third Prize in the A.V. Club Parameter <br /> Film Contest 2012</p>
+							</div>
+						</div>
+					</div>
+
+					<div id="art">
+
+					</div>
+				</div>
+			</article>
+
 			<article id="resume_link">
 				<div id="resume">
 					<div id="col1">
 						<h3>About</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et consequat leo. Praesent ut dolor commodo, pulvinar libero posuere, aliquam lacus. Donec justo leo, lobortis in dui vel, ornare lobortis lectus. Nullam ut sodales arcu. Fusce consectetur gravida molestie. In tempus, eros at ultrices aliquet, mi metus dapibus diam, nec posuere nibh augue a libero. Maecenas nisi neque, feugiat a consequat vitae, ornare non dui. Vestibulum id porttitor erat.
-						Nulla nunc ipsum, varius adipiscing nisl ut, accumsan facilisis justo. Pellentesque porttitor ullamcorper massa sed lacinia. Praesent magna neque, facilisis eget.</p>
-						<img src="images/wright_face.png"></img>
+						<p>Wright Rickman is a developer and graduate of General Assembly's full-stack bootcamp. An award-winning animator, practiced designer, and perpetual tinkerer, Wright is always searching for the next problem to solve or thing to build, whether it be with code, cels, or steel. 
+						<br /><br />
+						He can be found inside all of our hearts if we just believe hard enough.</p>
 					</div>
 
 					<div id="col2">
@@ -124,10 +178,24 @@
 					</div>
 
 					<div id="col3">
-						<h3>Awards</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et consequat leo. Praesent ut dolor commodo, pulvinar libero posuere, aliquam lacus. Donec justo leo, lobortis in dui vel, ornare lobortis lectus. Nullam ut sodales arcu. Fusce consectetur gravida molestie. In tempus, eros at ultrices aliquet, mi metus dapibus diam, nec posuere nibh augue a libero. Maecenas nisi neque, feugiat a consequat vitae, ornare non dui. Vestibulum id porttitor erat.
-						Nulla nunc ipsum, varius adipiscing nisl ut, accumsan facilisis justo. Pellentesque porttitor ullamcorper massa sed lacinia. Praesent magna neque, facilisis eget.</p>
-
+						<h3>Accomplishments</h3>
+						<h4>Huge Inc.</h4>
+						<p>Built the largest database of events in the US with over 150,000.</p>
+						<p>Spearheaded a change in data gathering methods that improved accuracy from 9% to 87%, saving significant time & capital.</p>
+						<br />
+						<h4>48 Hour Film Project</h4>
+						<p>Audience Choice | Best Writing</p>
+						<p>"Platonic Parts"</p>
+						<p>Assistant Director | Writer</p>
+						<br />
+						<h4>The Onion's A.V. Club Parameter Film Contest</h4>
+						<p>Finalist</p>
+						<p>"The Adventures of Craig"</p>
+						<p>Animator | Writer | Actor</p>
+						<br />
+						<h4>900,000 Views on YouTube</h4>
+						<p>"Elephant's Lullaby"</p>
+						<p>Animator</p>
 					</div>			
 				</div>	
 			</article>
@@ -147,6 +215,17 @@
 				</div>
 			</article>
 		</div>
+
+		<div id="parallax_bg">
+			<img src="images/pixels1.svg" id="bg-1"></img>
+			<img src="images/pixels1.svg" id="bg-2"></img>
+		</div>
+
+		<div id="parallax_bg2">
+			<img src="images/pixels2.svg" id="bg2-1"></img>
+			<img src="images/pixels2.svg" id="bg2-2"></img>
+		</div>
+
 	</div>
 </body>
 </html>

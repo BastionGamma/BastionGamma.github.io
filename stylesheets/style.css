@@ -12,6 +12,11 @@ body {
 
 #wrapper { position: relative; }
 
+#content {
+	z-index: 10;
+	position: relative;
+}
+
 /*=========================*/
 /*Right Hand Navigation Bar*/
 /*=========================*/
@@ -24,13 +29,13 @@ a, a:link, a:active, a:visited {
 	transition: color 0.25s ease-out;
 	color: white;
 	outline: none;
-	text-decoration:none;
+	text-decoration: none;
 }
 
 a:hover { color: #000; }
 
 nav#primary {
-	z-index: 5;
+	z-index: 15;
 	position: fixed;
 	top: 50%;
 	right: 16px;
@@ -66,6 +71,31 @@ nav#primary h1 {
 	font-size: 1.2em;
 	white-space: nowrap;
 	background: transparent url('../images/nav-arrow.png') 100% 50% no-repeat;
+}
+
+nav#secondary {
+	z-index: 15;
+	margin-top: 30%;
+	margin-left: 29%;
+	position: absolute;
+}
+
+nav#secondary .stick {
+	position: fixed;
+	margin-top: 0;
+}
+
+nav#secondary ul {
+	list-style: none;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+nav#secondary ul li {
+	display: inline;
+	margin: 10px;
 }
 
 /*============*/
@@ -118,11 +148,11 @@ nav#primary h1 {
 
 #down_arrow img { width: 50px; }
 
-/*=================*/
-/*Portfolio Section*/
-/*=================*/
+/*=====================*/
+/*Dev Portfolio Section*/
+/*=====================*/
 
-#project_link {
+#dev_link {
 	position: absolute;
 	top: 1090px;
 	width: 100%;
@@ -137,6 +167,13 @@ nav#primary h1 {
 	width: 200px;
 	border-radius: 10px;
 	margin-top: -15px;
+}
+
+#portfolio h1 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: white;
+	font-size: 3em;
 }
 
 #portfolio h3 {
@@ -167,12 +204,65 @@ h4 {
 }
 
 /*=============*/
+/*Design Section*/
+/*=============*/
+
+#design_link {
+	position: absolute;
+	top: 1945px;
+	width: 100%;
+}
+
+#gallery {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#gallery h1 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: white;
+	font-size: 3em;
+}
+
+#gallery img {
+	width: 200px;
+	border-radius: 10px;
+	margin-top: -15px;
+}
+
+#gallery h4 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: white;
+	font-size: 1.5em;
+	margin: 0 0 15px 0;
+}
+
+#gallery p {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: white;
+	font-size: 1em;
+	margin-top: -14px;
+}
+
+#film {
+	width: 40%;
+	float: left;
+}
+
+#film div {
+	margin-bottom: 55px;
+}
+
+/*=============*/
 /*About Section*/
 /*=============*/
 
 #resume_link {
 	position: absolute;
-	top: 2180px;
+	top: 2830px;
 	width: 100%;
 }
 
@@ -194,15 +284,7 @@ h4 {
 	margin: 20px 20px 0 20px; 
 }
 
-#col1 img {
-	width: 200px;
-	border-radius: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-}
-
-#col2 ul { margin: -28px 0 28px 0; }
+#col2 ul, #col3 p { margin: -28px 0 28px 0; }
 
 #col1 p, #col2 li, #col3 p {
 	font-family: 'Lato', sans-serif;
@@ -218,7 +300,7 @@ h4 {
 
 #contact_link {
 	position: absolute;
-	top: 3270px;
+	top: 3765px;
 	width: 100%;
 }
 
@@ -245,3 +327,47 @@ h4 {
 #contact_info a:hover {
 	color: black;
 }
+
+/*================*/
+/*Pixel Background*/
+/*================*/
+
+#parallax-bg, #parallax-bg2 {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+#bg-1 { z-index: 5; }
+
+#bg2-1 { z-index: 3; }
+
+#bg-1, #bg2-1 {
+	position: absolute;
+	width: 100%;
+	margin: -8px 0 0 -8px;
+}
+
+#bg-2 { z-index: -3; }
+
+#bg2-2 { z-index: -5; }
+
+#bg-2, #bg2-2 {
+	position: absolute;
+	width: 100%;
+	margin: -8px 0 0 -8px;
+	-webkit-transform: scaleY(-1);
+	-moz-transform: scaleY(-1);
+	-ms-transform: scaleY(-1);
+	-o-transform: scaleY(-1);
+	transform: scaleY(-1);
+	bottom: -3787px;
+}
+
+@media only screen and (max-device-width : 480px) 
+
+
+
+
+
+
