@@ -3,7 +3,7 @@ $(function(){
 	redrawDotNav();
 
 	$(window).bind('scroll', function(e){
-		parallaxScroll(); 
+		parallaxScroll();
 		redrawDotNav();
 	});
 
@@ -49,14 +49,6 @@ $(function(){
     $('html, body').animate({
         scrollTop: $("#contact_link").offset().top
     }, 1000);
-	});
-
-	$(window).scroll(function () {
-		$('#secondary').removeClass('.stick')
-    winHeight = $(window).height();
-    if ($(window).scrollTop() > winHeight) {
-        $('#secondary').addClass('.stick');
-    }
 	});
 });
 
