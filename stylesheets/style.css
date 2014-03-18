@@ -1,5 +1,6 @@
 html {
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased; }
 
 body {
   background: url("../images/Galaxy.png") center center fixed;
@@ -13,31 +14,31 @@ body {
 
 h1 {
   font-family: "Lato", sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   color: white; }
 
 h3 {
   font-family: "Lato", sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   color: white;
   font-size: 2em; }
 
 h4 {
   font-family: "Lato", sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   color: white;
   font-size: 1.5em; }
 
 p {
   font-family: "Lato", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: white;
   font-size: 1em;
   text-align: justify; }
 
 li {
   font-family: "Lato", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: white; }
 
 #wrapper {
@@ -81,7 +82,8 @@ nav#primary {
     background: transparent url("../images/nav-arrow.png") 100% 50% no-repeat; }
   nav#primary li {
     position: relative;
-    height: 20px; }
+    height: 20px;
+    list-style: none; }
   nav#primary a {
     display: block;
     width: 20px;
@@ -140,7 +142,7 @@ nav#primary a:hover, nav#primary a.active {
   margin: 0 auto; }
   #portfolio h1 {
     font-family: "Lato", sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     color: white;
     font-size: 3em; }
   #portfolio h4 {
@@ -167,7 +169,7 @@ nav#primary a:hover, nav#primary a.active {
   margin: 0 auto; }
   #gallery h1 {
     font-family: "Lato", sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     color: white;
     font-size: 3em; }
   #gallery h4 {
@@ -247,7 +249,7 @@ nav#primary a:hover, nav#primary a.active {
 
 #contact_info, #contact_info a:link, #contact_info a:active, #contact_info a:visited {
   font-family: "Lato", sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   color: white;
   font-size: 1.5em;
   text-decoration: none;

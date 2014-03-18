@@ -29,7 +29,10 @@ $hover-color: yellow;
   transform: translateY($translateY);
 }
 
-html { overflow-y: scroll; }
+html { 
+	overflow-y: scroll; 
+	-webkit-font-smoothing: antialiased;
+}
 
 body {
 	background: url("../images/Galaxy.png") center center fixed;
@@ -42,26 +45,26 @@ body {
 	z-index: 0;
 }
 
-h1 { @include font-type(100); }
+h1 { @include font-type(300); }
 
 h3 {
-  @include font-type(100);
+  @include font-type(300);
   font-size: 2em;
 }
 
 h4 {
-  @include font-type(100);
+  @include font-type(300);
   font-size: 1.5em;
 }
 
 p {
-  @include font-type(300);
+  @include font-type(400);
   font-size: 1em;
   text-align: justify;
 }
 
 li {
-  @include font-type(300);
+  @include font-type(400);
 }
 
 #wrapper { position: relative; }
@@ -110,6 +113,7 @@ nav#primary {
 	li {
   	position: relative;
   	height: 20px;
+  	list-style: none;
   }
 
   a {
@@ -166,7 +170,7 @@ nav#primary {
 	margin: 0 auto;
 
 	h1 {
-  	@include font-type(100);
+  	@include font-type(300);
   	font-size: 3em;
   }
 
@@ -197,7 +201,7 @@ nav#primary {
 	margin: 0 auto;
 
 	h1 {
-  	@include font-type(100);
+  	@include font-type(300);
   	font-size: 3em;
   }
 
@@ -281,7 +285,7 @@ nav#primary {
 }
 
 #contact_info, #contact_info a:link, #contact_info a:active, #contact_info a:visited {
- 	@include font-type(100);
+ 	@include font-type(300);
 	font-size: 1.5em;
 	text-decoration: none;
 	margin: 30px;
