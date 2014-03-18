@@ -1,0 +1,334 @@
+$font-family: 'Lato', sans-serif;
+$text-color: white;
+$hover-color: yellow;
+
+@mixin font-type($font-weight: none) {
+  font-family: $font-family;
+	font-weight: $font-weight;
+	color: $text-color;
+}
+
+@mixin column-width {
+	width: 29%;
+	float: left;
+	margin: 20px 20px 0 20px; 
+}
+
+@mixin parallax-pos {
+	position: absolute;
+	width: 100%;
+}
+
+@mixin vertical-align($translateY: none) {
+	position: relative;
+  top: 100%;
+  -webkit-transform: translateY($translateY);
+  -moz-transform: translateY($translateY);
+  -ms-transform: translateY($translateY);
+  -o-transform: translateY($translateY);
+  transform: translateY($translateY);
+}
+
+html { overflow-y: scroll; }
+
+body {
+	background: url("../images/Galaxy.png") center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 4550px;
+	z-index: 0;
+}
+
+h1 { @include font-type(100); }
+
+h3 {
+  @include font-type(100);
+  font-size: 2em;
+}
+
+h4 {
+  @include font-type(100);
+  font-size: 1.5em;
+}
+
+p {
+  @include font-type(300);
+  font-size: 1em;
+  text-align: justify;
+}
+
+li {
+  @include font-type(300);
+}
+
+#wrapper { position: relative; }
+
+#content {
+	z-index: 3;
+	position: relative;
+}
+
+/*=========================*/
+/*Right Hand Navigation Bar*/
+/*=========================*/
+
+a, a:link, a:active, a:visited {
+	-webkit-transition: color 0.25s ease-out;
+	-moz-transition: color 0.25s ease-out;
+	-ms-transition: color 0.25s ease-out;
+	-o-transition: color 0.25s ease-out;
+	transition: color 0.25s ease-out;
+	color: $text-color;
+	outline: none;
+	text-decoration: none;
+}
+
+a:hover { color: $hover-color; }
+
+nav#primary {
+	z-index: 4;
+	position: fixed;
+	top: 50%;
+	right: 16px;
+	margin-top: -40px;
+
+	h1 {
+  	position: absolute;
+  	right: 22px;
+  	top: -22px;
+  	display: none;
+  	padding: 4px 20px 4px 7px;
+  	color: black;
+  	font-size: 1.2em;
+  	white-space: nowrap;
+  	background: transparent url('../images/nav-arrow.png') 100% 50% no-repeat;
+  }
+
+	li {
+  	position: relative;
+  	height: 20px;
+  }
+
+  a {
+  	display: block;
+  	width: 20px;
+  	height: 20px;
+  	text-indent: -9999px;
+  	background: transparent url('../images/nav-dot.png') 4px -16px no-repeat;
+  }
+}
+
+ nav#primary a:hover, nav#primary a.active {
+	background: transparent url('../images/nav-dot.png') 4px 4px no-repeat;
+}
+
+/*============*/
+/*Home Section*/
+/*============*/
+
+#home_link {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+
+#name { 
+	text-align: center; 
+	@include vertical-align(150%);
+
+  h1 { font-size: 4em; }
+
+  h3 { margin-top: -48px; }
+}
+
+#down_arrow {
+	@include vertical-align(800%);
+	margin: 0 auto;
+	width: 50px;
+
+  img { width: 50px; }
+}
+
+/*=====================*/
+/*Dev Portfolio Section*/
+/*=====================*/
+
+#dev_link {
+	@include parallax-pos;
+	top: 1090px;
+}
+
+#portfolio {
+	width: 80%;
+	margin: 0 auto;
+
+	h1 {
+  	@include font-type(100);
+  	font-size: 3em;
+  }
+
+  h4 { margin-top: -20px; }
+
+  div div { margin-top: 25px; }
+
+  p { margin-top: -28px; }
+
+	img {
+  	width: 200px;
+  	border-radius: 10px;
+  	margin-top: -15px;
+  }
+}
+
+/*=============*/
+/*Design Section*/
+/*=============*/
+
+#design_link {
+	@include parallax-pos;
+	top: 1945px;
+}
+
+#gallery {
+	width: 80%;
+	margin: 0 auto;
+
+	h1 {
+  	@include font-type(100);
+  	font-size: 3em;
+  }
+
+  h4 { margin: 0 0 15px 0; }
+
+  p { margin-top: -14px; }
+
+  img {
+  	width: 200px;
+  	border-radius: 10px;
+  	margin-top: -15px;
+  }
+}
+
+#film {
+	width: 40%;
+	float: left;
+
+  div {
+  	margin-bottom: 55px;
+  }
+}
+
+/*=============*/
+/*About Section*/
+/*=============*/
+
+#resume_link {
+	@include parallax-pos;
+	top: 2830px;
+}
+
+#resume { 
+	width: 80%; 
+	margin: 0 auto;
+}
+
+#col1 {
+	@include column-width;
+
+	ul { margin: -28px 0 28px 0; }
+
+	h4 { margin-top: -15px; }
+
+	li {
+  	font-size: 1em;
+  	text-align: justify;
+  }
+}
+
+#col2 { 
+	@include column-width; 
+
+	a:hover { color: $hover-color; }
+}
+
+#col3 {
+	@include column-width;
+
+	h4 { margin-top: -15px; }
+	
+	p { margin: -28px 0 28px 0; }
+}
+
+/*===============*/
+/*Contact Section*/
+/*===============*/
+
+#contact_link {
+	@include parallax-pos;
+	top: 3765px;
+}
+
+#contact_info {
+	@include vertical-align(75%);
+	text-align: center;
+
+	p {
+		text-align: center;
+	}
+}
+
+#contact_info, #contact_info a:link, #contact_info a:active, #contact_info a:visited {
+ 	@include font-type(100);
+	font-size: 1.5em;
+	text-decoration: none;
+	margin: 30px;
+}
+
+#contact_info a:hover {
+	color: $hover-color;
+}
+
+/*================*/
+/*Pixel Background*/
+/*================*/
+
+#parallax-bg {
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+#parallax-bg2 {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+#bg-1  {
+	@include parallax-pos;
+	margin: -8px 0 0 -8px;
+	top: 0px;
+}
+
+#bg-2 {
+	@include parallax-pos;
+	margin: -8px 0 0 -8px;
+	bottom: -4385px;
+}
+
+#bg2-1 {
+	@include parallax-pos;
+	margin: -8px 0 0 -8px;
+	top: -70px;
+}
+
+ #bg2-2 {
+ 	@include parallax-pos;
+	margin: -8px 0 0 -8px;
+	bottom: -3062px;
+ }
