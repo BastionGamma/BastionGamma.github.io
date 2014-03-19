@@ -294,3 +294,18 @@ nav#primary a:hover, nav#primary a.active {
   width: 100%;
   margin: -8px 0 0 -8px;
   bottom: -3062px; }
+
+/*================*/
+/*Media Queries*/
+/*================*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  html {
+    overflow-x: hidden; }
+
+  body {
+    background-color: #5ab8e4;
+    height: 100%;
+    width: 100%; }
+
+  #resume {
+    display: block; } }

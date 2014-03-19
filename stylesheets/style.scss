@@ -1,6 +1,7 @@
 $font-family: 'Lato', sans-serif;
 $text-color: white;
 $hover-color: yellow;
+$bg-color: #5AB8E4;
 
 @mixin font-type($font-weight: none) {
   font-family: $font-family;
@@ -332,3 +333,23 @@ nav#primary {
 	margin: -8px 0 0 -8px;
 	bottom: -3062px;
  }
+
+/*================*/
+/*Media Queries*/
+/*================*/
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) { 
+	html { overflow-x: hidden; }
+
+	body {
+		background-color: $bg-color;
+		height: 100%;
+		width: 100%;
+	}
+
+	#resume {
+		display: block;
+	}
+}
