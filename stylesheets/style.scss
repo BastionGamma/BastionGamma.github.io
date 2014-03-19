@@ -342,14 +342,26 @@ nav#primary {
 /*================*/
 
 	@media only screen and (max-width: 767px) { 
-	html { overflow-x: hidden; }
+	html { 
+		overflow-x: hidden; 
+		margin: 0 auto;
+	}
 
 	body { 
 		background-image: none; 
 		background-color: $bg-color;
+		height: 4000px;
 	}
 
 	nav#primary { visibility: hidden; }
+
+	#dev_link { top: 600px; }
+
+	#design_link { top: 1600px; }
+
+	#resume_link { top: 2600px; }
+
+	#contact_link { top: 3600px; }
 
 	#name { 
 		@include vertical-align(10%);
@@ -359,7 +371,7 @@ nav#primary {
 		h3 { margin-top: -38px; }
 	}
 
-	#down_arrow { @include vertical-align(300%); }
+	#down_arrow { @include vertical-align(250%); }
 
 	#portfolio { 
 		max-width: 80%; 
