@@ -342,9 +342,7 @@ nav#primary {
 /*Media Queries*/
 /*================*/
 
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) { 
+@media only screen and (max-device-width : 480px) { 
 	html { overflow-x: hidden; }
 
 	body {
@@ -353,7 +351,24 @@ and (max-device-width : 480px) {
 		width: 100%;
 	}
 
-	#resume {
-		display: block;
+	#name { @include vertical-align(50%); }
+
+	#down_arrow { @include vertical-align(500%); }
+
+	#portfolio { max-width: 80%; }
+
+	#gallery { max-width: 80%; }
+
+	#resume { 
+		display: block; 
+		max-width: 80%;
 	}
+
+	h1 { font-size: 2em;}
+
+	h3 { font-size: 1.5em; }
+
+	h4 { font-size: 1em; }
+
+	p { font-size: 0.8em; }
 }
