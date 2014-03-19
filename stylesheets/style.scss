@@ -1,7 +1,7 @@
 $font-family: 'Lato', sans-serif;
 $text-color: white;
 $hover-color: yellow;
-$bg-color: #5AB8E4;
+$bg-color: rgb(90, 184, 228);
 
 @mixin font-type($font-weight: none) {
   font-family: $font-family;
@@ -249,7 +249,6 @@ nav#primary {
 
 	li {
   	font-size: 1em;
-  	text-align: justify;
   }
 }
 
@@ -342,20 +341,29 @@ nav#primary {
 /*Media Queries*/
 /*================*/
 
-@media only screen and (max-device-width : 480px) { 
+	@media only screen and (max-width: 767px) { 
 	html { overflow-x: hidden; }
 
-	body {
+	body { 
+		background-image: none; 
 		background-color: $bg-color;
-		height: 100%;
-		width: 100%;
 	}
 
-	#name { @include vertical-align(50%); }
+	#name { 
+		@include vertical-align(50%);
 
-	#down_arrow { @include vertical-align(500%); }
+		h1 { font-size: 3em; } 
 
-	#portfolio { max-width: 80%; }
+		h3 { margin-top: -38px; }
+	}
+
+	#down_arrow { @include vertical-align(680%); }
+
+	#portfolio { 
+		max-width: 80%; 
+
+		p { margin-top: -15px; }
+	}
 
 	#gallery { max-width: 80%; }
 
@@ -364,11 +372,18 @@ nav#primary {
 		max-width: 80%;
 	}
 
+	#parallax-bg, #parallax-bg2 { img { visibility: hidden; } }
+
 	h1 { font-size: 2em;}
 
 	h3 { font-size: 1.5em; }
 
-	h4 { font-size: 1em; }
+	h4 {
+		@include font-type(300) 
+		font-size: 1em; 
+	}
 
-	p { font-size: 0.8em; }
+	p { font-size: 1em; }
+
+	li { font-size: 1em; }
 }

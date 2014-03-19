@@ -208,8 +208,7 @@ nav#primary a:hover, nav#primary a.active {
   #col1 h4 {
     margin-top: -15px; }
   #col1 li {
-    font-size: 1em;
-    text-align: justify; }
+    font-size: 1em; }
 
 #col2 {
   width: 29%;
@@ -300,32 +299,27 @@ nav#primary a:hover, nav#primary a.active {
 /*================*/
 /*Media Queries*/
 /*================*/
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 767px) {
   html {
     overflow-x: hidden; }
 
   body {
-    background-color: #5ab8e4;
-    height: 100%;
-    width: 100%; }
+    background-image: none;
+    background-color: #5ab8e4; }
 
-  #name {
-    position: relative;
-    top: 100%;
-    -webkit-transform: translateY(50%);
-    -moz-transform: translateY(50%);
-    -ms-transform: translateY(50%);
-    -o-transform: translateY(50%);
-    transform: translateY(50%); }
+  #name h1 {
+    font-size: 3em; }
+  #name h3 {
+    margin-top: -38px; }
 
   #down_arrow {
     position: relative;
     top: 100%;
-    -webkit-transform: translateY(500%);
-    -moz-transform: translateY(500%);
-    -ms-transform: translateY(500%);
-    -o-transform: translateY(500%);
-    transform: translateY(500%); }
+    -webkit-transform: translateY(680%);
+    -moz-transform: translateY(680%);
+    -ms-transform: translateY(680%);
+    -o-transform: translateY(680%);
+    transform: translateY(680%); }
 
   #portfolio {
     max-width: 80%; }
@@ -337,6 +331,9 @@ nav#primary a:hover, nav#primary a.active {
     display: block;
     max-width: 80%; }
 
+  #parallax-bg img, #parallax-bg2 img {
+    visibility: hidden; }
+
   h1 {
     font-size: 2em; }
 
@@ -347,4 +344,7 @@ nav#primary a:hover, nav#primary a.active {
     font-size: 1em; }
 
   p {
-    font-size: 0.8em; } }
+    font-size: 1em; }
+
+  li {
+    font-size: 1em; } }
