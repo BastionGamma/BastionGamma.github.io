@@ -307,14 +307,17 @@ nav#primary a:hover, nav#primary a.active {
     background-image: none;
     background-color: #5ab8e4; }
 
+  nav#primary {
+    visibility: hidden; }
+
   #name {
     position: relative;
     top: 100%;
-    -webkit-transform: translateY(50%);
-    -moz-transform: translateY(50%);
-    -ms-transform: translateY(50%);
-    -o-transform: translateY(50%);
-    transform: translateY(50%); }
+    -webkit-transform: translateY(10%);
+    -moz-transform: translateY(10%);
+    -ms-transform: translateY(10%);
+    -o-transform: translateY(10%);
+    transform: translateY(10%); }
     #name h1 {
       font-size: 3em; }
     #name h3 {
@@ -323,11 +326,11 @@ nav#primary a:hover, nav#primary a.active {
   #down_arrow {
     position: relative;
     top: 100%;
-    -webkit-transform: translateY(725%);
-    -moz-transform: translateY(725%);
-    -ms-transform: translateY(725%);
-    -o-transform: translateY(725%);
-    transform: translateY(725%); }
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    -o-transform: translateY(300%);
+    transform: translateY(300%); }
 
   #portfolio {
     max-width: 80%; }
@@ -349,7 +352,7 @@ nav#primary a:hover, nav#primary a.active {
     #col1 h4 {
       margin-top: 0px; }
     #col1 ul {
-      margin: -5px 20px 0 0px; }
+      margin: -20px 20px 0 0px; }
 
   #col2, #col3 {
     visibility: hidden; }
@@ -362,7 +365,8 @@ nav#primary a:hover, nav#primary a.active {
     -ms-transform: translateY(100%);
     -o-transform: translateY(100%);
     transform: translateY(100%);
-    font-size: 1em; }
+    font-size: 1em;
+    text-align: center; }
 
   #parallax-bg img, #parallax-bg2 img {
     visibility: hidden; }

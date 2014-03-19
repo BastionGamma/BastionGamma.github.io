@@ -349,15 +349,17 @@ nav#primary {
 		background-color: $bg-color;
 	}
 
+	nav#primary { visibility: hidden; }
+
 	#name { 
-		@include vertical-align(50%);
+		@include vertical-align(10%);
 
 		h1 { font-size: 3em; } 
 
 		h3 { margin-top: -38px; }
 	}
 
-	#down_arrow { @include vertical-align(725%); }
+	#down_arrow { @include vertical-align(300%); }
 
 	#portfolio { 
 		max-width: 80%; 
@@ -379,7 +381,7 @@ nav#primary {
 
 		h4 { margin-top: 0px; }
 
-		ul { margin: -5px 20px 0 0px; }
+		ul { margin: -20px 20px 0 0px; }
 	}
 
 	#col2, #col3 { visibility: hidden; }
@@ -387,6 +389,7 @@ nav#primary {
 	#contact_info {
 		@include vertical-align(100%);
 		font-size: 1em; 
+		text-align: center;
 	}
 
 	#parallax-bg, #parallax-bg2 { img { visibility: hidden; } }
