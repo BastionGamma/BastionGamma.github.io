@@ -357,7 +357,7 @@ nav#primary {
 		h3 { margin-top: -38px; }
 	}
 
-	#down_arrow { @include vertical-align(680%); }
+	#down_arrow { @include vertical-align(725%); }
 
 	#portfolio { 
 		max-width: 80%; 
@@ -365,11 +365,28 @@ nav#primary {
 		p { margin-top: -15px; }
 	}
 
+	#film { width: 80%; }
+
 	#gallery { max-width: 80%; }
 
 	#resume { 
 		display: block; 
 		max-width: 80%;
+	}
+
+	#col1 { 
+		width: 86%; 
+
+		h4 { margin-top: 0px; }
+
+		ul { margin: -5px 20px 0 0px; }
+	}
+
+	#col2, #col3 { visibility: hidden; }
+
+	#contact_info {
+		@include vertical-align(100%);
+		font-size: 1em; 
 	}
 
 	#parallax-bg, #parallax-bg2 { img { visibility: hidden; } }
@@ -379,7 +396,7 @@ nav#primary {
 	h3 { font-size: 1.5em; }
 
 	h4 {
-		@include font-type(300) 
+		@include font-type(400);
 		font-size: 1em; 
 	}
 

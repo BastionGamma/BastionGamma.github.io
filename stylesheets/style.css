@@ -307,22 +307,35 @@ nav#primary a:hover, nav#primary a.active {
     background-image: none;
     background-color: #5ab8e4; }
 
-  #name h1 {
-    font-size: 3em; }
-  #name h3 {
-    margin-top: -38px; }
+  #name {
+    position: relative;
+    top: 100%;
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    transform: translateY(50%); }
+    #name h1 {
+      font-size: 3em; }
+    #name h3 {
+      margin-top: -38px; }
 
   #down_arrow {
     position: relative;
     top: 100%;
-    -webkit-transform: translateY(680%);
-    -moz-transform: translateY(680%);
-    -ms-transform: translateY(680%);
-    -o-transform: translateY(680%);
-    transform: translateY(680%); }
+    -webkit-transform: translateY(725%);
+    -moz-transform: translateY(725%);
+    -ms-transform: translateY(725%);
+    -o-transform: translateY(725%);
+    transform: translateY(725%); }
 
   #portfolio {
     max-width: 80%; }
+    #portfolio p {
+      margin-top: -15px; }
+
+  #film {
+    width: 80%; }
 
   #gallery {
     max-width: 80%; }
@@ -330,6 +343,26 @@ nav#primary a:hover, nav#primary a.active {
   #resume {
     display: block;
     max-width: 80%; }
+
+  #col1 {
+    width: 86%; }
+    #col1 h4 {
+      margin-top: 0px; }
+    #col1 ul {
+      margin: -5px 20px 0 0px; }
+
+  #col2, #col3 {
+    visibility: hidden; }
+
+  #contact_info {
+    position: relative;
+    top: 100%;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
+    font-size: 1em; }
 
   #parallax-bg img, #parallax-bg2 img {
     visibility: hidden; }
@@ -341,6 +374,9 @@ nav#primary a:hover, nav#primary a.active {
     font-size: 1.5em; }
 
   h4 {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    color: white;
     font-size: 1em; }
 
   p {
