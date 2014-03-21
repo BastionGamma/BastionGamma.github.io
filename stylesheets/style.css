@@ -156,6 +156,15 @@ nav#primary a:hover, nav#primary a.active {
     border-radius: 10px;
     margin-top: -15px; }
 
+#left {
+  width: 45%;
+  float: left; }
+
+#right {
+  width: 45%;
+  float: right;
+  margin-top: 102px; }
+
 /*=============*/
 /*Design Section*/
 /*=============*/
