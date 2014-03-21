@@ -385,14 +385,15 @@ nav#primary {
 	#down_arrow { @include vertical-align(250%); }
 
 	#portfolio { 
+		display: block; 
 		max-width: 80%; 
 
 		p { margin-top: -15px; }
 	}
 
-	#film { width: 80%; }
+	#right { float: none; }
 
-	#gallery { max-width: 80%; }
+	#gallery { visibility: hidden; }
 
 	#resume { 
 		display: block; 
