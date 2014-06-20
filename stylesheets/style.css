@@ -3,7 +3,7 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 body {
-  background: url("../images/Galaxy.png") center center fixed;
+  background-color: #244C5B;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -ms-background-size: cover;
