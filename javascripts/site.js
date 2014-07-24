@@ -16,38 +16,45 @@ $(function(){
 		}
 	);
 
-	$(".home_link").click(function(e) {
+	$(".home-link").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
-        scrollTop: $("#home_link").offset().top
+        scrollTop: $("#home-link").offset().top
     }, 1000);
 	});
 
-	$(".dev_link").click(function(e) {
+	$(".dev-link").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
-        scrollTop: $("#dev_link").offset().top
+        scrollTop: $("#dev-link").offset().top
     }, 1000);
 	});
 
-	$(".design_link").click(function(e) {
+	$(".resume-link").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
-        scrollTop: $("#design_link").offset().top
+        scrollTop: $("#resume-link").offset().top
     }, 1000);
 	});
 
-	$(".resume_link").click(function(e) {
+	$(".arrow-to-dev").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
-        scrollTop: $("#resume_link").offset().top
+        scrollTop: $("#dev-link").offset().top
     }, 1000);
 	});
 
-	$(".contact_link").click(function(e) {
+	$(".arrow-to-res").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
-        scrollTop: $("#contact_link").offset().top
+        scrollTop: $("#resume-link").offset().top
+    }, 1000);
+	});
+
+	$(".arrow-to-top").click(function(e) {
+		e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $("#home-link").offset().top
     }, 1000);
 	});
 });
@@ -60,20 +67,14 @@ function parallaxScroll(){
 
 function redrawDotNav(){
 	var section1Top =  0;
-	var section2Top =  $('#dev_link').offset().top - (($('#design_link').offset().top - $('#dev_link').offset().top) / 2);
-	var section3Top =  $('#design_link').offset().top - (($('#resume_link').offset().top - $('#design_link').offset().top) / 2);
-	var section4Top =  $('#resume_link').offset().top - (($('#contact_link').offset().top - $('#resume_link').offset().top) / 2);
-	var section5Top =  $('#contact_link').offset().top - (($(document).height() - $('#contact_link').offset().top) / 2);
+	var section2Top =  $('#dev-link').offset().top - (($('#resume-link').offset().top - $('#dev-link').offset().top) / 2);
+	var section3Top =  $('#resume-link').offset().top - (($(document).height() - $('#resume-link').offset().top) / 2);
 	$('nav#primary a').removeClass('active');
 	if ($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
-		$('nav#primary a.home_link').addClass('active');
+		$('nav#primary a.home-link').addClass('active');
 	} else if ($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
-		$('nav#primary a.dev_link').addClass('active');
-	} else if ($(document).scrollTop() >= section3Top && $(document).scrollTop() < section4Top){
-		$('nav#primary a.design_link').addClass('active');
-	} else if ($(document).scrollTop() >= section4Top && $(document).scrollTop() < section5Top){
-		$('nav#primary a.resume_link').addClass('active');
-	} else if ($(document).scrollTop() >= section5Top){
-		$('nav#primary a.contact_link').addClass('active');
+		$('nav#primary a.dev-link').addClass('active');
+	} else if ($(document).scrollTop() >= section3Top) {
+		$('nav#primary a.resume-link').addClass('active');
 	}
 }
