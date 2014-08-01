@@ -9,10 +9,10 @@ $(function(){
 
 	$('nav#primary a').hover(
 		function(){
-			$(this).prev('h1').show();
+			$(this).prev('h3').show();
 		},
 		function(){
-			$(this).prev('h1').hide();
+			$(this).prev('h3').hide();
 		}
 	);
 
@@ -20,49 +20,53 @@ $(function(){
 		e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#home-link").offset().top
-    }, 1000);
+    }, 2500);
 	});
 
 	$(".dev-link").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#dev-link").offset().top
-    }, 1000);
+    }, 2500);
 	});
 
 	$(".resume-link").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#resume-link").offset().top
-    }, 1000);
+    }, 2500);
 	});
 
 	$(".arrow-to-dev").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#dev-link").offset().top
-    }, 1000);
+    }, 2500);
 	});
 
 	$(".arrow-to-res").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#resume-link").offset().top
-    }, 1000);
+    }, 2500);
 	});
 
 	$(".arrow-to-top").click(function(e) {
 		e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#home-link").offset().top
-    }, 1000);
+    }, 2500);
 	});
 });
 
 function parallaxScroll(){
 	var scrolled = $(window).scrollTop();
-	$('#parallax-bg').css('top', (0 - (scrolled * .75)) + 'px');
-	$('#parallax-bg2').css('top', (0 - (scrolled * .50)) + 'px');
+	$('.astronaut').css('top', (1650 - (scrolled * .75)) + 'px');
+	$('.alien').css('top', (4475 - (scrolled * .75)) + 'px');
+	$('.debris1').css('top', (450 - (scrolled * .50)) + 'px');
+	$('.debris2').css('top', (1200 - (scrolled * .50)) + 'px');
+	$('.planet').css('top', (350 - (scrolled * .25)) + 'px');
+	$('.planet2').css('top', (725 - (scrolled * .25)) + 'px');
 }
 
 function redrawDotNav(){
