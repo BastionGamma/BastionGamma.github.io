@@ -44,7 +44,6 @@ $bg-color: #3ABAE9;
 html {
 	overflow-y: scroll;
 	overflow-x: hidden;
-	width: 100%;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -177,7 +176,7 @@ nav#primary a:hover, nav#primary a.active {
 
 .name {
 	text-align: center;
-	@include vertical-align(150%);
+	@include vertical-align(100%);
 
 	h2 {
 		margin-top: -3%;
@@ -187,11 +186,10 @@ nav#primary a:hover, nav#primary a.active {
 .contact-info {
 	position: relative;
 	text-align: center;
-	margin-top: 15%
 }
 
 .arrow-to-dev {
-	@include vertical-align(570%);
+	@include vertical-align(800%);
 	margin: 0 auto;
 	width: 50px; 
 }
@@ -203,8 +201,8 @@ nav#primary a:hover, nav#primary a.active {
 }
 
 .portfolio {
-	position: relative;
-	left: 13%;
+	text-align: center;
+	margin: 0 auto;
 	width: 80%;
 	margin-top: -35px;
 }
@@ -496,7 +494,151 @@ nav#primary a:hover, nav#primary a.active {
 	}
 }
 
+@media only screen and (max-width: 1335px) {
+	body {
+		height: 4500px;
+	}
 
+	#resume-link {
+		top: 3750px;
+	}
+
+	.tear2 {
+		top: 3105px;
+	}
+
+	.window2 {
+		top: 3150px;
+	}
+
+	.planet2 {
+		img {
+			height: 425px;
+		}
+	}
+
+	.arrow-to-top {
+		@include vertical-align(9450%);
+	}
+}
+
+@media only screen and (max-width: 1050px) {
+	.astronaut {
+		img {
+			height: 400px;
+		}
+	}
+
+	.planet {
+		img {
+			height: 350px;
+		}
+	}
+
+	.planet2 {
+		left: 16%;
+
+		img {
+			height: 370px;
+		}
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.debris1, .debris2 {
+		display: none;
+	}
+
+	.planet {
+		left: 5%;
+	}
+
+	.planet2 {
+		left: 4%;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.tear, .tear2 {
+		left: -30px;
+	}
+
+	.window, .window2 {
+		left: -6px;
+	}
+
+	.astronaut {
+		left: 45.5%;
+
+		img {
+			height: 280px;
+		}
+	}
+
+	.planet2 {
+		left: -2%;
+
+		img {
+			height: 280px;
+		}
+	}
+
+	.alien {
+		img {
+			height: 350px;
+		}
+	}
+
+	svg {
+		display: none;
+	}
+
+	.box {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 469px) {
+	.box {
+		h3 {
+			font-size: 1.5em;
+		}
+	}
+
+	.tear, .tear2 {
+		left: -15px;
+	}
+
+	.window, .window2 {
+		left: -4px;
+	}
+
+	.planet2 {
+		left: -50%;
+	}
+}
+
+@media only screen and (max-width: 441px) {
+	.name {
+		h1 {
+			font-size: 3em; 
+		}
+
+		h2 {
+			font-size: 2em;
+		}
+	}
+
+	.contact-info {
+		h3 {
+			font-size: 1.5em;
+		}
+	}
+
+	.button {
+		margin: 0 5px;
+	}
+}
 
 
 
