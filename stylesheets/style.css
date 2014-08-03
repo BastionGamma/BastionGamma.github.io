@@ -502,7 +502,7 @@ nav#primary a:hover, nav#primary a.active {
     -moz-transform: translateY(6%);
     transform: translateY(6%); }
 
-  .arrow-to-dev {
+  .arrow-to-dev, .arrow-to-res, .arrow-to-top {
     display: none; }
 
   .window {

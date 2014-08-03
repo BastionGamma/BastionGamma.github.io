@@ -666,7 +666,7 @@ nav#primary a:hover, nav#primary a.active {
 		@include vertical-align(6%);
 	}
 
-	.arrow-to-dev {
+	.arrow-to-dev, .arrow-to-res, .arrow-to-top {
 		display: none;
 	}
 
