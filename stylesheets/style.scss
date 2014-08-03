@@ -651,7 +651,29 @@ nav#primary a:hover, nav#primary a.active {
 	}
 }
 
+@media only screen and (max-width: 350px) {
+	.contact-info {
+		h3 {
+			font-size: 1em;
+		}
+	}
 
+	nav#primary {
+		display: none;
+	}
+
+	.name {
+		vertical-align(6%);
+	}
+
+	.arrow-to-dev, .arrow-to-res, .arrow-to-top {
+		diaplay: none;
+	}
+
+	.window {
+		top: 340px;
+	}
+}
 
 
 
