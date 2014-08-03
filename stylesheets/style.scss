@@ -341,7 +341,7 @@ nav#primary a:hover, nav#primary a.active {
 .skills {
 	@include font-type(300);
 	font-size: 1.5em;
-	text-align: center;
+	text-align: center; 
 }
 
 .arrow-to-top {
@@ -355,7 +355,7 @@ nav#primary a:hover, nav#primary a.active {
 	position: absolute;
 	top: 900px;
 	left: -10px;
-	width: 102%;
+	width: 100%;
 	height: 650px;
 	-webkit-perspective: 500px;
 	-moz-perspective: 500px;
@@ -373,7 +373,7 @@ nav#primary a:hover, nav#primary a.active {
 	-moz-background-size: cover;
 	background-size: cover;
 	height: 1050px;
-	width: 110%;
+	width: 100%;
 	z-index: 0;
 }
 
@@ -391,19 +391,19 @@ nav#primary a:hover, nav#primary a.active {
 .tear {
 	position: absolute;
 	top: 865px;
-	left: -40px;
+	left: -15px;
 	background: url("../images/tear.png") no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	height: 700px;
-	width: 106%;
+	width: 100%;
 	z-index: 75;
 }
 
 .astronaut {
 	position: absolute;
-	left: 62%;
+	left: 59.3%;
 	top: 1062px;
 	z-index: 100;
 
@@ -427,7 +427,7 @@ nav#primary a:hover, nav#primary a.active {
 	position: absolute;
 	top: 2532px;
 	left: -10px;
-	width: 102%;
+	width: 100%;
 	height: 650px;
 	-webkit-perspective: 500px;
 	-moz-perspective: 500px;
@@ -440,13 +440,13 @@ nav#primary a:hover, nav#primary a.active {
 .tear2 {
 	position: absolute;
 	top: 2500px;
-	left: -40px;
+	left: -15px;
 	background: url("../images/tear.png") no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	height: 700px;
-	width: 106%;
+	width: 100%;
 	z-index: 75;
 }
 
@@ -479,7 +479,7 @@ nav#primary a:hover, nav#primary a.active {
 	-moz-background-size: cover;
 	background-size: cover;
 	height: 1050px;
-	width: 110%;
+	width: 100%;
 	z-index: 0;
 }
 
