@@ -502,8 +502,8 @@ nav#primary a:hover, nav#primary a.active {
     -moz-transform: translateY(6%);
     transform: translateY(6%); }
 
-  .arrow-to-dev, .arrow-to-res, .arrow-to-top {
-    diaplay: none; }
+  .arrow-to-dev {
+    display: none; }
 
   .window {
     top: 340px; }
@@ -519,6 +519,9 @@ nav#primary a:hover, nav#primary a.active {
 
   #resume-link {
     top: 3050px; }
+
+  .skills li {
+    font-size: 1em; }
 
   body {
     height: 3750px; } }

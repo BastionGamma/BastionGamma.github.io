@@ -666,8 +666,8 @@ nav#primary a:hover, nav#primary a.active {
 		@include vertical-align(6%);
 	}
 
-	.arrow-to-dev, .arrow-to-res, .arrow-to-top {
-		diaplay: none;
+	.arrow-to-dev {
+		display: none;
 	}
 
 	.window {
@@ -690,6 +690,12 @@ nav#primary a:hover, nav#primary a.active {
 
 	#resume-link {
 		top: 3050px;
+	}
+
+	.skills {
+		li {
+			font-size: 1em;
+		}
 	}
 
 	body {

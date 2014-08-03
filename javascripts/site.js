@@ -76,11 +76,16 @@ function parallaxScroll(){
 		$('.planet').css('top', (400 - (scrolled * .25)) + 'px');
 		$('.alien').css('top', (2500 - (scrolled * .75)) + 'px');
 		$('.planet2').css('top', (975 - (scrolled * .25)) + 'px');
-	} else if ($(document).width() <= 470) {
+	} else if ($(document).width() <= 470 && > 350) {
 		$('.astronaut').css('top', (875 - (scrolled * .75)) + 'px');
 		$('.planet').css('top', (425 - (scrolled * .25)) + 'px');
 		$('.alien').css('top', (2500 - (scrolled * .75)) + 'px');
 		$('.planet2').css('top', (900 - (scrolled * .25)) + 'px');
+	} else if ($(document).width() <= 350) {
+		$('.astronaut').css('top', (875 + 'px');
+		$('.planet').css('top', (425 + 'px');
+		$('.alien').css('top', (2500 + 'px');
+		$('.planet2').css('top', (900 + 'px');
 	} else {
 		$('.alien').css('top', (2050 - (scrolled * .75)) + 'px');
 		$('.debris2').css('top', (1200 - (scrolled * .50)) + 'px');
