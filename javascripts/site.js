@@ -78,7 +78,7 @@ function parallaxScroll(){
 		$('.planet').css('top', (400 - (scrolled * .25)) + 'px');
 		$('.alien').css('top', (2500 - (scrolled * .75)) + 'px');
 		$('.planet2').css('top', (975 - (scrolled * .25)) + 'px');
-	} else if ($(document).width() <= 470 && > 350) {
+	} else if ($(document).width() <= 470) {
 		$('.astronaut').css('top', (875 - (scrolled * .75)) + 'px');
 		$('.planet').css('top', (425 - (scrolled * .25)) + 'px');
 		$('.alien').css('top', (2500 - (scrolled * .75)) + 'px');
