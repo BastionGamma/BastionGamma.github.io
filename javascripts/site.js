@@ -61,21 +61,28 @@ $(function(){
 
 function parallaxScroll(){
 	var scrolled = $(window).scrollTop();
-	$('.astronaut').css('top', (1650 - (scrolled * .75)) + 'px');
+	$('.astronaut').css('top', (800 - (scrolled * .75)) + 'px');
 	$('.debris1').css('top', (450 - (scrolled * .50)) + 'px');
 	$('.planet').css('top', (350 - (scrolled * .25)) + 'px');
 
 
-	if ($(document).width() <= 1436 && $(document).width() > 635) {
-		$('.alien').css('top', (5600 - (scrolled * .75)) + 'px');
-		$('.debris2').css('top', (1600 - (scrolled * .50)) + 'px');
-		$('.planet2').css('top', (850 - (scrolled * .25)) + 'px');
-	} else if ($(document).width() <= 635) {
+	if ($(document).width() <= 1328 && $(document).width() > 653) {
+		$('.alien').css('top', (2550 - (scrolled * .75)) + 'px');
+		$('.debris2').css('top', (1550 - (scrolled * .50)) + 'px');
 		$('.planet').css('top', (400 - (scrolled * .25)) + 'px');
-		$('.alien').css('top', (5600 - (scrolled * .75)) + 'px');
+		$('.planet2').css('top', (950 - (scrolled * .25)) + 'px');
+	} else if ($(document).width() <= 653 && $(document).width() > 470) {
+		$('.astronaut').css('top', (875 - (scrolled * .75)) + 'px');
+		$('.planet').css('top', (400 - (scrolled * .25)) + 'px');
+		$('.alien').css('top', (2500 - (scrolled * .75)) + 'px');
+		$('.planet2').css('top', (975 - (scrolled * .25)) + 'px');
+	} else if ($(document).width() <= 470) {
+		$('.astronaut').css('top', (875 - (scrolled * .75)) + 'px');
+		$('.planet').css('top', (425 - (scrolled * .25)) + 'px');
+		$('.alien').css('top', (2500 - (scrolled * .75)) + 'px');
 		$('.planet2').css('top', (900 - (scrolled * .25)) + 'px');
 	} else {
-		$('.alien').css('top', (4475 - (scrolled * .75)) + 'px');
+		$('.alien').css('top', (2050 - (scrolled * .75)) + 'px');
 		$('.debris2').css('top', (1200 - (scrolled * .50)) + 'px');
 		$('.planet2').css('top', (725 - (scrolled * .25)) + 'px');
 	}

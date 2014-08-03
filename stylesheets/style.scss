@@ -189,7 +189,7 @@ nav#primary a:hover, nav#primary a.active {
 }
 
 .arrow-to-dev {
-	@include vertical-align(800%);
+	@include vertical-align(950%);
 	margin: 0 auto;
 	width: 50px; 
 }
@@ -355,8 +355,8 @@ nav#primary a:hover, nav#primary a.active {
 	position: absolute;
 	top: 900px;
 	left: -10px;
-	width: 100%;
-	height: 650px;
+	width: 102%;
+	height: 700px;
 	-webkit-perspective: 500px;
 	-moz-perspective: 500px;
 	perspective: 500px;
@@ -367,7 +367,6 @@ nav#primary a:hover, nav#primary a.active {
 
 .space {
 	position: absolute;
-	left: -15px;
 	background: url("../images/galaxy.jpg") no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -390,20 +389,19 @@ nav#primary a:hover, nav#primary a.active {
 
 .tear {
 	position: absolute;
-	top: 865px;
-	left: -15px;
+	left: -29px;
 	background: url("../images/tear.png") no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	height: 700px;
-	width: 100%;
+	width: 104.1%;
 	z-index: 75;
 }
 
 .astronaut {
 	position: absolute;
-	left: 59.3%;
+	left: 63%;
 	top: 1062px;
 	z-index: 100;
 
@@ -416,10 +414,6 @@ nav#primary a:hover, nav#primary a.active {
 	position: absolute;
 	left: -15px;
 	z-index: 50;
-
-	img {
-		width: 100%;
-	}
 }
 
 .window2 {
@@ -427,8 +421,8 @@ nav#primary a:hover, nav#primary a.active {
 	position: absolute;
 	top: 2532px;
 	left: -10px;
-	width: 100%;
-	height: 650px;
+	width: 102%;
+	height: 700px;
 	-webkit-perspective: 500px;
 	-moz-perspective: 500px;
 	perspective: 500px;
@@ -439,14 +433,13 @@ nav#primary a:hover, nav#primary a.active {
 
 .tear2 {
 	position: absolute;
-	top: 2500px;
-	left: -15px;
+	left: -29px;
 	background: url("../images/tear.png") no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	height: 700px;
-	width: 100%;
+	width: 104%;
 	z-index: 75;
 }
 
@@ -473,7 +466,6 @@ nav#primary a:hover, nav#primary a.active {
 
 .space2 {
 	position: absolute;
-	left: -15px;
 	background: url("../images/galaxy.jpg") no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -494,17 +486,13 @@ nav#primary a:hover, nav#primary a.active {
 	}
 }
 
-@media only screen and (max-width: 1335px) {
+@media only screen and (max-width: 1320px) {
 	body {
 		height: 4500px;
 	}
 
 	#resume-link {
 		top: 3750px;
-	}
-
-	.tear2 {
-		top: 3105px;
 	}
 
 	.window2 {
@@ -523,6 +511,10 @@ nav#primary a:hover, nav#primary a.active {
 }
 
 @media only screen and (max-width: 1050px) {
+	.window2 {
+		top: 3060px;
+	}
+
 	.astronaut {
 		img {
 			height: 400px;
@@ -531,7 +523,7 @@ nav#primary a:hover, nav#primary a.active {
 
 	.planet {
 		img {
-			height: 350px;
+			height: 450px;
 		}
 	}
 
@@ -560,15 +552,16 @@ nav#primary a:hover, nav#primary a.active {
 
 @media only screen and (max-width: 650px) {
 	.tear, .tear2 {
-		left: -30px;
+		left: -25px;
 	}
 
 	.window, .window2 {
-		left: -6px;
+		left: -8px;
+		width: 103%;
 	}
 
 	.astronaut {
-		left: 45.5%;
+		left: 50%;
 
 		img {
 			height: 280px;
@@ -576,10 +569,10 @@ nav#primary a:hover, nav#primary a.active {
 	}
 
 	.planet2 {
-		left: -2%;
+		left: -21%;
 
 		img {
-			height: 280px;
+			height: 350px;
 		}
 	}
 
@@ -613,8 +606,26 @@ nav#primary a:hover, nav#primary a.active {
 		left: -4px;
 	}
 
+	.astronaut {
+		left: 40%;
+
+		img {
+			height: 350px;
+		}
+	}
+
+	.planet {
+		img {
+			height: 450px;
+		}
+	}
+
 	.planet2 {
-		left: -50%;
+		left: -100%;
+
+		img {
+			height: 400px;
+		}
 	}
 }
 
