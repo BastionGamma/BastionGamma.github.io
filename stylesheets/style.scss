@@ -651,7 +651,7 @@ nav#primary a:hover, nav#primary a.active {
 	}
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
 	.contact-info {
 		h3 {
 			font-size: 1em;
@@ -672,6 +672,28 @@ nav#primary a:hover, nav#primary a.active {
 
 	.window {
 		top: 340px;
+	}
+
+	#dev-link {
+		top: 1040px;
+	}
+
+	.box {
+		h3 {
+			font-size: 1.2em;
+		}
+	}
+
+	.window2 {
+		top: 2380px;
+	}
+
+	#resume-link {
+		top: 3050px;
+	}
+
+	body {
+		height: 3750px;
 	}
 }
 
