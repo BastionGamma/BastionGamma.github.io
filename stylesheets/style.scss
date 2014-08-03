@@ -663,7 +663,7 @@ nav#primary a:hover, nav#primary a.active {
 	}
 
 	.name {
-		vertical-align(6%);
+		@include vertical-align(6%);
 	}
 
 	.arrow-to-dev, .arrow-to-res, .arrow-to-top {

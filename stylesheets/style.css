@@ -1,64 +1,509 @@
-/*
-Syntax error: Invalid CSS after "		vertical-align": expected "{", was "(6%);"
-        on line 666 of style.scss
+@font-face {
+  font-family: 'Gobold';
+  src: url("../fonts/gobold-lite.woff") format("woff"), url("../fonts/gobold-lite.ttf") format("truetype"); }
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; }
 
-661: 	nav#primary {
-662: 		display: none;
-663: 	}
-664: 
-665: 	.name {
-666: 		vertical-align(6%);
-667: 	}
-668: 
-669: 	.arrow-to-dev, .arrow-to-res, .arrow-to-top {
-670: 		diaplay: none;
-671: 	}
+body {
+  background-color: #3abae9;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 4000px;
+  z-index: 0; }
 
-Backtrace:
-style.scss:666
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:1312:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:1248:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:1243:in `tok!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:640:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:634:in `ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:697:in `block in declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:1288:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:1288:in `rethrow'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:698:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:660:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:649:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:641:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:634:in `ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:697:in `block in declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:1288:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:1288:in `rethrow'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:698:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:660:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:652:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:641:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:402:in `media_directive'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:221:in `special_directive'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:193:in `directive'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:659:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:652:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:116:in `stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/scss/parser.rb:41:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/engine.rb:409:in `_to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/engine.rb:274:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/plugin/compiler.rb:378:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/plugin/compiler.rb:186:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/plugin/compiler.rb:357:in `on_file_changed'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/lib/sass/plugin/compiler.rb:250:in `block in watch'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/vendor/listen/lib/listen/listener.rb:252:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.3.10/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"		vertical-align\": expected \"{\", was \"(6%);\"\A         on line 666 of style.scss\A \A 661: 	nav#primary {\A 662: 		display: none;\A 663: 	}\A 664: \A 665: 	.name {\A 666: 		vertical-align(6%);\A 667: 	}\A 668: \A 669: 	.arrow-to-dev, .arrow-to-res, .arrow-to-top {\A 670: 		diaplay: none;\A 671: 	}"; }
+h2, h3, h4 {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 300;
+  color: white; }
+
+p, li {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 400;
+  color: white; }
+
+h1 {
+  font-family: "Gobold", helvetica, sans-serif;
+  font-size: 3.5em;
+  color: white;
+  text-align: center; }
+
+h2 {
+  font-size: 2.5em; }
+
+h3 {
+  font-size: 2em; }
+
+h4 {
+  font-size: 1.5em;
+  text-align: center; }
+
+p {
+  font-size: 1em; }
+
+ul {
+  list-style: none; }
+
+a {
+  color: white;
+  outline: none;
+  text-decoration: none; }
+
+.wrapper {
+  position: relative; }
+
+.content {
+  position: relative; }
+
+.dot, .dot:link, .dot:active, .dot:visited {
+  -webkit-transition: color 0.25s ease-out;
+  -moz-transition: color 0.25s ease-out;
+  trasition: color 0.25s ease-out; }
+
+.dot:hover {
+  color: yellow; }
+
+nav#primary {
+  z-index: 200;
+  position: fixed;
+  top: 50%;
+  right: 16px;
+  margin-top: -40px; }
+  nav#primary h3 {
+    position: absolute;
+    right: 22px;
+    top: -22px;
+    display: none;
+    padding: 4px 20px 4px 7px;
+    color: black;
+    font-size: 1.2em;
+    white-space: nowrap;
+    background: transparent url("../images/nav-arrow.png") 100% 50% no-repeat; }
+  nav#primary li {
+    position: relative;
+    height: 20px;
+    list-style: none; }
+  nav#primary a {
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-indent: -9999px;
+    background: transparent url("../images/nav-dot.png") 4px -16px no-repeat; }
+
+nav#primary a:hover, nav#primary a.active {
+  background: transparent url("../images/nav-dot.png") 4px 4px no-repeat; }
+
+#home-link {
+  position: absolute;
+  top: 0;
+  width: 100%; }
+
+.button {
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 5px 10px 10px 10px;
+  margin: 0 10px; }
+  .button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: yellow;
+    border-color: yellow; }
+
+.name {
+  text-align: center;
+  position: relative;
+  top: 100%;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  transform: translateY(100%); }
+  .name h2 {
+    margin-top: -3%; }
+
+.contact-info {
+  position: relative;
+  text-align: center; }
+
+.arrow-to-dev {
+  position: relative;
+  top: 100%;
+  -webkit-transform: translateY(950%);
+  -moz-transform: translateY(950%);
+  transform: translateY(950%);
+  margin: 0 auto;
+  width: 50px; }
+
+#dev-link {
+  position: absolute;
+  width: 100%;
+  top: 1620px; }
+
+.portfolio {
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  margin-top: -35px; }
+
+.box {
+  width: 500px;
+  height: 278px;
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer; }
+  .box h3 {
+    margin: 0;
+    padding: 5px 0 5px 15px; }
+  .box svg {
+    position: absolute;
+    top: 0;
+    left: 0; }
+    .box svg line {
+      stroke-width: 4;
+      stroke: white;
+      fill: none;
+      -webkit-transition: all .8s ease-in-out;
+      -moz-transition: all .8s ease-in-out;
+      transition: all .8s ease-in-out; }
+
+.box svg line.top,
+.box svg line.bottom {
+  stroke-dasharray: 600 400; }
+
+.box svg line.left,
+.box svg line.right {
+  stroke-dasharray: 378 178; }
+
+.box:hover a {
+  color: yellow; }
+
+.box:hover svg line {
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  transition-delay: 0.1s; }
+
+.box:hover svg line.top {
+  -webkit-transform: translateX(-1000px);
+  -moz-transform: translateX(-1000px);
+  transform: translateX(-1000px); }
+
+.box:hover svg line.bottom {
+  -webkit-transform: translateX(1000px);
+  -moz-transform: translateX(1000px);
+  transform: translateX(1000px); }
+
+.box:hover svg line.left {
+  -webkit-transform: translateY(556px);
+  -moz-transform: translateY(556px);
+  transform: translateY(556px); }
+
+.box:hover svg line.right {
+  -webkit-transform: translateY(-556px);
+  -moz-transform: translateY(-556px);
+  transform: translateY(-556px); }
+
+.black {
+  color: black !important;
+  background-color: rgba(255, 255, 255, 0.5); }
+
+.white {
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.ssa-info {
+  background: url("../images/ssa.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+
+.lambda-info {
+  background: url("../images/lambda.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+
+.vitriol-info {
+  background: url("../images/vitriol.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+
+.umbra-info {
+  background: url("../images/umbra.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+
+.arrow-to-res {
+  position: relative;
+  top: 100%;
+  -webkit-transform: translateY(25%);
+  -moz-transform: translateY(25%);
+  transform: translateY(25%);
+  margin: 0 auto;
+  width: 50px; }
+
+#resume-link {
+  position: absolute;
+  width: 100%;
+  top: 3200px; }
+
+.resume {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%; }
+
+.skills {
+  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 1.5em;
+  text-align: center; }
+
+.arrow-to-top {
+  position: relative;
+  top: 100%;
+  -webkit-transform: translateY(8370%);
+  -moz-transform: translateY(8370%);
+  transform: translateY(8370%);
+  margin: 0 auto;
+  width: 50px; }
+
+.window {
+  overflow: hidden;
+  position: absolute;
+  top: 900px;
+  left: -10px;
+  width: 102%;
+  height: 700px;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  perspective: 500px;
+  -webkit-perspective-origin: 0 0;
+  -moz-perspective-origin: 0 0;
+  perspective-origin: 0 0; }
+
+.space {
+  position: absolute;
+  background: url("../images/galaxy.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 1050px;
+  width: 100%;
+  z-index: 0; }
+
+.planet {
+  position: absolute;
+  top: 1110px;
+  left: 12%;
+  z-index: 25; }
+  .planet img {
+    height: 400px; }
+
+.tear {
+  position: absolute;
+  left: -29px;
+  background: url("../images/tear.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 700px;
+  width: 104.1%;
+  z-index: 75; }
+
+.astronaut {
+  position: absolute;
+  left: 63%;
+  top: 1062px;
+  z-index: 100; }
+  .astronaut img {
+    height: 450px; }
+
+.debris1 {
+  position: absolute;
+  left: -15px;
+  z-index: 50; }
+
+.window2 {
+  overflow: hidden;
+  position: absolute;
+  top: 2532px;
+  left: -10px;
+  width: 102%;
+  height: 700px;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  perspective: 500px;
+  -webkit-perspective-origin: 0 0;
+  -moz-perspective-origin: 0 0;
+  perspective-origin: 0 0; }
+
+.tear2 {
+  position: absolute;
+  left: -29px;
+  background: url("../images/tear.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 700px;
+  width: 104%;
+  z-index: 75; }
+
+.planet2 {
+  position: absolute;
+  top: 70px;
+  left: 20%;
+  z-index: 25; }
+  .planet2 img {
+    height: 450px; }
+
+.debris2 {
+  position: absolute;
+  left: 30px;
+  z-index: 50; }
+  .debris2 img {
+    width: 100%; }
+
+.space2 {
+  position: absolute;
+  background: url("../images/galaxy.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 1050px;
+  width: 100%;
+  z-index: 0; }
+
+.alien {
+  position: absolute;
+  left: 8%;
+  top: 2662px;
+  z-index: 100; }
+  .alien img {
+    height: 400px; }
+
+@media only screen and (max-width: 1320px) {
+  body {
+    height: 4500px; }
+
+  #resume-link {
+    top: 3750px; }
+
+  .window2 {
+    top: 3150px; }
+
+  .planet2 img {
+    height: 425px; }
+
+  .arrow-to-top {
+    position: relative;
+    top: 100%;
+    -webkit-transform: translateY(9450%);
+    -moz-transform: translateY(9450%);
+    transform: translateY(9450%); } }
+@media only screen and (max-width: 1050px) {
+  .window2 {
+    top: 3060px; }
+
+  .astronaut img {
+    height: 400px; }
+
+  .planet img {
+    height: 450px; }
+
+  .planet2 {
+    left: 16%; }
+    .planet2 img {
+      height: 370px; } }
+@media only screen and (max-width: 900px) {
+  .debris1, .debris2 {
+    display: none; }
+
+  .planet {
+    left: 5%; }
+
+  .planet2 {
+    left: 4%; } }
+@media only screen and (max-width: 650px) {
+  .tear, .tear2 {
+    left: -25px; }
+
+  .window, .window2 {
+    left: -8px;
+    width: 103%; }
+
+  .astronaut {
+    left: 50%; }
+    .astronaut img {
+      height: 280px; }
+
+  .planet2 {
+    left: -21%; }
+    .planet2 img {
+      height: 350px; }
+
+  .alien img {
+    height: 350px; }
+
+  svg {
+    display: none; }
+
+  .box {
+    width: 90%; } }
+@media only screen and (max-width: 469px) {
+  .box h3 {
+    font-size: 1.5em; }
+
+  .tear, .tear2 {
+    left: -15px; }
+
+  .window, .window2 {
+    left: -4px; }
+
+  .astronaut {
+    left: 40%; }
+    .astronaut img {
+      height: 350px; }
+
+  .planet img {
+    height: 450px; }
+
+  .planet2 {
+    left: -100%; }
+    .planet2 img {
+      height: 400px; } }
+@media only screen and (max-width: 441px) {
+  .name h1 {
+    font-size: 3em; }
+  .name h2 {
+    font-size: 2em; }
+
+  .contact-info h3 {
+    font-size: 1.5em; }
+
+  .button {
+    margin: 0 5px; } }
+@media only screen and (max-width: 350px) {
+  .contact-info h3 {
+    font-size: 1em; }
+
+  nav#primary {
+    display: none; }
+
+  .name {
+    position: relative;
+    top: 100%;
+    -webkit-transform: translateY(6%);
+    -moz-transform: translateY(6%);
+    transform: translateY(6%); }
+
+  .arrow-to-dev, .arrow-to-res, .arrow-to-top {
+    diaplay: none; }
+
+  .window {
+    top: 340px; } }
