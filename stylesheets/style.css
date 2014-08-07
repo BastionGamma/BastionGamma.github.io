@@ -508,6 +508,15 @@ nav#primary a:hover, nav#primary a.active {
   .window {
     top: 340px; }
 
+  .planet {
+    top: 175px; }
+
+  .astronaut {
+    top: 225px;
+    left: 42%; }
+    .astronaut img {
+      height: 250px; }
+
   #dev-link {
     top: 1040px; }
 
@@ -516,6 +525,18 @@ nav#primary a:hover, nav#primary a.active {
 
   .window2 {
     top: 2380px; }
+
+  .alien {
+    left: 4%;
+    top: 200px; }
+    .alien img {
+      height: 300px; }
+
+  .planet2 {
+    left: -135%;
+    top: 160px; }
+    .planet2 img {
+      height: 325px; }
 
   #resume-link {
     top: 3050px; }
