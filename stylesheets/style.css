@@ -541,8 +541,8 @@ nav#primary a:hover, nav#primary a.active {
   #resume-link {
     top: 3050px; }
 
-  .skills li {
-    font-size: 1em; }
+  .skills {
+    font-size: 0.9em; }
 
   body {
     height: 3750px; } }
