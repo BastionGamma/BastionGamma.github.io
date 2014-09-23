@@ -231,8 +231,8 @@ nav#primary a:hover, nav#primary a.active {
   -moz-background-size: cover;
   background-size: cover; }
 
-.umbra-info {
-  background: url("../images/umbra.jpg") no-repeat center center;
+.add-info {
+  background: url("../images/add.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover; }
