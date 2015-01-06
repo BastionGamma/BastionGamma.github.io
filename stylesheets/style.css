@@ -7,11 +7,11 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 body {
-  background-color: #3abae9;
+  background-color: #3ABAE9;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  height: 4000px;
+  height: 4250px;
   z-index: 0; }
 
 h2, h3, h4 {
@@ -237,6 +237,18 @@ nav#primary a:hover, nav#primary a.active {
   -moz-background-size: cover;
   background-size: cover; }
 
+.l21-info {
+  background: url("../images/l21.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+
+.l22-info {
+  background: url("../images/l22.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+
 .arrow-to-res {
   position: relative;
   top: 100%;
@@ -249,7 +261,7 @@ nav#primary a:hover, nav#primary a.active {
 #resume-link {
   position: absolute;
   width: 100%;
-  top: 3200px; }
+  top: 3500px; }
 
 .resume {
   position: relative;
@@ -267,9 +279,9 @@ nav#primary a:hover, nav#primary a.active {
 .arrow-to-top {
   position: relative;
   top: 100%;
-  -webkit-transform: translateY(8370%);
-  -moz-transform: translateY(8370%);
-  transform: translateY(8370%);
+  -webkit-transform: translateY(8860%);
+  -moz-transform: translateY(8860%);
+  transform: translateY(8860%);
   margin: 0 auto;
   width: 50px; }
 
@@ -332,7 +344,7 @@ nav#primary a:hover, nav#primary a.active {
 .window2 {
   overflow: hidden;
   position: absolute;
-  top: 2532px;
+  top: 2755px;
   left: -10px;
   width: 102%;
   height: 700px;
@@ -392,7 +404,7 @@ nav#primary a:hover, nav#primary a.active {
     height: 4500px; }
 
   #resume-link {
-    top: 3750px; }
+    top: 3450px; }
 
   .window2 {
     top: 3150px; }
@@ -546,3 +558,5 @@ nav#primary a:hover, nav#primary a.active {
 
   body {
     height: 3750px; } }
+
+/*# sourceMappingURL=style.css.map */

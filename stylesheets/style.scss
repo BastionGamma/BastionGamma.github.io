@@ -52,7 +52,7 @@ body {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
-	height: 4000px;
+	height: 4250px;
 	z-index: 0;
 }
 
@@ -319,6 +319,20 @@ nav#primary a:hover, nav#primary a.active {
 	background-size: cover;
 }
 
+.l21-info {
+	background: url("../images/l21.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+}
+
+.l22-info {
+	background: url("../images/l22.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+}
+
 .arrow-to-res {
 	@include vertical-align(25%);
 	margin: 0 auto;
@@ -328,7 +342,7 @@ nav#primary a:hover, nav#primary a.active {
 #resume-link {
 	position: absolute;
 	width: 100%;
-	top: 3200px;
+	top: 3500px;
 }
 
 .resume {
@@ -345,7 +359,7 @@ nav#primary a:hover, nav#primary a.active {
 }
 
 .arrow-to-top {
-	@include vertical-align(8370%);
+	@include vertical-align(8860%);
 	margin: 0 auto;
 	width: 50px; 
 }
@@ -419,7 +433,7 @@ nav#primary a:hover, nav#primary a.active {
 .window2 {
 	overflow: hidden;
 	position: absolute;
-	top: 2532px;
+	top: 2755px;
 	left: -10px;
 	width: 102%;
 	height: 700px;
@@ -492,7 +506,7 @@ nav#primary a:hover, nav#primary a.active {
 	}
 
 	#resume-link {
-		top: 3750px;
+		top: 3450px;
 	}
 
 	.window2 {
