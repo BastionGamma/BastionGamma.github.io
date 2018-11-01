@@ -8,7 +8,6 @@ $(document).ready(function () {
 		$.ajax({
 	    type: "GET",                                            // GET or POST
 	    url: url,  
-	    dataType : "jsonp",
 	    beforeSend: function() {                                // Before Ajax 
 	      $('body').append('<div id="load">Loading</div>');      // Load message
 	    },
