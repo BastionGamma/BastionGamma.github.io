@@ -3,7 +3,7 @@ $(document).ready(function () {
 		$('.gif').fadeOut();
 
 		var value = $('input').val(),
-				url = "https://api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5";
+				url = "//api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5";
 
 		$.ajax({
 	    type: "GET",                                            // GET or POST
@@ -24,7 +24,7 @@ $(document).ready(function () {
 	    }
 	  });
 
-		// var xhr = $.getJSON("http://cors.io/?u=http://api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5");
+		// var xhr = $.getJSON("https://api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5");
 
 		// xhr.done(function(data) { 
 		// 	console.log('Success!', data);
@@ -34,11 +34,10 @@ $(document).ready(function () {
 	});
 
 	function showGifs(data) {
-		console.log('Foo', data);
-		// $.each(data.data, function(d, i) {
-		// 	var template = '<img class="gif" src="' + this.embed_url + '">';
+		$.each(data.data, function(d, i) {
+			var template = '<img class="gif" src="' + this.embed_url + '">';
 
-		// 	$('.gif-container').append(template);
-		// });
+			$('.gif-container').append(template);
+		});
 	}
 });
