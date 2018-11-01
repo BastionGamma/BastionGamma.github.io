@@ -7,11 +7,7 @@ $(document).ready(function () {
 
 		$.ajax({
 	    type: "GET",                                            // GET or POST
-	    url: url,
-	    headers: {
-	    	'Access-Control-Allow-Origin': '*'
-	    },                                              // Path to file
-	    timeout: 2000,                                          // Waiting time
+	    url: url,                                               // Path to file
 	    beforeSend: function() {                                // Before Ajax 
 	      $('body').append('<div id="load">Loading</div>');      // Load message
 	    },
