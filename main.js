@@ -7,7 +7,8 @@ $(document).ready(function () {
 
 		$.ajax({
 	    type: "GET",                                            // GET or POST
-	    url: url,                                               // Path to file
+	    url: url,  
+	    datatype : "jsonp",
 	    beforeSend: function() {                                // Before Ajax 
 	      $('body').append('<div id="load">Loading</div>');      // Load message
 	    },
@@ -34,10 +35,11 @@ $(document).ready(function () {
 	});
 
 	function showGifs(data) {
-		$.each(data.data, function(d, i) {
-			var template = '<img class="gif" src="' + this.embed_url + '">';
+		console.log(data);
+		// $.each(data.data, function(d, i) {
+		// 	var template = '<img class="gif" src="' + this.embed_url + '">';
 
-			$('.gif-container').append(template);
-		});
+		// 	$('.gif-container').append(template);
+		// });
 	}
 });
