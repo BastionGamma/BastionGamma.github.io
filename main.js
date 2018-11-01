@@ -8,16 +8,18 @@ $(document).ready(function () {
 
 		xhr.done(function(data) { 
 			console.log('Success!', data);
-			
+
 			showGifs(data);
 		});
 	});
 
 	function showGifs(data) {
 		$.each(data.data, function(d, i) {
-			var template = '<img class="gif" src="' + this.embed_url + '">'
+			console.log(this);
+			
+			// var template = '<img class="gif" src="' + this.embed_url + '">'
 
-			$('.gif-container').append(template);
+			// $('.gif-container').append(template);
 		});
 	}
 });
