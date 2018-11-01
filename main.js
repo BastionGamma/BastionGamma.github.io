@@ -9,7 +9,6 @@ $(document).ready(function () {
 	    type: "GET",                                            // GET or POST
 	    url: url,
 	    crossDomain: true,
-	    dataType: 'jsonp',
 	    timeout: 2000,                                          // Waiting time
 	    beforeSend: function() {                                // Before Ajax 
 	      $('body').append('<div id="load">Loading</div>');      // Load message
