@@ -36,7 +36,7 @@ $(document).ready(function () {
 
 	function showGifs(data) {
 		$.each(data.data, function(d, i) {
-			var template = '<img class="gif" src="' + this.bitly_gif_url + '">'
+			var template = '<img class="gif" src="' + this.embed_url + '">'
 
 			console.log(template);
 
