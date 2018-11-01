@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 		var value = $('input').val();
 
-		var xhr = $.getJSON("http://cors.io/http://api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5");
+		var xhr = $.getJSON("http://cors.io/?u=http://api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5");
 
 		xhr.done(function(data) { 
 			console.log('Success!', data);
