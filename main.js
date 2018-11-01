@@ -7,6 +7,8 @@ $(document).ready(function () {
 		var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5");
 
 		xhr.done(function(data) { 
+			console.log('Success!', data);
+			
 			showGifs(data);
 		});
 	});
