@@ -36,8 +36,6 @@ $(document).ready(function () {
 
 	function showGifs(data) {
 		$.each(data.data, function(d, i) {
-			console.log(this);
-			
 			var template = '<img class="gif" src="' + this.embed_url + '">'
 
 			$('.gif-container').append(template);
