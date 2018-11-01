@@ -36,11 +36,11 @@ $(document).ready(function () {
 
 	function showGifs(data) {
 		$.each(data.data, function(d, i) {
+			console.log(this);
+			
 			var template = '<img class="gif" src="' + this.embed_url + '">'
 
-			console.log(template);
-
-			// $('.gif-container').append(template);
+			$('.gif-container').append(template);
 		});
 	}
 });
