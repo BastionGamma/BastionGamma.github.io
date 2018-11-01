@@ -3,7 +3,7 @@ $(document).ready(function () {
 		$('.gif').fadeOut();
 
 		var value = $('input').val(),
-				url = "http://api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5";
+				url = "https://api.giphy.com/v1/gifs/search?q=" + value + "&api_key=9MZJw8INDF2Zb5NZyXYeRnE2dz4K6vfP&limit=5";
 
 		$.ajax({
 	    type: "GET",                                            // GET or POST
