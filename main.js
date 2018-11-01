@@ -8,7 +8,7 @@ $(document).ready(function () {
 		$.ajax({
 	    type: "GET",                                            // GET or POST
 	    url: url,  
-	    datatype : "jsonp",
+	    dataType : "jsonp",
 	    beforeSend: function() {                                // Before Ajax 
 	      $('body').append('<div id="load">Loading</div>');      // Load message
 	    },
@@ -35,7 +35,7 @@ $(document).ready(function () {
 	});
 
 	function showGifs(data) {
-		console.log(data);
+		console.log('Foo', data);
 		// $.each(data.data, function(d, i) {
 		// 	var template = '<img class="gif" src="' + this.embed_url + '">';
 
