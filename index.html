@@ -1,211 +1,353 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!--[if gte IE 6]>
-			<link rel="stylesheet" type="text/css" href="stylesheets/ie.css" />
-		<![endif]-->
-		<title>Wright Rickman - Developer</title>
-		<meta charset="utf-8">
-	 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+    <title></title>
 
-		<script src="javascripts/jquery.js"></script>
-		<script src="javascripts/site.js"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
-		<meta name="description" content="Wright Rickman - Developer" />
-	</head>
-	<body>
-		<div class="wrapper">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css">
 
-			<nav id="primary">
-				<ul>
-					<li>
-						<h3>Home</h3>
-						<a class="home-link dot" href="#home-link">View</a>
-					</li>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-					<li>
-						<h3>Development</h3>
-						<a class="dev-link dot" href="#dev-link">View</a>
-					</li>
+    <style>
+      :root {
+        --main-color: #FFED66; /* yellow */
+        --grad-color-1: #FF739D; /* pink */
+        --grad-color-2: #BC90C2; /* purple */
+        --grad-color-3: #A3E4FF; /* blue */
+      }
 
-					<li>
-						<h3>Resume</h3>
-						<a class="resume-link dot" href="#resume-link">View</a>
-					</li>
-				</ul>
-			</nav>
+      body {
+        font-family: 'Montserrat', sans-serif;
+        max-width: 1800px;
+        margin: 0 auto;
+        background-color: #FFF;
+       /* background: -webkit-gradient(linear, left top, right bottom, from(#FF739D), to(#BC90C2));
+        background: -moz-linear-gradient(left, #FF739D 0%, #BC90C2 100%);*/
+      }
 
-			<div class="content">
-				<article id="home-link">
-					<div class="name">
-						<h1>WRIGHT RICKMAN</h1>
-						<h2>Full-Stack Developer</h2>
+      /*.yellow { color: var(--main-color); }*/
 
-						<div class="contact-info">
-							<h3>
-							<a href="http://linkedin.com/in/wrightrickman" target="_newtab" class="button">LinkedIn</a>
-							<a href="mailto:wrightrickman@gmail.com" class="button">Contact</a>
-							<a href="http://github.com/bastiongamma" target="_newtab" class="button">GitHub</a> 
-							</h3>
-						</div>
-					</div>
+      .o { opacity: 0; }
 
-					
+      /*.cd-vertical-nav {
+        position: fixed;
+        top: 50% !important;
+        -webkit-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        left: 2rem !important;
+      }
 
-					<div class="arrow-to-dev">
-						<a href="#dev-link"><img src="images/downarrow.png" /></a>
-					</div>
-				</article>
+      .cd-vertical-nav ul {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        cursor: default;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-				<div class="window">
-					<div class="astronaut">
-						<img src="images/astronaut.png" />
-					</div>
+      .cd-vertical-nav li {
+        position: relative;
+        display: block;
+        margin: 1.5rem 0;
+        width: 0.6rem;
+        height: 0.6rem;
+        cursor: pointer;
+      }
 
-					<div class="tear"></div>
+      .cd-vertical-nav li a {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid black;
+        text-indent: -999em;
+        cursor: pointer;
+        position: absolute;
+      }
 
-					<div class="planet">
-						<img src="images/planet.png" />
-					</div>
-					<div class="debris1">
-						<img src="images/debris.png" />
-					</div>
-					<div class="space"></div>
-				</div>
+      .cd-vertical-nav li:last-child {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        margin: 0;
+        height: 48px;
+        -webkit-transition: -webkit-transform 0.3s ease;
+        transition: transform 0.3s ease;
+      }
 
-				<article id="dev-link">
-					<h1>Development</h1>
+      .cd-vertical-nav li:last-child::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background-color: #000;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
 
-					<div class="portfolio">
+      .cd-vertical-nav li.current:first-child ~ li:last-child {
+        -webkit-transform: translateY(1%);
+        transform: translateY(1%);
+      }
 
-						<div class="l21-info box">
-							<a href="http://www.l2inc.com/2014/" target="_newtab">
-							<svg width="500" height="278">
-								<line class="top" x1="0" y1="0" x2="1500" y2="0" style="stroke:white;"/>
-								<line class="left" x1="0" y1="278" x2="0" y2="-556" style="stroke:white;"/>								
-								<line class="bottom" x1="500" y1="278" x2="-1500" y2="278" style="stroke:white;"/>
-								<line class="right" x1="500" y1="0" x2="500" y2="834" style="stroke:white;"/>
-							</svg>
-							<h3 class="black">L2 Inc. Year in Review</h3>
-							</a>
-						</div>
+      .cd-vertical-nav li.current:nth-child(2) ~ li:last-child {
+        -webkit-transform: translateY(72%);
+        transform: translateY(72%);
+      }
 
-						<div class="l22-info box">
-							<a href="http://www.l2inc.com/social-platforms/" target="_newtab">
-							<svg width="500" height="278">
-								<line class="top" x1="0" y1="0" x2="1500" y2="0" style="stroke:black;"/>
-								<line class="left" x1="0" y1="278" x2="0" y2="-556" style="stroke:black;"/>
-								<line class="bottom" x1="500" y1="278" x2="-1500" y2="278" style="stroke:black;"/>
-								<line class="right" x1="500" y1="0" x2="500" y2="834" style="stroke:black;"/>
-							</svg>
-							<h3 class="black">L2 Inc. Social Platforms</h3>
-							</a>
-						</div>
+      .cd-vertical-nav li.current:nth-child(3) ~ li:last-child {
+        -webkit-transform: translateY(142%);
+        transform: translateY(142%);
+      }
 
-						<div class="add-info box">
-							<a href="http://add52.com" target="_newtab">
-							<svg width="500" height="278">
-								<line class="top" x1="0" y1="0" x2="1500" y2="0" style="stroke:white;"/>
-								<line class="left" x1="0" y1="278" x2="0" y2="-556" style="stroke:white;"/>								
-								<line class="bottom" x1="500" y1="278" x2="-1500" y2="278" style="stroke:white;"/>
-								<line class="right" x1="500" y1="0" x2="500" y2="834" style="stroke:white;"/>
-							</svg>
-							<h3 class="white">ADD52</h3>
-							</a>
-						</div>
+      .cd-vertical-nav li a {
+        -webkit-transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease;
+      }*/
 
-						<div class="ssa-info box">
-							<a href="http://test.socialsecurityadvisors.com" target="_newtab">
-							<svg width="500" height="278">
-								<line class="top" x1="0" y1="0" x2="1500" y2="0" style="stroke:black;"/>
-								<line class="left" x1="0" y1="278" x2="0" y2="-556" style="stroke:black;"/>
-								<line class="bottom" x1="500" y1="278" x2="-1500" y2="278" style="stroke:black;"/>
-								<line class="right" x1="500" y1="0" x2="500" y2="834" style="stroke:black;"/>
-							</svg>
-							<h3 class="black">Social Security Advisors</h3>
-							</a>
-						</div>
+      h4 a:hover { color: var(--grad-color-1); }
 
-						<div class="vitriol-info box">
-							<a href="http://vitriol.herokuapp.com" target="_newtab">
-							<svg width="500" height="278">
-								<line class="top" x1="0" y1="0" x2="1500" y2="0" style="stroke:white;"/>
-								<line class="left" x1="0" y1="278" x2="0" y2="-556" style="stroke:white;"/>
-								<line class="bottom" x1="500" y1="278" x2="-1500" y2="278" style="stroke:white;"/>
-								<line class="right" x1="500" y1="0" x2="500" y2="834" style="stroke:white;"/>
-							</svg>
-							<h3 class="white">Vitriol</h3>
-							</a>
-						</div>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 20vw);
+        grid-template-rows: repeat(4, 12vw);
+        grid-gap: 2vw;
+        align-items: stretch;
+      }
 
-						<div class="lambda-info box">
-							<a href="http://wdilambda.com" target="_newtab">
-							<svg width="500" height="278">
-								<line class="top" x1="0" y1="0" x2="1500" y2="0" style="stroke:black;"/>
-								<line class="left" x1="0" y1="278" x2="0" y2="-556" style="stroke:black;"/>
-								<line class="bottom" x1="500" y1="278" x2="-1500" y2="278" style="stroke:black;"/>
-								<line class="right" x1="500" y1="0" x2="500" y2="834" style="stroke:black;"/>
-							</svg>
-							<h3 class="black">Lambda Class Portfolio</h3>
-							</a>
-						</div>
+      .element {
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        background-size: cover !important;
+      }
 
-					</div>
+      .cover {
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 0;
+        opacity: 0;
+      }
 
-					<div class="arrow-to-res">
-						<a href="#resume-link"><img src="images/downarrow.png" /></a>
-					</div>
+      .cover.open { 
+        height: 100%; 
+        opacity: 1;
+      }
 
-				</article>
+      @media only screen and (max-width: 1030px) {
+        .grid {
+          grid-template-columns: repeat(3, 28vw);
+          grid-template-rows: repeat(4, 16vw);
+        }
+      }
 
-				<div class="window2">
-					<div class="alien">
-						<img src="images/alien.png" />
-					</div>
+      @media only screen and (max-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(2, 30vw);
+          grid-template-rows: repeat(6, 16vw);
+        }
 
-					<div class="tear2"></div>
-					<div class="planet2">
-						<img src="images/planet2.png" />
-					</div>
-					<div class="debris2">
-						<img src="images/debris2.png" />
-					</div>
-					<div class="space2"></div>
-				</div>
+        .cover { display: none; }
+      }
+    </style>
+  </head>
 
-				<article id="resume-link">
-					<div class="resume">
-						<h1>Skills</h1>
+  <body class="">
+    <!-- <nav class="hide block-l / cd-vertical-nav / zmax" id="vert-nav">
+      <ul>
+        <li class="current">
+          <a href="#intro" data-number="0"></a>
+        </li>
 
-						<ul>
-							<li class="skills">Ruby on Rails | JavaScript | HTML | CSS | SASS</li>
-							<li class="skills">Sinatra | JQuery | Backbone | Handlebars | Meteor | PostgreSQL | Git</li>
-							<li class="skills">UX Design | Illustrator | After Effects | Photoshop | InDesign | Sketch
-							<li class="skills">Project & Team Management</li>
-						</ul>
+        <li>
+          <a href="#interactives" data-number="1"></a>
+        </li>
 
-					</div>
+        <li>
+          <a href="#contact" data-number="2"></a>
+        </li>
 
-					<div class="contact-info">
-						<h3>
-						<a href="http://linkedin.com/in/wrightrickman" target="_newtab" class="button">LinkedIn</a>
-						<a href="mailto:wrightrickman@gmail.com" class="button">Email</a>
-						<a href="http://github.com/bastiongamma" target="_newtab" class="button">GitHub</a> 
-						</p></h3>
-					</div>
+        <li></li>
+      </ul>
+    </nav> -->
 
-					<h4><a href="images/WrightRickmanResume.pdf" target="_nertab" class="button">Download Resume</a></h4>
-					</div>
+    <section id="intro" class="section / wrapper / h100">
+      <div class="center-a--abs / w100 / mt4">
+        <div class="center-a--rel / tac / w100">
+          <h1 class="yellow / mb3" id="">Wright Rickman</h1>
+          <h4 class="" id="" style="">Developer  &#8226;  Designer</h4>
+        </div>
+      </div>
 
-					<div class="arrow-to-top">
-						<a href="#home-link"><img src="images/uparrow.png" /></a>
-					</div>
-				</article>
-			</div>
-		</div>
-	</body>
+      <img src="img/scroll.svg" alt="" class="center-h--abs / bottom2" style="width: 100px; height: 100px;">
+    </section>
+
+    <section id="interactives" class="section / wrapper / h100">
+      <div class="center-a--abs / mt4">
+        <h2 class="yellow / mb4 / w100 / tac">Interactives & Data Visualizations</h2>
+
+        <main class="grid">
+          <div class="element" style="background: url(img/influencers_2019_viz-490x276.jpg) no-repeat center center">
+            <a href="https://interactive.l2inc.com/influencers_2019/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Influencers 2019</h5>
+                <h6 class="grey20"><i>Gartner Inc. 2019</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/LoyaltyInteractive_Thumbnail-490x276.png) no-repeat center center">
+            <a href="https://interactive.l2inc.com/loyalty_2019/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Inside & Outside Loyalty Programs</h5>
+                <h6 class="grey20"><i>Gartner L2 Inc. 2019</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/OmnichannelLandscape_Thumbnail-490x276.png) no-repeat center center">
+            <a href="https://interactive.l2inc.com/omnichannel-landscape/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Omnichannel Landscape</h5>
+                <h6 class="grey20"><i>Gartner L2 Inc. 2019</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/SocialCommerce_Thumbnail-490x276.png) no-repeat center center">
+            <a href="https://interactive.l2inc.com/social_commerce/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Choose Your Own Social Commerce Channels</h5>
+                <h6 class="grey20"><i>Gartner L2 Inc. 2019</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/2018-Recap_315x177.png) no-repeat center center">
+            <a href="https://interactive.l2inc.com/year-end-review/2018/index.html" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">2018: A Year in Digital Intelligence</h5>
+                <h6 class="grey20"><i>Gartner L2 Inc. 2018</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/digital-intelligence-interactive-thumbnail-490x276.jpg) no-repeat center center">
+            <a href="https://interactive.l2inc.com/digital-intelligence-case-studies-and-best-practices-2017/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Digital Intelligence Case Studies & Best Practices</h5>
+                <h6 class="grey20"><i>Gartner L2 Inc. 2017</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/amazon-iq-brand-index-4-490x276.png) no-repeat center center">
+            <a href="http://interactive.l2inc.com/amazon_performance/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Amazon Performance Rank</h5>
+                <h6 class="grey20"><i>L2 Inc. 2017</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/ShareofShelfThumbnail-490x276.jpg) no-repeat center center">
+            <a href="https://interactive.l2inc.com/share-of-shelf/food_2017/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Food 2017: Digital Share of Shelf</h5>
+                <h6 class="grey20"><i>L2 Inc. 2017</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/social-platforms-01-490x276.png) no-repeat center center">
+            <a href="https://interactive.l2inc.com/social-platforms/2017/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Social Platforms 2017</h5>
+                <h6 class="grey20"><i>L2 Inc. 2017</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/video-interactive-v2-490x276.jpg) no-repeat center center">
+            <a href="https://interactive.l2inc.com/video/2016/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Video 2016: Platform Diagnostic Tool</h5>
+                <h6 class="grey20"><i>L2 Inc. 2016</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/instagram-vs-snapchat-2016-interactive-thumb-16-9-490x276.jpg) no-repeat center center">
+            <a href="https://interactive.l2inc.com/instagram-vs-snapchat/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">Instagram vs. Snapchat</h5>
+                <h6 class="grey20"><i>L2 Inc. 2016</i></h6>
+              </div>
+            </a>
+          </div>
+
+          <div class="element" style="background: url(img/nautilus_interactive_featured_img-490x276.jpg) no-repeat center center">
+            <a href="https://interactive.l2inc.com/nautilus/" class="block / w100 h100" target="_blank">
+              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
+                <h5 class="white">DIQ Class by Dimension</h5>
+                <h6 class="grey20"><i>L2 Inc. 2016</i></h6>
+              </div>
+            </a>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <section id="contact" class="section / wrapper / h100">
+      <div class="center-a--abs / w100">
+        <h1 class="tac / mb3" id="">Contact</h1>
+
+        <div class="tac / w100 / mt2">
+          <h4 class="inline-block" id="" style="">
+            <a href="js/WRDevResume2020.pdf" class="link / pointer / ani" target="_blank">Download Resume&#32;&#8226;&#32;</a>
+          </h4>
+
+          <h4 class="inline-block" id="" style="">
+            <a href="mailto:wrightrickman@gmail.com" class="link / pointer / ani" target="_blank">Email</a>&#32;&#8226;&#32;</h4>
+
+          <h4 class="inline-block" id="" style=""> <a href="//linkedin.com/in/wrightrickman/" class="link / pointer / ani" target="_blank">LinkedIn</a></h4>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/AttrPlugin.min.js"></script> -->
+
+    <script src="js/main.js"></script>
+  </body>
 </html>
