@@ -1,392 +1,120 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title></title>
+  <title>Wright Rickman</title>
 
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="format-detection" content="telephone=no">
-    
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body class="max-w-7xl mx-auto my-0 bg-white">
+  <section id="intro" class="w-full h-screen p-6">
+    <div class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <h1 class="font-sans font-thin text-5xl mb-3">Wright Rickman</h1>
+      <h4 class="font-sans font-thin text-2xl">Front-End Development&#32;&#32;&#8226;&#32;&#32;UX Engineering & Design&#32;&#32;&#8226;&#32;&#32;Data Visualization</h4>
+    </div>
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <img src="img/scroll.svg" alt="" class="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-24">
+  </section>
 
-    <style>
-      :root {
-        --main-color: #FFED66; /* yellow */
-        --grad-color-1: #FF739D; /* pink */
-        --grad-color-2: #BC90C2; /* purple */
-        --grad-color-3: #A3E4FF; /* blue */
-      }
+  <!-- Convert to component? -->
+  <section id="viz-gallery" class="w-full h-screen p-6">
+    <h2 class="font-sans font-thin text-3xl mb-7">Data Visualizations & Narratives</h2>
 
-      body {
-        font-family: 'Montserrat', sans-serif;
-        max-width: 1800px;
-        margin: 0 auto;
-        background-color: #FFF;
-       /* background: -webkit-gradient(linear, left top, right bottom, from(#FF739D), to(#BC90C2));
-        background: -moz-linear-gradient(left, #FF739D 0%, #BC90C2 100%);*/
-      }
-
-      /*.yellow { color: var(--main-color); }*/
-
-      .o { opacity: 0; }
-
-      /*.cd-vertical-nav {
-        position: fixed;
-        top: 50% !important;
-        -webkit-transform: translate(0, -50%);
-        -moz-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        left: 2rem !important;
-      }
-
-      .cd-vertical-nav ul {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        cursor: default;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      .cd-vertical-nav li {
-        position: relative;
-        display: block;
-        margin: 1.5rem 0;
-        width: 0.6rem;
-        height: 0.6rem;
-        cursor: pointer;
-      }
-
-      .cd-vertical-nav li a {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        outline: none;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0);
-        border: 1px solid black;
-        text-indent: -999em;
-        cursor: pointer;
-        position: absolute;
-      }
-
-      .cd-vertical-nav li:last-child {
-        position: absolute;
-        top: -20px;
-        left: 0;
-        margin: 0;
-        height: 48px;
-        -webkit-transition: -webkit-transform 0.3s ease;
-        transition: transform 0.3s ease;
-      }
-
-      .cd-vertical-nav li:last-child::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        width: 0.6rem;
-        height: 0.6rem;
-        border-radius: 50%;
-        background-color: #000;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
-      }
-
-      .cd-vertical-nav li.current:first-child ~ li:last-child {
-        -webkit-transform: translateY(1%);
-        transform: translateY(1%);
-      }
-
-      .cd-vertical-nav li.current:nth-child(2) ~ li:last-child {
-        -webkit-transform: translateY(72%);
-        transform: translateY(72%);
-      }
-
-      .cd-vertical-nav li.current:nth-child(3) ~ li:last-child {
-        -webkit-transform: translateY(142%);
-        transform: translateY(142%);
-      }
-
-      .cd-vertical-nav li a {
-        -webkit-transition: background-color 0.3s ease;
-        transition: background-color 0.3s ease;
-      }*/
-
-      h4 a:hover { color: var(--grad-color-1); }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(4, 20vw);
-        grid-template-rows: repeat(4, 12vw);
-        grid-gap: 2vw;
-        align-items: stretch;
-      }
-
-      .element {
-        width: 100%;
-        height: 100%;
-        border: 2px solid black;
-        background-size: cover !important;
-      }
-
-      .cover {
-        background-color: rgba(0, 0, 0, 0.5);
-        height: 0;
-        opacity: 0;
-      }
-
-      .cover.open { 
-        height: 100%; 
-        opacity: 1;
-      }
-
-      @media only screen and (max-width: 1030px) {
-        .grid {
-          grid-template-columns: repeat(3, 28vw);
-          grid-template-rows: repeat(4, 16vw);
-        }
-      }
-
-      @media only screen and (max-width: 768px) {
-        .grid {
-          grid-template-columns: repeat(2, 30vw);
-          grid-template-rows: repeat(6, 16vw);
-        }
-
-        .cover { display: none; }
-      }
-    </style>
-  </head>
-
-  <body class="">
-    <!-- <nav class="hide block-l / cd-vertical-nav / zmax" id="vert-nav">
-      <ul>
-        <li class="current">
-          <a href="#intro" data-number="0"></a>
-        </li>
-
-        <li>
-          <a href="#interactives" data-number="1"></a>
-        </li>
-
-        <li>
-          <a href="#contact" data-number="2"></a>
-        </li>
-
-        <li></li>
-      </ul>
-    </nav> -->
-
-    <section id="intro" class="section / wrapper / h100">
-      <div class="center-a--abs / w100 / mt4">
-        <div class="center-a--rel / tac / w100">
-          <h1 class="yellow / mb3" id="">Wright Rickman</h1>
-          <h4 class="" id="" style="">Front-End Development&#32;&#32;&#8226;&#32;&#32;Data Visualization&#32;&#32;&#8226;&#32;&#32;Design</h4>
-        </div>
+    <main class="relative grid grid-cols-3 gap-4 items-stretch">
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/chase-tween-490x276.png) no-repeat center center">
+        <a href="https://thequest.chase.com/" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">"The Quest" Animated Comic</h5>
+          </div>
+        </a>
       </div>
 
-      <img src="img/scroll.svg" alt="" class="center-h--abs / bottom2" style="width: 100px; height: 100px;">
-    </section>
-
-    <section id="interactives" class="section / wrapper / h100">
-      <div class="center-a--abs / mt4">
-        <h2 class="yellow / mb4 / w100 / tac">Data Visualizations & Web Narratives</h2>
-
-        <main class="grid">
-          <div class="element" style="background: url(img/chase-tween-490x276.png) no-repeat center center">
-            <a href="https://thequest.chase.com/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">"The Quest" Animated Comic</h5>
-                <h6 class="grey20"><i>Millennium Communications Inc. 2021</i></h6>
-                <h6 class="grey20"><i>for JPMorgan Chase & Co.</i></h6>
-              </div>
-            </a>
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/LoyaltyInteractive_Thumbnail-490x276.png) no-repeat center center">
+        <a href="" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">Inside & Outside Loyalty Programs</h5>
           </div>
-
-          <div class="element" style="background: url(img/influencers_2019_viz-490x276.jpg) no-repeat center center">
-            <a href="https://interactive.l2inc.com/influencers_2019/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Influencers 2019</h5>
-                <h6 class="grey20"><i>Gartner Inc. 2019</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/LoyaltyInteractive_Thumbnail-490x276.png) no-repeat center center">
-            <a href="https://interactive.l2inc.com/loyalty_2019/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Inside & Outside Loyalty Programs</h5>
-                <h6 class="grey20"><i>Gartner L2 Inc. 2019</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/OmnichannelLandscape_Thumbnail-490x276.png) no-repeat center center">
-            <a href="https://interactive.l2inc.com/omnichannel-landscape/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Omnichannel Landscape</h5>
-                <h6 class="grey20"><i>Gartner L2 Inc. 2019</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/SocialCommerce_Thumbnail-490x276.png) no-repeat center center">
-            <a href="https://interactive.l2inc.com/social_commerce/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Choose Your Own Social Commerce Channels</h5>
-                <h6 class="grey20"><i>Gartner L2 Inc. 2019</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/2018-Recap_315x177.png) no-repeat center center">
-            <a href="https://interactive.l2inc.com/year-end-review/2018/index.html" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">2018: A Year in Digital Intelligence</h5>
-                <h6 class="grey20"><i>Gartner L2 Inc. 2018</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/digital-intelligence-interactive-thumbnail-490x276.jpg) no-repeat center center">
-            <a href="https://interactive.l2inc.com/digital-intelligence-case-studies-and-best-practices-2017/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Digital Intelligence Case Studies & Best Practices</h5>
-                <h6 class="grey20"><i>Gartner L2 Inc. 2017</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/amazon-iq-brand-index-4-490x276.png) no-repeat center center">
-            <a href="http://interactive.l2inc.com/amazon_performance/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Amazon Performance Rank</h5>
-                <h6 class="grey20"><i>L2 Inc. 2017</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/ShareofShelfThumbnail-490x276.jpg) no-repeat center center">
-            <a href="https://interactive.l2inc.com/share-of-shelf/food_2017/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Food 2017: Digital Share of Shelf</h5>
-                <h6 class="grey20"><i>L2 Inc. 2017</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/social-platforms-01-490x276.png) no-repeat center center">
-            <a href="https://interactive.l2inc.com/social-platforms/2017/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Social Platforms 2017</h5>
-                <h6 class="grey20"><i>L2 Inc. 2017</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/video-interactive-v2-490x276.jpg) no-repeat center center">
-            <a href="https://interactive.l2inc.com/video/2016/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Video 2016: Platform Diagnostic Tool</h5>
-                <h6 class="grey20"><i>L2 Inc. 2016</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <div class="element" style="background: url(img/instagram-vs-snapchat-2016-interactive-thumb-16-9-490x276.jpg) no-repeat center center">
-            <a href="https://interactive.l2inc.com/instagram-vs-snapchat/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Instagram vs. Snapchat</h5>
-                <h6 class="grey20"><i>L2 Inc. 2016</i></h6>
-              </div>
-            </a>
-          </div>
-
-          <!-- <div class="element" style="background: url(img/nautilus_interactive_featured_img-490x276.jpg) no-repeat center center">
-            <a href="https://interactive.l2inc.com/nautilus/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">DIQ Class by Dimension</h5>
-                <h6 class="grey20"><i>L2 Inc. 2016</i></h6>
-              </div>
-            </a>
-          </div> -->
-        </main>
+        </a>
       </div>
-    </section>
 
-    <section id="websites" class="section / wrapper / h100">
-      <div class="center-a--abs / mt4">
-        <h2 class="yellow / mb4 / w100 / tac">Websites</h2>
-
-        <main class="grid">
-          <div class="element" style="background: url(img/chase-onyx-490x276.png) no-repeat center center">
-            <a href="https://www.jpmorgan.com/onyx/index.htm" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Onyx by J.P. Morgan</h5>
-                <h6 class="grey20"><i>Millennium Communications Inc. 2020</i></h6>
-              </div>
-            </a>
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/digital-intelligence-interactive-thumbnail-490x276.jpg) no-repeat center center">
+        <a href="" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">Digital Intelligence Case Studies & Best PracticesDigital Intelligence Case Studies & Best Practices</h5>
           </div>
+        </a>
+      </div>
 
-          <div class="element" style="background: url(img/l2-inc-490x276.jpg) no-repeat center center">
-            <a href="https://l2inc.com/" class="block / w100 h100" target="_blank">
-              <div class="cover / absolute bottom0 / w100 / ph3 pv2 / ani">
-                <h5 class="white">Gartner L2 Company Site</h5>
-                <h6 class="grey20"><i>Gartner L2 Inc. 2015-2020</i></h6>
-              </div>
-            </a>
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/video-interactive-v2-490x276.jpg) no-repeat center center">
+        <a href="" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">Video 2016: Platform Diagnostic Tool</h5>
           </div>
-        </main>
+        </a>
       </div>
-    </section>
 
-    <section id="contact" class="section / wrapper / h100">
-      <div class="center-a--abs / w100">
-        <h1 class="tac / mb3" id="">Contact</h1>
-
-        <div class="tac / w100 / mt2">
-          <h4 class="inline-block" id="" style="">
-            <a href="WRDevResume2021.pdf" class="link / pointer / ani" target="_blank">Download Resume&#32;&#32;&#8226;&#32;&#32;</a>
-          </h4>
-
-          <h4 class="inline-block" id="" style="">
-            <a href="mailto:wrightrickman@gmail.com" class="link / pointer / ani" target="_blank">Email</a>&#32;&#32;&#8226;&#32;&#32;</h4>
-
-          <h4 class="inline-block" id="" style="">
-            <a href="mailto:wrightrickman@gmail.com" class="link / pointer / ani" target="_blank">516.655.2432</a>&#32;&#32;&#8226;&#32;&#32;</h4>
-
-          <h4 class="inline-block" id="" style=""> <a href="//linkedin.com/in/wrightrickman/" class="link / pointer / ani" target="_blank">LinkedIn</a></h4>
-        </div>
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/instagram-vs-snapchat-2016-interactive-thumb-16-9-490x276.jpg) no-repeat center center">
+        <a href="" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">Instagram vs. Snapchat</h5>
+          </div>
+        </a>
       </div>
-    </section>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/nautilus_interactive_featured_img-490x276.jpg) no-repeat center center">
+        <a href="" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">DIQ Class by Dimension</h5>
+          </div>
+        </a>
+      </div>
+    </main>
+  </section>
 
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+  <section id="site-gallery" class="w-full h-screen p-6">
+    <h2 class="font-sans font-thin text-3xl mb-7">Websites</h2>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineLite.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/AttrPlugin.min.js"></script> -->
+    <main class="relative grid grid-cols-3 gap-4 items-stretch">
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/clearing-490x260.png) no-repeat center center">
+        <a href="https://clearing.com/" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">Clearing: Chronic Pain Management</h5>
+          </div>
+        </a>
+      </div>
 
-    <script src="js/main.js"></script>
-  </body>
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/chase-onyx-490x276.png) no-repeat center center">
+        <a href="https://www.jpmorgan.com/onyx/index.htm" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">Onyx by J.P. Morgan</h5>
+          </div>
+        </a>
+      </div>
+
+      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/l2-inc-490x276.jpg) no-repeat center center">
+        <a href="https://l2inc.com/" class="relative block w-full h-full pb-[56.25%]" target="_blank">
+          <div class="absolute bottom-0 w-full p-6">
+            <h5 class="font-sans font-light">Gartner L2 Company Site</h5>
+          </div>
+        </a>
+      </div>
+    </main>
+  </section>
+
+  <section id="contact" class="w-full h-screen p-6">
+    <div class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <h1 class="font-sans font-thin text-5xl mb-3">Reach Out</h1>
+      <h4 class="font-sans font-thin text-2xl">Resume&#32;&#32;&#8226;&#32;&#32;Email&#32;&#32;&#8226;&#32;&#32;LinkedIn</h4>
+    </div>
+  </section>
+</body>
 </html>
