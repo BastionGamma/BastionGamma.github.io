@@ -10,12 +10,23 @@
     body {
       font-family: 'Montserrat', sans-serif;
     }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 0;
+      opacity: 0;
+    }
+
+    .gallery-item:hover a .overlay {
+      height: 100%;
+      opacity: 1;
+    }
   </style>
 
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="max-w-7xl mx-auto my-0 bg-white">
-  <section id="intro" class="w-full h-screen p-6">
+  <section id="intro" class="w-full h-screen px-6 py-4">
     <div class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
       <h1 class="font-sans font-thin text-5xl mb-3">Wright Rickman</h1>
       <h4 class="font-sans font-thin text-2xl">Front-End Development&#32;&#32;&#8226;&#32;&#32;UX Engineering & Design&#32;&#32;&#8226;&#32;&#32;Data Visualization</h4>
@@ -25,94 +36,104 @@
   </section>
 
   <!-- Convert to component -->
-  <section id="viz-gallery" class="w-full h-screen p-6">
+  <section id="viz-gallery" class="w-full lg:h-screen px-6 py-4">
     <h2 class="font-sans font-thin text-3xl mb-7">Data Visualizations & Narratives</h2>
 
-    <main class="relative grid grid-cols-3 gap-4 items-stretch">
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/chase-tween-490x276.png) no-repeat center center">
+    <main class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/chase-tween-490x276.png) no-repeat center center">
         <a href="https://thequest.chase.com/" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">"The Quest" Animated Comic</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">"The Quest" Animated Comic</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">Millennium Communications Inc. 2021</h6>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">for JPMorgan Chase & Co.</h6>
           </div>
         </a>
       </div>
 
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/LoyaltyInteractive_Thumbnail-490x276.png) no-repeat center center">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/LoyaltyInteractive_Thumbnail-490x276.png) no-repeat center center">
         <a href="/interactives/loyalty_2019/index.html" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">Inside & Outside Loyalty Programs</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">Inside & Outside Loyalty Programs</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">Gartner L2 Inc. 2019</h6>
           </div>
         </a>
       </div>
 
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/digital-intelligence-interactive-thumbnail-490x276.jpg) no-repeat center center">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/digital-intelligence-interactive-thumbnail-490x276.jpg) no-repeat center center">
         <a href="/interactives/yer_2017/index.html" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">Digital Intelligence Case Studies & Best PracticesDigital Intelligence Case Studies & Best Practices</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">Digital Intelligence Case Studies & Best Practices</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">Gartner L2 Inc. 2017</h6>
           </div>
         </a>
       </div>
 
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/video-interactive-v2-490x276.jpg) no-repeat center center">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/video-interactive-v2-490x276.jpg) no-repeat center center">
         <a href="/interactives/video_2016/index.html" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">Video 2016: Platform Diagnostic Tool</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">Video 2016: Platform Diagnostic Tool</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">L2 Inc. 2016</h6>
           </div>
         </a>
       </div>
 
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/instagram-vs-snapchat-2016-interactive-thumb-16-9-490x276.jpg) no-repeat center center">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/instagram-vs-snapchat-2016-interactive-thumb-16-9-490x276.jpg) no-repeat center center">
         <a href="/interactives/instagram_snapchat_2016/index.html" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">Instagram vs. Snapchat</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">Instagram vs. Snapchat</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">L2 Inc. 2016</h6>
           </div>
         </a>
       </div>
 
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/nautilus_interactive_featured_img-490x276.jpg) no-repeat center center">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/nautilus_interactive_featured_img-490x276.jpg) no-repeat center center">
         <a href="/interactives/nautilus/index.html" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">DIQ Class by Dimension</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">DIQ Class by Dimension</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">L2 Inc. 2016</h6>
           </div>
         </a>
       </div>
     </main>
   </section>
 
-  <section id="site-gallery" class="w-full h-screen p-6">
+  <section id="site-gallery" class="w-full lg:h-screen px-6 py-4">
     <h2 class="font-sans font-thin text-3xl mb-7">Websites</h2>
 
-    <main class="relative grid grid-cols-3 gap-4 items-stretch">
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/clearing-490x260.png) no-repeat center center">
+    <main class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/clearing-490x260.png) no-repeat center center">
         <a href="https://clearing.com/" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">Clearing: Chronic Pain Management</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">Clearing: Chronic Pain Management</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">Relief Labs Inc. 2021–2023</h6>
           </div>
         </a>
       </div>
 
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/chase-onyx-490x276.png) no-repeat center center">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/chase-onyx-490x276.png) no-repeat center center">
         <a href="https://www.jpmorgan.com/onyx/index.htm" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">Onyx by J.P. Morgan</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">Onyx by J.P. Morgan</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">Millennium Communications Inc. 2020</h6>
           </div>
         </a>
       </div>
 
-      <div class="w-full h-full bg-cover border-2 border-black" style="background: url(img/l2-inc-490x276.jpg) no-repeat center center">
+      <div class="gallery-item w-full h-full bg-contain border-2 border-black" style="background: url(img/l2-inc-490x276.jpg) no-repeat center center">
         <a href="https://l2inc.com/" class="relative block w-full h-full pb-[56.25%]" target="_blank">
-          <div class="absolute bottom-0 w-full p-6">
-            <h5 class="font-sans font-light">Gartner L2 Company Site</h5>
+          <div class="overlay absolute bottom-0 w-full px-6 py-4 transition-all">
+            <h5 class="font-sans font-light text-white text-lg">Gartner L2 Company Site</h5>
+            <h6 class="font-sans font-light text-gray-200 text-sm italic">Gartner L2 Inc. 2015-2020</h6>
           </div>
         </a>
       </div>
     </main>
   </section>
 
-  <section id="contact" class="w-full h-screen p-6">
+  <section id="contact" class="w-full h-screen px-6 py-4">
     <div class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
       <h1 class="font-sans font-thin text-5xl mb-3">Reach Out</h1>
-      <h4 class="font-sans font-thin text-2xl">Resume&#32;&#32;&#8226;&#32;&#32;Email&#32;&#32;&#8226;&#32;&#32;LinkedIn</h4>
+      <h4 class="font-sans font-thin text-2xl"><a href="/WRDevResume2023.pdf" class="" target="_blank">Resume</a>&#32;&#32;&#8226;&#32;&#32;<a href="mailto:wrightrickman@gmail.com?subject=Hey Wright!" class="" target="_blank">Email</a>&#32;&#32;&#8226;&#32;&#32;<a href="//linkedin.com/in/wrightrickman/" class="" target="_blank">LinkedIn</a></h4>
     </div>
   </section>
 </body>
