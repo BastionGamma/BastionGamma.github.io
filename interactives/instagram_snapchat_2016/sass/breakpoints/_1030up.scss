@@ -1,0 +1,46 @@
+#slides .slide {
+  height: -webkit-calc(100% - 56px);
+  height:    -moz-calc(100% - 56px);
+  height:         calc(100% - 56px);
+}
+
+.hero__image { 
+  max-width: initial;
+  height: 70.702vh; 
+}
+
+.top-nav__logo { margin-left: 4px; }
+
+.scroll-button { padding: 1.2vh 1.2vw; }
+
+.copy { margin-top: 20px; }
+
+.comparison {
+  &__list { 
+    margin-top: 60px; 
+    width: 100%;
+    left: 0;
+  }
+
+  &__button { width: 9vw; }
+}
+
+.graph-container {
+  height: -webkit-calc(100% - 197px);
+  height:    -moz-calc(100% - 197px);
+  height:         calc(100% - 197px);
+}
+
+.bar-group .label { font-size: 3vh; }
+
+.only-sm { display: none; }
+.only-md { display: none; }
+.only-lg { display: inline-block; }
+.only-sm-md { display: none; }
+.only-md-lg { display: inline-block; }
+
+@media screen and ( min-height: 768px ) {
+  .bar-group .label { font-size: 20pt; }
+
+  .y.axis .tick text { font-size: 15pt; }
+}

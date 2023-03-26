@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Video 2016</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-12281975-10', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>  
+    <!--[if lte IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="modal"></div>
+
+    <nav class="nav">
+      <ul class="nav__list / row">
+        <li class="inline left">
+          <img src="img/l2-video-platform-tool.svg" class="nav__logo">
+        </li>
+
+        <li class="inline right">
+          <ul class="row only-lg">
+            <li class="inline">
+              <p class="nav__text">Brand Example Campaigns</p>
+            </li>
+
+            <li class="inline">
+              <img src="img/selection-arrows.svg" class="arrow">
+              <select name="case-studies" id="selector" class="selector" placeholder="Select">
+                <option value="select" selected disabled>Select</option>
+                <option value="katVonD">Kat Von D Tutorials</option>
+                <option value="chanel">Chanel Fashion Shows</option>
+                <option value="calvinKlein">Calvin Klein #MyCalvins Influencer Videos</option>
+              </select>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="mobile-only only-sm-md">
+      <h2>Device Not Supported</h2>
+      <h4>Please view on a desktop or in a full-screen browser window.</h5>
+    </section>
+
+    <section class="intro only-lg visible">
+      <div class="intro__header">
+        <h2 class="intro__header__text">Each video platform has a distinct value proposition and a different path to success. This tool helps brands identify the optimal platforms for their campaigns. </h2>
+      </div>
+
+      <div class="intro__instructions">
+        <img src="img/intro-choices.svg" class="intro__choices">
+
+        <h4 class="intro__instructions__text">Slide the levers below to reveal the optimal social video platform based on criteria, or select a brand example campaign above to see how brands have optimized their campaigns.</h4>
+
+        <p class="intro__button">Scroll or Click to Begin <img src="img/click-or-scroll-arrow.svg" class="intro__arrow"></p>
+      </div>
+    </section>
+
+    <section class="case-study"></section>
+    
+    <ul class="graph-list / row / only-lg">
+      <li class="sliders / inline">
+        <div class="slider__item">
+          <ul class="row slider__text">
+            <li class="inline">
+              <img class="slider__icon" src="img/duration.svg">
+            </li>
+
+            <li class="inline">
+              <h3 class="slider__label">Duration</h3>
+            </li>
+
+            <li class="inline">
+              <img src="img/plus.svg" class="slider__plus" data-type="duration">
+            </li>
+          </ul>
+          
+          <input type="range" min="1" max="10" value="1" class="slider" data-slide="0">
+        </div>
+
+        <div class="slider__item">
+          <ul class="row slider__text">
+            <li class="inline">
+              <img class="slider__icon" src="img/publishing-cadence.svg">
+            </li>
+
+            <li class="inline">
+              <h3 class="slider__label">publishing cadence</h3>
+            </li>
+
+            <li class="inline">
+              <img src="img/plus.svg" class="slider__plus" data-type="cadence">
+            </li>
+          </ul>
+          
+          <input type="range" min="1" max="10" value="1" class="slider" data-slide="1">
+        </div>
+
+        <div class="slider__item">
+          <ul class="row slider__text">
+            <li class="inline">
+              <img class="slider__icon" src="img/content-creation-budget.svg">
+            </li>
+
+            <li class="inline">
+              <h3 class="slider__label">content creation budget</h3>
+            </li>
+
+            <li class="inline">
+              <img src="img/plus.svg" class="slider__plus" data-type="budget">
+            </li>
+          </ul>
+          
+          <input type="range" min="1" max="10" value="1" class="slider" data-slide="2">
+        </div>
+
+        <div class="slider__item">
+          <ul class="row slider__text">
+            <li class="inline">
+              <img class="slider__icon" src="img/influencers.svg">
+            </li>
+
+            <li class="inline">
+              <h3 class="slider__label">importance of influencers</h3>
+            </li>
+
+            <li class="inline">
+              <img src="img/plus.svg" class="slider__plus" data-type="influencers">
+            </li>
+          </ul>
+          
+          <input type="range" min="1" max="10" value="1" class="slider" data-slide="3">
+        </div>
+
+        <div class="slider__item">
+          <ul class="row slider__text">
+            <li class="inline">
+              <img class="slider__icon" src="img/targeting.svg">
+            </li>
+
+            <li class="inline">
+              <h3 class="slider__label">targeting capabilities</h3>
+            </li>
+
+            <li class="inline">
+              <img src="img/plus.svg" class="slider__plus" data-type="targeting">
+            </li>
+          </ul>
+          
+          <input type="range" min="1" max="10" value="1" class="slider" data-slide="4">
+        </div>
+
+        <div class="slider__item">
+          <ul class="row slider__text">
+            <li class="inline">
+              <img class="slider__icon" src="img/millennial-engagement.svg">
+            </li>
+
+            <li class="inline">
+              <h3 class="slider__label">millennial engagement</h3>
+            </li>
+
+            <li class="inline">
+              <img src="img/plus.svg" class="slider__plus" data-type="millennial">
+            </li>
+          </ul>
+          
+          <input type="range" min="1" max="10" value="1" class="slider" data-slide="5">
+        </div>
+
+        <div class="slider__item">
+          <ul class="row slider__text">
+            <li class="inline">
+              <img class="slider__icon" src="img/ability-to-drive-organic-reach.svg">
+            </li>
+
+            <li class="inline">
+              <h3 class="slider__label">ability to drive organic reach</h3>
+            </li>
+
+            <li class="inline">
+              <img src="img/plus.svg" class="slider__plus" data-type="organic">
+            </li>
+          </ul>
+          
+          <input type="range" min="1" max="10" value="1" class="slider" data-slide="6">
+        </div>
+      </li>
+
+      <li class="graph / inline"></li>
+    </ul>
+
+    <div class="copyright only-lg">
+      <ul class="copyright__list / row">
+        <li class="col span-sm-4">
+          <ul class="row copyright__sublist">
+            <li class="inline">
+              <img src="img/adjust-sliders.svg" class="adjust-slider">
+            </li>
+
+            <li class="inline">
+              <h5 class="copyright__text is-left">Adjust sliders to reveal optimal platforms</h5>
+            </li>
+          </ul>
+        </li>
+
+        <li class="col span-sm-4">
+          <h5 class="copyright__text is-center">© 2016 L2 inc. All Rights Reserved.</h5>
+        </li>
+
+        <li class="col span-sm-4">
+          <a href="https://www.l2inc.com/research/video-2016">
+            <p class="copyright__text is-right">Learn More About the Report <img src="img/learn-more.svg" class="copyright__arrow"></p>
+          </a>
+          <!-- <img src="img/learn-more.svg"> -->
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<script id="duration_modal_template" type="x-handlebars-template">
+  <div class="modal__header">
+    <div class="close">
+      <img src="img/close.svg" class="close__button">
+    </div>
+
+    <h3 class="modal__header__text">Duration</h3>
+  </div>
+
+  <div class="modal__body">
+    <p class="modal__body__text">
+      While the overall trend is toward shorter and shorter videos, longer videos can still work, particularly on YouTube, if built around tentpole content and supported by ad spend.
+    </p>
+
+    <div class="modal__rule"></div>
+
+    <div class="legend">
+      <p class="legend__header">Facebook Video Engagement Rate by Video Length</p>
+      <h5 class="legend__subtitle">n=3, 169 Videos Uploaded Q1 2016</h5>
+    </div>
+
+    <div class="modal__graph">
+      <img src="img/graphs/duration_GRAPH.png" class="modal__graph__image">
+    </div>
+
+    <div class="modal__copyright">
+      <h5 class="modal__copyright__text">Source: L2 Intelligence Report: Video 2016, June 2016.</h5>
+    </div>
+  </div>
+</script>
+
+<script id="cadence_modal_template" type="x-handlebars-template">
+  <div class="modal__header">
+    <div class="close">
+      <img src="img/close.svg" class="close__button">
+    </div>
+
+    <h3 class="modal__header__text">Publishing Cadence</h3> 
+  </div>
+
+  <div class="modal__body">
+    <p class="modal__body__text">
+      Tinkering with the frequency of posting is a key variable that can help drive engagement at a relatively low cost — a consistent publishing cadence should be maintained on Snapchat and Instagram, while YouTube and Facebook lend themselves to more tentpole content.
+    </p>
+  </div>
+</script>
+
+<script id="budget_modal_template" type="x-handlebars-template">
+  <div class="modal__header">
+    <div class="close">
+      <img src="img/close.svg" class="close__button">
+    </div>
+
+    <h3 class="modal__header__text">Content Creation Budget</h3>
+  </div>
+
+  <div class="modal__body">
+    <p class="modal__body__text">
+      Although there are no free lunches when it comes to digital video deployment and creation, viable options exist for content creation budgets of all sizes.
+    </p>
+
+    <div class="modal__rule"></div>
+
+    <div class="legend">
+      <p class="legend__header">Top 100 Videos with Highest Engagement, Traditional vs. Native Shot</p>
+      <h5 class="legend__subtitle">By Organic Views  (YouTube) and Engagement Rate (Facebook / Instagram, Videos Uploaded During Q1 2016</h5>
+    </div>
+
+    <div class="modal__graph">
+      <img src="img/graphs/content-creation-budget_GRAPH.png" class="modal__graph__image">
+    </div>
+
+    <div class="modal__copyright">
+      <h5 class="modal__copyright__text">Engagement Rate = (Likes + Comments + Shares) / Views</h5>
+      <h5 class="modal__copyright__text">Source: L2 Intelligence Report: Video 2016, June 2016.</h5>
+    </div>
+  </div>
+</script>
+
+<script id="influencers_modal_template" type="x-handlebars-template">
+  <div class="modal__header">
+    <div class="close">
+      <img src="img/close.svg" class="close__button">
+    </div>
+
+    <h3 class="modal__header__text">Importance of Influencers</h3>
+  </div>
+
+  <div class="modal__body">
+    <p class="modal__body__text">
+      Leveraging influencers is another cost effective way to increase the uptake and adoption of content, particularly on YouTube and Instagram.
+    </p>
+
+    <div class="modal__rule"></div>
+
+    <div class="legend">
+      <p class="legend__header">Total TV Viewership by Show vs. Total YouTube Subscribers by Channel</p>
+      <h5 class="legend__subtitle">Among Top TV Shows by Beauty Ad Spend & Top Beauty Influencers by Total Views, 2015–2016 TV Season, </h5>
+      <h5 class="legend__subtitle">Aprl 1, 2015–March 31, 2016 (TV Spend) March 31, 2016 (Subscribers)</h5>
+    </div>
+
+    <div class="modal__graph">
+      <img src="img/graphs/importance-of-influencers_GRAPH.png" class="modal__graph__image">
+    </div>
+
+    <div class="modal__copyright">
+      <h5 class="modal__copyright__text">Source: L2 Intelligence Report: Video 2016, June 2016.</h5>
+      <h5 class="modal__copyright__text">L2 Analysis of iSpot TV Data; TV Series Finale; Variety, AdWeek; Radar Online; Top 25 Vloggers from Pixability</h5>
+    </div>
+  </div>
+</script>
+
+<script id="targeting_modal_template" type="x-handlebars-template">
+  <div class="modal__header">
+    <div class="close">
+      <img src="img/close.svg" class="close__button">
+    </div>
+
+    <h3 class="modal__header__text">Targeting Capabilities</h3>
+  </div>
+
+  <div class="modal__body">
+    <p class="modal__body__text">
+      While some brands may focus on simply building mass reach, hyper-targeted audiences can also be found, particularly on YouTube, Facebook, and Instagram.
+    </p>
+  </div>
+</script>
+
+<script id="millennial_modal_template" type="x-handlebars-template">
+  <div class="modal__header">
+    <div class="close">
+      <img src="img/close.svg" class="close__button">
+    </div>
+
+    <h3 class="modal__header__text">Millennial Engagement</h3>
+  </div>
+
+  <div class="modal__body">
+    <p class="modal__body__text">
+      While Millennials over index on most social media properties, not all platforms have the same ability to reach this coveted audience at scale. In particular, Snapchat can help portray coolness among young consumers.
+    </p>
+  </div>
+</script>
+
+<script id="organic_modal_template" type="x-handlebars-template">
+  <div class="modal__header">
+    <div class="close">
+      <img src="img/close.svg" class="close__button">
+    </div>
+
+    <h3 class="modal__header__text">Ability to Drive Organic Reach</h3>
+  </div>
+
+  <div class="modal__body">
+    <p class="modal__body__text">
+      For those brands looking to drive reach organically, a clear hierarchy of impact emerges from among the key platforms considered.
+    </p>
+
+    <div class="modal__rule"></div>
+
+    <div class="legend">
+      <p class="legend__header">Total Instagram Followers vs. Average Views per Instagram Video, by Brand</p>
+      <h5 class="legend__subtitle">n=77 Brands with >1M Followers; May 2016, n=1,770 Instagram Videos Posted During Q1 2016</h5>
+    </div>
+
+    <div class="modal__graph">
+      <img src="img/graphs/Ability-to-drive-organic-reach_GRAPH.png" class="modal__graph__image">
+    </div>
+
+    <div class="modal__copyright">
+      <h5 class="modal__copyright__text">Source: L2 Intelligence Report: Video 2016, June 2016.</h5>
+    </div>
+  </div>
+</script>
+
+<script id="chanel_modal_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="col span-sm-3">
+      <h2>Chanel Fashion Shows</h2>
+    </li>
+
+    <li class="col span-sm-9">
+      <h4>Chanel has effectively leveraged YouTube to elevate its tentpole fashion show content, achieving 1.1 million views (66 percent organic) across five video assets for its Spring / Summer 2016 Fashion Show. With a robust content budget and powerhouse celebrities such as Karl Lagerfeld, Chanel&#39;s fashion show provides the perfect opportunity for high-production long-form content that resonates on YouTube. </h4>
+    </li>
+  </ul>
+</script>
+
+<script id="katVonD_modal_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="col span-sm-3">
+      <h2>Kat Von D Tutorials</h2>
+    </li>
+
+    <li class="col span-sm-9">
+      <h4>Kat Von D has maintained the seventh-highest engagement rate among 37 beauty brands uploading videos to Facebook, while also achieving scaled reach (the brand averages 24.9K views per video). With a smaller content creation budget than many other winning beauty brands, Kat Von D has created low-cost tutorials that are short and mobile-optimized — perfect for Facebook.</h4>
+    </li>
+  </ul>
+</script>
+
+<script id="calvinKlein_modal_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="col span-sm-3">
+      <h2>Calvin Klein Local Influencer</h2>
+    </li>
+
+    <li class="col span-sm-9">
+      <h4>While Calvin Klein&#39;s #MyCalvins spring campaign was activated across YouTube, Facebook, and Snapchat, most of this content featured global celebrities such as Justin Bieber, Kendall Jenner, and Kendrick Lamar. The campaign&#39;s short videos featuring more local influencers such as German artist Toni Mahfud were activated on Instagram, where these influencers boasted large followings and mobile-native, influencer-shot videos perform well.</h4>
+    </li>
+  </ul>
+</script>
+
+

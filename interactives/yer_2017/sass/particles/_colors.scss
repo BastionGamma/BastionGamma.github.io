@@ -1,0 +1,43 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/* COLORS */
+
+$color-map: (
+  'black': $black, 
+  'grey90': $grey90,
+  'grey85': $grey85,
+  'grey60': $grey60,
+  'grey40': $grey40,
+  'grey20': $grey20,
+  'grey10': $grey10,
+  'grey05': $grey05,
+  'white': $white,
+  'sangria': $sangria,
+  'cheddar': $cheddar,
+  'foolsgold': $foolsgold,
+  'neondemon': $neondemon,
+  'lightning': $lightning,
+  'cobalt': $cobalt,
+  'purplerain': $purplerain,
+  'rose': $rose,
+  'transparent': transparent
+);
+
+@each $key, $value in $color-map {
+  // Font color
+  .#{$key} { color: #{$value}; }
+
+  // Background Color
+  .bg-#{$key} { background-color: #{$value}; }
+
+  // Border Color
+  .b-#{$key} { border-color: #{$value}; }
+
+  // Fill Color
+  .fill-#{$key} { fill: #{$value}; }
+  
+  // Stroke Color
+  .s-#{$key} { stroke: #{$value}; }
+}

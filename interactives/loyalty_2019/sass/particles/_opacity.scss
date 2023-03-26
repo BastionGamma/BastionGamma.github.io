@@ -1,0 +1,32 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+  OPACITY
+  Docs: http://tachyons.io/docs/themes/opacity/
+*/
+
+$opacity-map: (
+  100: 1,
+  90: 0.9,
+  80: 0.8,
+  70: 0.7,
+  60: 0.6,
+  50: 0.5,
+  40: 0.4,
+  30: 0.3,
+  20: 0.2,
+  10: 0.1,
+  05: 0.05,
+  025: 0.025,
+  0: 0
+);
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {
+    @each $key, $value in $opacity-map { 
+      .o#{$key} { opacity: $value; } 
+    }
+  }
+}

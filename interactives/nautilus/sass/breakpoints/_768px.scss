@@ -1,0 +1,38 @@
+  h2 { font-size: 1.75em; }
+
+  .legend { 
+    top: 125px; 
+    max-width: initial;
+  }
+
+  .legend {
+    &.desktop { 
+      &.is-all { display: initial; }
+    }
+
+    &.mobile { 
+      &.is-all {display: none; }
+    }
+
+    img { width: initial; }
+  }
+
+  .back {
+    &.only-sm { display: none; }
+    &.only-med-lg { display: initial; }
+
+    img { width: 12vw; }
+  }
+
+  #study {
+    &.only-sm { display: none; }
+  }
+
+  .chart { 
+    bottom: initial;
+    height: 100vh; 
+  }
+
+  .label {
+    &.only-med-lg { display: initial; }
+  }

@@ -1,0 +1,51 @@
+//  ==========================================================================
+//  GLOBAL STYLES
+//  ==========================================================================
+
+  html,
+  body { 
+    position: relative;
+    margin: 0 auto;
+    @include size(); 
+    @include box-sizing(border-box);
+    background-color: white;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 1vh 3vw;
+  }
+
+  section { @include box-sizing(border-box); }
+
+  h2,
+  h4 {
+    font-family: $neue; 
+    line-height: 1.2;
+    line-spacing: 0.04em;
+  }
+
+  h2,
+  h4,
+  h5 { font-weight: initial !important; }
+  
+  h2, .h2 {
+    font-size: 1.75em;
+    margin-bottom: 0.375em; 
+  }
+
+  h4,
+  h5 { margin: 0 !important; }
+
+  h4, .h4 { font-size: 1.06em; }
+
+  h5, .h5 {
+    font-size: 0.75em;
+    font-family: $base-font-family;
+    letter-spacing: 0.09em;
+    line-height: 1.5em;
+  }
+
+  .wrapper { padding: 2%; }

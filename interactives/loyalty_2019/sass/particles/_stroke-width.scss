@@ -1,0 +1,42 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+   BORDER WIDTHS
+
+   Base:
+     sw = stroke-width
+
+   Modifiers:
+     0 = 0 width border
+     1 = 1st step in border scale
+     2 = 2nd step in border scale
+     3 = 3rd step in border scale
+     4 = 4th step in border scale
+     5 = 5th step in border scale
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$stroke-width-map: (
+  sw0: (stroke-width, $space-0),
+  sw1: (stroke-width, $space-1),
+  sw2: (stroke-width, $space-2),
+  sw3: (stroke-width, $space-3),
+  sw4: (stroke-width, $space-4),
+  sw5: (stroke-width, $space-5)
+);
+
+@each $key, $values in $stroke-width-map {
+  .#{$key} {
+    $width: nth($values, 1);        
+    $value: nth($values, 2);
+
+    #{$width}: $value;
+  }
+}

@@ -1,0 +1,30 @@
+/*
+  UTILITIES
+*/
+
+/*
+  Parent:
+    .aspect-ratio
+
+    Size Modifiers:
+      --16x9
+      --4x3
+
+  Children:
+    .aspect-ratio--object
+
+  E.g.:
+    <div class="aspect-ratio aspect-ratio--16x9">
+      <iframe class="aspect-ratio--object"></iframe>
+    </div>
+*/
+
+
+.ani { @include animate(); }
+
+.click-through {
+  pointer-events: none;
+  @include user-select(none);
+}
+
+.pointer { cursor: pointer; }

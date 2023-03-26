@@ -1,0 +1,77 @@
+//  ==========================================================================
+//  GLOBAL STYLES
+//  ==========================================================================
+  
+  html,
+  body {
+    background-color: #FFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    overflow-x: hidden; 
+    overflow-y: auto;
+
+    height: 100vh;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3, h4, h5, h6, ul { 
+    margin: 0; 
+    font-weight: initial;
+  }
+
+  h1 { 
+    font-family: $light; 
+    margin: 0;
+    color: $color-l2-darkgrey;
+  }
+
+  h2 {
+    font: {
+      family: $light;
+      size: 15pt;
+    }
+    color: $color-l2-darkergrey;
+  }
+
+  h3 {
+    font: {
+      family: $roman;
+      size: 12pt;
+    }
+  }
+ 
+  h4 {
+    font: {
+      family: $roman;
+      size: 10pt;
+    }
+    color: $color-l2-medgrey;
+  }
+
+  p {
+    font: {
+      family: $font-family-default;
+      size: 15pt;
+    }
+    line-height: 140%;
+  }
+
+  a { text-decoration: none; }
+
+  ul {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wrapper { padding: 3%; }
+
+  .hidden { display: none; }
+
+  .domain { display: none; }
+
+  .comparison__phone__frame { 
+    pointer-events: none;
+    @include user-select(none); 
+  }

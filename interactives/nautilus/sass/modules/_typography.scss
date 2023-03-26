@@ -1,0 +1,13 @@
+@import url("//hello.myfonts.net/count/2ea4f2");
+ 
+@font-face { 
+  font-family: 'HelveticaNeueLTStd-Cn';
+  src: url('webfonts/2EA4F2_2_0.eot');
+  src: url('webfonts/2EA4F2_2_0.eot?#iefix') format('embedded-opentype'),
+       url('webfonts/2EA4F2_2_0.woff2') format('woff2'),
+       url('webfonts/2EA4F2_2_0.woff') format('woff'),
+       url('webfonts/2EA4F2_2_0.ttf') format('truetype');
+}
+
+$neue: "HelveticaNeueLTStd-Cn";
+$base-font-family: "Helvetica Roman", Helvetica, Arial, sans-serif;

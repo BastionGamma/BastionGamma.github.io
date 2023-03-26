@@ -1,0 +1,76 @@
+//  ==========================================================================
+//  Grid System SCSS
+//  ==========================================================================
+
+  %col {
+    border: 0px solid rgba(0, 0, 0, 0);
+    float: left;
+    position: relative;
+    @include box-sizing();
+    @include background-clip();
+  }
+
+  .col { @extend %col; }
+
+  @mixin span($num, $gutter_pc, $gutter_px, $padding, $max_columns) {
+    $one_col: (100% - ($gutter_pc * ($max_columns - 1) ) ) / $max_columns;
+    width: ($one_col * $num) + ($gutter_pc * ($num - 1) );
+    border-left-width: $gutter_px;
+    padding: $padding;
+    margin-left: $gutter_pc;
+  }
+
+  %span_first { margin-left: 0; }
+
+  .col {
+    margin-left: 0%;
+    padding: 0 0.5%;
+  }
+
+  $max_columns: 12;
+  $padding: 0 0.5%;
+  $gutter_px: 0;
+  $gutter_pc: 0%;
+
+  .row { 
+    & > .inline { display: inline-block; } 
+    & > li { 
+      list-style: none;
+      @include appearance(none); 
+    }
+
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  .row .col:first-child { @extend %span_first; }
+
+  [class*="span"] {
+    @extend %span_first;
+    width: 100%;
+  }
+
+  @for $i from 1 through $max-columns {
+    [class*="sm-#{$i}"] { 
+      @include span($i, $gutter_pc, $gutter_px, $padding, $max_columns);
+    }
+  }
+  
+  @media only screen and (min-width: 768px) { 
+    @for $i from 1 through $max-columns {
+      [class*="md-#{$i}"] { 
+        @include span($i, $gutter_pc, $gutter_px, $padding, $max_columns);
+      }  
+    }
+  }
+  
+  @media only screen and (min-width: 1030px) { 
+    @for $i from 1 through $max-columns {
+      [class*="lg-#{$i}"] { 
+        @include span($i, $gutter_pc, $gutter_px, $padding, $max_columns);
+      } 
+    }
+  }

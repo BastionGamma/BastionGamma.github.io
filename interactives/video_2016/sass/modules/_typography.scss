@@ -1,0 +1,60 @@
+//  ==========================================================================
+//  FONTS
+//  ==========================================================================
+
+  @import url("//hello.myfonts.net/count/308b6b");
+    
+  @font-face {
+    font-family: 'HelveticaNeueLTStd-UltLtCn';
+    src: url('webfonts/308B6B_0_0.eot');
+    src: url('webfonts/308B6B_0_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/308B6B_0_0.woff2') format('woff2'),
+         url('webfonts/308B6B_0_0.woff') format('woff'),
+         url('webfonts/308B6B_0_0.ttf') format('truetype');
+  }
+    
+  @font-face {
+    font-family: 'HelveticaNeueLTStd-Roman';
+    src: url('webfonts/308B6B_1_0.eot');
+    src: url('webfonts/308B6B_1_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/308B6B_1_0.woff2') format('woff2'),
+         url('webfonts/308B6B_1_0.woff') format('woff'),
+         url('webfonts/308B6B_1_0.ttf') format('truetype');
+  }
+   
+  @font-face {
+    font-family: 'HelveticaNeueLT-LightCond';
+    src: url('webfonts/308B6B_2_0.eot');
+    src: url('webfonts/308B6B_2_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/308B6B_2_0.woff2') format('woff2'),
+         url('webfonts/308B6B_2_0.woff') format('woff'),
+         url('webfonts/308B6B_2_0.ttf') format('truetype');
+  }
+    
+  @font-face {
+    font-family: 'HelveticaNeueLTStd-Cn';
+    src: url('webfonts/308B6B_3_0.eot');
+    src: url('webfonts/308B6B_3_0.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/308B6B_3_0.woff2') format('woff2'),
+         url('webfonts/308B6B_3_0.woff') format('woff'),
+         url('webfonts/308B6B_3_0.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'l2icons';
+    src: url('webfonts/l2icons.eot');
+    src: url('webfonts/l2icons.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/l2icons.woff') format('woff'),
+         url('webfonts/l2icons.ttf') format('truetype'),
+         url('webfonts/l2icons.svg?#l2icons') format('svg');
+  }
+  
+  $roman: 'HelveticaNeueLTStd-Roman';
+  $light: 'HelveticaNeueLT-LightCond';
+  $ultra-light: 'HelveticaNeueLTStd-UltLtCn';
+  $condensed: 'HelveticaNeueLTStd-Cn';
+
+  //Default Font Families, Adjustments etc
+  $font-family-default: Georgia, "Times New Roman", Times, serif !default;  
+  $default-font-size: 14px !default;
+  $default-light-height: 18px !default;

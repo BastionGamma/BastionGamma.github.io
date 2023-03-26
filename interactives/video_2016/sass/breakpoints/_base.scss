@@ -1,0 +1,448 @@
+::-webkit-scrollbar {  display: none;  }
+
+%--button {
+  font-family: $condensed;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+@include block('modal') {
+  position: absolute;
+  background: $color-l2-cactus;
+  max-width: 750px;
+  z-index: 4;
+  @include center();
+
+  @include block('close') {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    cursor: pointer;
+
+    @include element('button') { @include size(20px); }
+  }
+
+  @include block('drag') {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+
+    @include element('button') { @include size(22px); }
+  }
+
+  @include element('header') {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    @include element('text') {
+      padding: 10px;
+      text-align: center;
+    }
+  }
+
+  @include element('body') {
+    padding: 6% 4%;
+
+    @include element('text') {
+      font-family: $roman;
+    }
+  }
+
+  @include element('rule') {
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 1px;
+    margin-top: 45px;
+  }
+
+  @include block('legend') {
+    margin-top: 10px;
+
+    @include element('header') { font-family: $condensed; }
+
+    @include element('subtitle') { opacity: 0.6; }
+  }
+
+  @include element('graph') {
+    margin-top: 40px;
+    
+    @include element('image') { max-width: 100%; }
+  }
+
+  @include element('copyright') {
+    margin-top: 40px;
+
+    @include element('text') { opacity: 0.6; }
+  }
+}
+
+@include block('nav') {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 3;
+
+  @include element('list') { 
+    @include center(relative, false, true);
+
+    .row { 
+      @include center(relative, false, true);
+      width: 100%; 
+    }
+
+    .left,
+    .right { height: 70px; }
+
+    .right {
+      position: relative;
+      float: right;
+    }
+  }
+
+  @include element('logo') { 
+    @include center(relative, false, true);
+    height: 28px; 
+  }
+
+  @include element('text') { 
+    font-family: $condensed; 
+    margin-right: 10px;
+  }
+
+  @include block('arrow') {
+    position: absolute;
+    top: 12px;
+    right: 40px;
+    height: 15px;
+    pointer-events: none;
+  }
+
+  @include block('selector') {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    outline: none;
+    font: {
+      family: $condensed;
+      size: 12pt;
+    }
+    color: rgba(255, 255, 255, 0.7);
+    outline: none;
+    -webkit-appearance: none;
+    padding: 8px;
+    padding-right: 25px;
+  }
+}
+
+@include block('intro') {
+  position: absolute;
+  top: 60px;
+  width: 96%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.5%;
+  z-index: 2;
+
+  @include element('header') {
+    width: 94%;
+    padding: 0 2%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @include element('text') {
+      max-width: 64%;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+  }
+
+  @include element('instructions') {
+    margin-top: 30px;
+
+    @include element('text') { 
+      margin: 0 auto;
+      max-width: 50%; 
+      text-align: center;
+      opacity: 0.8;
+      margin-top: 30px;
+    }
+  }
+
+  @include element('choices') { 
+    @include center(relative, true, false);
+    max-width: 400px; 
+  }
+
+  @include element('button') {
+    display: inline-block;
+    margin-top: 30px;
+    @include center(relative, true, false);
+    @extend %--button;
+  }
+
+  @include element('arrow') {
+    width: 20px;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+}
+
+@include block('case-study') { 
+  padding: 1.5% 0;
+  display: none;
+}
+
+@include block('graph-list') {
+  position: absolute;
+  top: 415px;
+  width: 100%;
+  height: -webkit-calc(100% - 140px);
+  height: -moz-calc(100% - 140px);
+  height: calc(100% - 140px);
+  z-index: 1;
+
+  @include block('sliders') { 
+    position: relative;
+    top: 47px;
+    width: 20%;
+    height: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: scroll;
+
+    &.inline { 
+      display: block;
+      float: left;
+    }
+
+    @include block('slider') {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
+      @include element('item') {
+        position: relative;
+        height: 13%;
+
+        input[type=range] {
+          -webkit-appearance: none;
+          width: 100%;
+        }
+
+        input[type=range]:focus { outline: none; }
+
+        input[type=range]::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 1px;
+          cursor: pointer;
+          animate: 0.2s;
+          background: rgba(255, 255, 255, 0.3);
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+          @include size(15px);
+          background: $color-l2-kiwi;
+          border-radius: 100%;
+          cursor: pointer;
+          -webkit-appearance: none;
+          margin-top: -7px;
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track { background: rgba(255, 255, 255, 0.3); }
+
+        input[type=range]::-moz-range-track {
+          width: 100%;
+          height: 1px;
+          cursor: pointer;
+          animate: 0.2s;
+          background: rgba(255, 255, 255, 0.3);
+        }
+
+        input[type=range]::-moz-range-thumb {
+          @include size(15px);
+          border-radius: 100%;
+          background: $color-l2-kiwi;
+          cursor: pointer;
+        }
+
+        input[type=range]::-ms-track {
+          width: 100%;
+          height: 1px;
+          cursor: pointer;
+          animate: 0.2s;
+          background: transparent;
+          border-color: transparent;
+          color: transparent;
+        }
+
+        input[type=range]::-ms-fill-lower { background: rgba(255, 255, 255, 0.9); }
+
+        input[type=range]::-ms-fill-upper { background: rgba(255, 255, 255, 0.3); }
+
+        input[type=range]::-ms-thumb {
+          @include size(15px);
+          border-radius: 100%;
+          background: $color-l2-kiwi;
+          cursor: pointer;
+        }
+
+        input[type=range]:focus::-ms-fill-lower { background: rgba(255, 255, 255, 0.9); }
+
+        input[type=range]:focus::-ms-fill-upper { background: rgba(255, 255, 255, 0.3); }
+      }
+
+      @include element('text') {
+        @include center(relative, false, true);
+
+        .inline:first-child { min-width: 55px; }
+      }
+
+      @include element('icon') {
+        height: 30px;
+        margin-right: 15px;
+        vertical-align: middle;
+      }
+
+      @include element('label') { 
+        position: relative;
+        top: 5px;
+        font-size: 1vw;
+      }
+
+      @include element('plus') {
+        position: absolute;
+        top: 7px;
+        right: 0;
+        cursor: pointer;
+        @include size(20px);
+        @include animate();
+
+        &:hover { opacity: 0.5; }
+      }
+    }
+  }
+  
+  @include block('graph') { 
+    height: 100%; 
+    width: 79%;
+
+    &.inline { 
+      display: block;
+      float: left;
+    }
+    
+    .x.axis .label {
+      font: {
+        size: 10pt;
+        family: $condensed;
+      }
+      fill: white;
+    }
+
+    .y.axis {
+      .label {
+        font: {
+          size: 10pt;
+          family: $condensed;
+        }
+        fill: white;
+        opacity: 0.5;
+        text-transform: capitalize;
+      }
+    }
+
+    .axis {
+      path { display: none; }
+
+      &.y line {
+        stroke-width: 1px;
+        stroke: white;
+        opacity: 0.1;
+      }
+    }
+
+    .bg-rect { fill: rgba(255, 255, 255, 0.1); }
+
+    .stop-left,
+    .stop-right { stop-color: rgba(255, 255, 255, 0); }
+
+    .stop-middle { stop-color: rgba(255, 255, 255, 0.5); }
+
+    .reveal-rect { 
+      fill: url(#gradient); 
+    }
+  }
+}
+
+@include block('copyright') {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 3;
+  @include gradient();
+
+  @include element('list') { 
+    height: 100%; 
+
+    li { height: 100%; }
+  }
+
+  @include element('sublist') {
+    @include center(relative, false, true); 
+  }
+
+  @include element('text') {
+    @include center(relative, false, true);
+
+    @include state('left') { 
+      float: left; 
+      opacity: 0.5;
+    }
+
+    @include state('center') { 
+      text-align: center; 
+      opacity: 0.5;
+    }
+
+    @include state('right') {
+      float: right;
+      @extend %--button;
+    }
+  }
+
+  @include element('arrow') {
+    width: 20px;
+    vertical-align: top;
+    margin-left: 5px;
+  }
+
+  @include block('adjust-slider') {
+    margin-right: 5px;
+    height: 20px;
+    vertical-align: super;
+  }
+}
+
+@include block('mobile-only') {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 25px;
+  text-align: center;
+  max-width: 50%;
+  margin: 25px auto;
+
+  h4 { 
+    opacity: 0.5; 
+    margin-top: 5px;
+  }
+}
+
+.only-sm { display: block; }
+.only-md { display: none; }
+.only-lg { display: none; }
+.only-sm-md { display: block; }
+.only-md-lg { display: none; }

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Instagram vs. Snapchat</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js"></script>    
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    
+    <script src="js/main.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-12281975-12', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+
+  <body>
+    <!--[if lte IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <ul class="row border-top">
+      <li class="border-top--instagram / col span-sm-6"></li>
+      <li class="border-top--snapchat / col span-sm-6"></li>
+    </ul>
+
+    <nav class="top-nav">
+      <ul class="row">
+        <li class="top-nav__container / col inline">
+          <img src="img/l2.svg" alt="L2 is a member-based business intelligence firm that benchmarks the digital performance of brands." class="top-nav__logo">
+        </li>
+
+        <li class="col / only-lg inline">
+          <div class="hamburger hamburger--spin" type="button">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="offside-nav / span-sm-9-md-6-lg-3">
+      <ul class="offside-nav__list">
+        <li class="offside-nav__list__item">
+          <a href="//l2inc.com/">
+            <h2>L2 Home</h2>
+          </a>
+        </li>
+
+        <li class="offside-nav__list__item">
+          <a href="//www.l2inc.com/research/instagram-vs-snapchat">
+            <h2>Download Report</h2>
+          </a>
+        </li>
+
+        <li class="offside-nav__list__item">
+          <a href="//www.l2inc.com/?popform=membership">
+            <h2>Inquire About Membership</h2>
+          </a>
+        </li>
+
+        <li class="offside-nav__list__item">
+          <a href="//l2inc.com/about">
+            <h2>About L2</h2>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div id="slides">
+      <section id="slide-0" class="hero / slide active">
+        <ul class="hero__content / row">
+          <li class="hero__left / col span-md-2">
+            <img src="img/instagram-frame-home.jpg" alt="Instagram" class="hero__image  / only-md-lg">
+          </li>
+
+          <li class="hero__middle / col span-md-8">
+            <img src="img/instagram-v-snapchat.svg" alt="Instagram vs. Snapchat" id="pin-logo" class="hero__logo">
+
+            <h1 class="copy">An overview of the demographic differences and brand content strategies on two of the most engaging social platforms.</h1>
+
+            <div class="scroll-button">
+              <h3 class="scroll-button__text">Scroll</h3>
+              <img src="img/down.svg" alt="Scroll down" class="scroll-button__arrow">
+            </div>
+          </li>
+
+          <li class="hero__right / col span-md-2">
+            <img src="img/snapchat-frame-home.jpg" alt="Snapchat" class="hero__image  / only-md-lg">
+          </li>
+        </ul>
+      </section>
+
+      <section id="slide-1" class="demographics / slide active" data-carousel="Demo">
+        <div class="slide__header">
+          <img src="img/instagram-v-snapchat.svg" alt="Instagram vs. Snapchat" id="pin-logo" class="slide__logo">
+
+          <h1 class="copy">What are the Ages of Users?</h1>
+        </div>
+
+        <div class="demographics__graph / graph-container"></div>
+
+        <div class="copyright / only-md-lg">
+          <h4 class="copyright__text left">Sources: Snapchat Internal Data, eMarketer</h4>
+          <h4 class="copyright__text right">U.S. Users, 2015</h4>
+        </div>
+
+        <div class="scroll-button bottom / only-md-lg">
+          <img src="img/down.svg" alt="Scroll down" class="scroll-button__arrow">
+        </div>
+      </section>
+
+      <section id="slide-2" class="adoption / slide" data-carousel="Adoption">
+        <div class="slide__header">
+          <img src="img/instagram-v-snapchat.svg" alt="Instagram vs. Snapchat" id="pin-logo" class="slide__logo">
+
+          <h1 class="copy">Which Sectors Have Adopted Each Platform?</h1>
+        </div>
+
+        <div class="adoption__graph / graph-container"></div>
+
+        <div class="copyright / only-md-lg">
+          <h4 class="copyright__text left">Source: L2 inc.</h4>
+          <h4 class="copyright__text right">July 2015–April 2016, n=725 brands (Instagram), n=281 brands (Snapchat)</h4>
+        </div>
+
+        <div class="scroll-button bottom / only-md-lg">
+          <img src="img/down.svg" alt="Scroll down" class="scroll-button__arrow">
+        </div>
+      </section>
+
+      <section id="slide-3" class="frequency / slide" data-carousel="Frequency">
+        <div class="slide__header">
+          <img src="img/instagram-v-snapchat.svg" alt="Instagram vs. Snapchat" id="pin-logo" class="slide__logo">
+
+          <h1 class="copy">How Often are Brands Posting Each Week?</h1>
+        </div>
+
+        <div class="frequency__graph / graph-container"></div>
+
+        <div class="copyright / only-md-lg">
+          <h4 class="copyright__text left">Source: L2 inc.</h4>
+          <h4 class="copyright__text right">U.S., Q4 2015 (Instagram, n=280), January 15–February 15, 2016 (Snapchat, n=120)</h4>
+        </div>
+
+        <div class="scroll-button bottom / only-md-lg">
+          <img src="img/down.svg" alt="Scroll down" class="scroll-button__arrow">
+        </div>
+      </section>
+
+      <section id="slide-4" class="activity / slide" data-carousel="Activity">
+        <div class="slide__header">
+          <img src="img/instagram-v-snapchat.svg" alt="Instagram vs. Snapchat" id="pin-logo" class="slide__logo">
+
+          <h1 class="copy">How Many Days per Week are Brands Active?</h1>
+        </div>
+
+
+        <div class="activity__graph / graph-container"></div>
+
+        <div class="copyright / only-md-lg">
+          <h4 class="copyright__text left">Source: L2 inc.</h4>
+          <h4 class="copyright__text right">U.S. January 15–February 15, 2016, n=280 brands (Instagram), n=120 brands (Snapchat)</h4>
+        </div>
+
+        <div class="scroll-button bottom / only-md-lg">
+          <img src="img/down.svg" alt="Scroll down" class="scroll-button__arrow">
+        </div>
+      </section>
+
+      <section id="slide-5" class="video / slide" data-carousel="Video">
+        <div class="slide__header">
+          <img src="img/instagram-v-snapchat.svg" alt="Instagram vs. Snapchat" id="pin-logo" class="slide__logo">
+
+          <h1 class="copy">What Percent of Posts are Video?</h1>
+        </div>
+
+        <div class="video__graph / graph-container"></div>
+
+        <div class="copyright / only-md-lg">
+          <h4 class="copyright__text left">Source: L2 inc.</h4>
+          <h4 class="copyright__text right">U.S., Q4 2015 (Instagram, n=280), January 15–February 15, 2016 (Snapchat, n=120)</h4>
+        </div>
+
+        <div class="scroll-button bottom / only-md-lg">
+          <img src="img/down.svg" alt="Scroll down" class="scroll-button__arrow">
+        </div>
+      </section>
+
+      <section id="slide-6" class="comparison / slide">
+        <div class="slide__header">
+          <img src="img/instagram-v-snapchat.svg" alt="Instagram vs. Snapchat" id="pin-logo" class="slide__logo">
+
+          <h1 class="copy">How Does the Content Experience Differ?</h1>
+        </div>
+
+        <ul class="row / comparison__list">
+          <li id="comparison__left" class="comparison__list__item left / col span-sm-5"></li>
+
+          <li class="comparison__list__item middle / col span-sm-2">
+            <div class="comparison__buttons">
+              <div class="comparison__button active" data-sector="athletic-apparel">
+                <h2 class="comparison__button__text">Activewear</h2>
+              </div>
+
+              <div class="comparison__button" data-sector="auto">
+                <h2 class="comparison__button__text">Auto</h2>
+              </div>
+
+              <div class="comparison__button" data-sector="beauty">
+                <h2 class="comparison__button__text">Beauty</h2>
+              </div>
+
+              <div class="comparison__button" data-sector="fashion">
+                <h2 class="comparison__button__text">Fashion</h2>
+              </div>
+
+              <div class="comparison__button" data-sector="retail">
+                <h2 class="comparison__button__text">Retail</h2>
+              </div>
+
+              <div class="comparison__button" data-sector="watches-jewelry">
+                <h2 class="comparison__button__text">Watches & Jewelry</h2>
+              </div>
+            </div>
+          </li>
+
+          <li id="comparison__right" class="comparison__list__item right / col span-sm-5"></li>
+        </ul>    
+
+        <ul class="row / mobile-nav / only-sm">
+          <li class="mobile-nav__button / inline" data-platform="instagram">
+            <h2><i class="left-arrow-l2"></i> Instagram</h2>
+          </li>
+
+          <li class="mobile-nav__button --center / inline active" data-platform="center">
+            <h2><i class="circle-empty-l2"></i></h2>
+          </li>
+
+          <li class="mobile-nav__button / inline" data-platform="snapchat">
+            <h2>Snapchat <i class="right-arrow-l2"></i></h2>
+          </li>
+        </ul>
+
+        <div class="scroll-button bottom / only-md-lg">
+          <img src="img/down.svg" alt="Scroll down" class="scroll-button__arrow">
+        </div>
+      </section>
+
+      <section id="slide-7" class="hero / slide">
+        <div class="hero__middle / col span-sm-12">
+          <img src="img/instagram-v-snapchat.svg" alt="Instagram vs. Snapchat" id="pin-logo" class="hero__logo">
+
+          <h1 class="copy">Download the Full Report, Available to L2 Members Only.</h1>
+
+          <ul class="hero__buttons / row">
+            <li class="hero__buttons__item / inline">
+              <a href="//www.l2inc.com/research/instagram-vs-snapchat" class="hero__button">
+                <h2 class="hero__button__text">Download</h2>
+              </a>
+            </li>
+
+            <li class="hero__buttons__item / inline">
+              <a href="//www.l2inc.com/?popform=membership" class="hero__button">
+                <h2 class="hero__button__text">Inquire About Membership</h2>
+              </a>
+            </li>
+
+            <li class="hero__buttons__item / inline">
+              <a href="//l2inc.com/about" class="hero__button">
+                <h2 class="hero__button__text">About L2</h2>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <nav class="bottom-nav only-lg">
+      <ul class="bottom-nav__list / row">
+        <li class="bottom-nav__list__item / col span-md-4-lg-2">
+          <h3 id="trigger-1" class="bottom-nav__list__item__text">Age Demographics</h3>
+        </li>
+
+        <li class="bottom-nav__list__item / col span-md-4-lg-2">
+          <h3 id="trigger-2" class="bottom-nav__list__item__text">Adoption</h3>
+        </li>
+
+        <li class="bottom-nav__list__item / col span-md-4-lg-2">
+          <h3 id="trigger-3" class="bottom-nav__list__item__text">Post Frequency</h3>
+        </li>
+
+        <li class="bottom-nav__list__item / col span-md-4-lg-2">
+          <h3 id="trigger-4" class="bottom-nav__list__item__text">Active Days</h3>
+        </li>
+
+        <li class="bottom-nav__list__item / col span-md-4-lg-2">
+          <h3 id="trigger-5" class="bottom-nav__list__item__text">Video</h3>
+        </li>
+
+        <li class="bottom-nav__list__item / col span-md-4-lg-2">
+          <h3 id="trigger-6" class="bottom-nav__list__item__text">Content</h3>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
+
+<script id="athletic-apparel_left_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content">
+        <video loop autoplay muted poster="img/comparisons/instagram/athletic-apparel/nike-instagram.png">
+          <source src="img/comparisons/instagram/athletic-apparel/nike-instagram.mp4" type="video/mp4" />
+          <source src="img/comparisons/instagram/athletic-apparel/nike-instagram.webm" type="video/webm" />    
+          <source src="img/comparisons/instagram/athletic-apparel/nike-instagram.ogv" type="video/ogg" /> 
+          <img src="img/comparisons/instagram/athletic-apparel/nike-instagram.png" >
+        </video>
+      </div>
+
+      <h2 class="drag-instructions / only-sm-md">Tap to Play</h2>
+    </li>
+
+    <li class="comparison__rule instagram"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/nike.svg" alt="">
+    </li>
+  </ul>
+</script>
+
+<script id="athletic-apparel_right_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content / athletic-apparel__carousel">
+        <div class="slide1">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat1.jpg" alt="">
+        </div>
+
+        <div class="slide2">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat2.jpg" alt="">
+        </div>
+
+        <div class="slide3">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat3.jpg" alt="">
+        </div>
+
+        <div class="slide4">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat4.jpg" alt="">
+        </div>
+
+        <div class="slide5">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat5.jpg" alt="">
+        </div>
+
+        <div class="slide6">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat6.jpg" alt="">
+        </div>
+
+        <div class="slide7">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat7.jpg" alt="">
+        </div>
+
+        <div class="slide8">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat8.jpg" alt="">
+        </div>
+
+        <div class="slide9">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat9.jpg" alt="">
+        </div>
+
+        <div class="slide10">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat10.jpg" alt="">
+        </div>
+
+        <div class="slide11">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat11.jpg" alt="">
+        </div>
+
+        <div class="slide12">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat12.jpg" alt="">
+        </div>
+
+        <div class="slide13">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat13.jpg" alt="">
+        </div>
+
+        <div class="slide14">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat14.jpg" alt="">
+        </div>
+
+        <div class="slide15">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat15.jpg" alt="">
+        </div>
+
+        <div class="slide16">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat16.jpg" alt="">
+        </div>
+
+        <div class="slide17">
+          <img src="img/comparisons/snapchat/athletic-apparel/nike-snapchat17.jpg" alt="">
+        </div>
+      </div>
+
+      <h2 class="drag-instructions"><span class="only-lg">Drag</span><span class="only-sm-md">Swipe</span> Slides to Navigate</h2>
+    </li>
+
+    <li class="comparison__rule snapchat"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/nike.svg" alt="">
+    </li>
+  </ul>
+
+  <script>
+    $('.athletic-apparel__carousel').slick({
+                    infinite: true,
+                    dots: false,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    lazyLoad: 'onDemand',
+                    waitForAnimate: true
+                  });
+  </{{!}}script>
+</script>
+
+<script id="auto_left_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+      <div class="comparison__phone__content">
+        <img src="img/comparisons/instagram/auto/bmw-instagram.jpg" alt="">
+      </div>
+    </li>
+
+    <li class="comparison__rule instagram"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/bmw.svg" alt="">
+    </li>
+  </ul>
+</script>
+
+<script id="auto_right_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content / auto__carousel">
+        <div class="slide1">
+          <img src="img/comparisons/snapchat/auto/cadillac-snapchat1.jpg" alt="">
+        </div>
+
+        <div class="slide2">
+          <img src="img/comparisons/snapchat/auto/cadillac-snapchat2.jpg" alt="">
+        </div>
+
+        <div class="slide3">
+          <img src="img/comparisons/snapchat/auto/cadillac-snapchat3.jpg" alt="">
+        </div>
+
+        <div class="slide4">
+          <img src="img/comparisons/snapchat/auto/cadillac-snapchat4.jpg" alt="">
+        </div>
+
+        <div class="slide5">
+          <img src="img/comparisons/snapchat/auto/cadillac-snapchat5.jpg" alt="">
+        </div>
+
+        <div class="slide6">
+          <img src="img/comparisons/snapchat/auto/cadillac-snapchat6.jpg" alt="">
+        </div>
+      </div>
+
+      <h2 class="drag-instructions"><span class="only-lg">Drag</span><span class="only-sm-md">Swipe</span> Slides to Navigate</h2>
+    </li>
+
+    <li class="comparison__rule snapchat"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/cadillac.jpg" alt="" style="max-width: 180px;">
+    </li>
+  </ul>
+
+  <script>
+    $('.auto__carousel').slick({
+                    infinite: true,
+                    dots: false,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    lazyLoad: 'onDemand',
+                    waitForAnimate: true
+                  });
+  </{{!}}script>
+</script>
+
+<script id="beauty_left_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content / beauty__carousel1">
+        <div class="slide1">
+          <img src="img/comparisons/instagram/beauty/maybelline-instagram1.png" alt="">
+        </div>
+
+        <div class="slide2">
+          <img src="img/comparisons/instagram/beauty/maybelline-instagram2.png" alt="">
+        </div>
+
+        <div class="slide3">
+          <img src="img/comparisons/instagram/beauty/maybelline-instagram3.png" alt="">
+        </div>
+
+        <div class="slide4">
+          <img src="img/comparisons/instagram/beauty/maybelline-instagram4.png" alt="">
+        </div>
+
+        <div class="slide5">
+          <img src="img/comparisons/instagram/beauty/maybelline-instagram5.png" alt="">
+        </div>
+      </div>
+
+      <h2 class="drag-instructions"><span class="only-lg">Drag</span><span class="only-sm-md">Swipe</span> Slides to Navigate</h2>
+    </li>
+
+    <li class="comparison__rule instagram"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/maybelline.svg" alt="">
+    </li>
+  </ul>
+
+  <script>
+    $('.beauty__carousel1').slick({
+                    infinite: true,
+                    dots: false,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    lazyLoad: 'onDemand',
+                    waitForAnimate: true
+                  });
+  </{{!}}script>
+</script>
+
+<script id="beauty_right_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content / beauty__carousel2">
+        <div class="slide1">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat1.jpg" alt="">
+        </div>
+
+        <div class="slide2">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat2.jpg" alt="">
+        </div>
+
+        <div class="slide3">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat3.jpg" alt="">
+        </div>
+
+        <div class="slide4">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat4.jpg" alt="">
+        </div>
+
+        <div class="slide5">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat5.jpg" alt="">
+        </div>
+
+        <div class="slide6">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat6.jpg" alt="">
+        </div>
+
+        <div class="slide7">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat7.jpg" alt="">
+        </div>
+
+        <div class="slide8">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat8.jpg" alt="">
+        </div>
+
+        <div class="slide9">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat9.jpg" alt="">
+        </div>
+
+        <div class="slide10">
+          <img src="img/comparisons/snapchat/beauty/nyx-snapchat10.jpg" alt="">
+        </div>
+      </div>
+
+      <h2 class="drag-instructions"><span class="only-lg">Drag</span><span class="only-sm-md">Swipe</span> Slides to Navigate</h2>
+    </li>
+
+    <li class="comparison__rule snapchat"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/nyx.svg" alt="">
+    </li>
+  </ul>
+
+  <script>
+    $('.beauty__carousel2').slick({
+                    infinite: true,
+                    dots: false,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    lazyLoad: 'onDemand',
+                    waitForAnimate: true
+                  });
+  </{{!}}script>
+</script>
+
+<script id="fashion_left_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+      <div class="comparison__phone__content">
+        <img src="img/comparisons/instagram/fashion/calvinklein-instagram.jpg" alt="">
+      </div>
+    </li>
+
+    <li class="comparison__rule instagram"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/calvin-klein.svg" alt="">
+    </li>
+  </ul>
+</script>
+
+<script id="fashion_right_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content">
+        <video loop autoplay muted poster="img/comparisons/snapchat/fashion/calvinklein-snapchat.png">
+          <source src="img/comparisons/snapchat/fashion/calvinklein-snapchat.mov" type="video/quicktime" />
+          <source src="img/comparisons/snapchat/fashion/calvinklein-snapchat.mp4" type="video/mp4" />
+          <source src="img/comparisons/snapchat/fashion/calvinklein-snapchat.webm" type="video/webm" />
+          <source src="img/comparisons/snapchat/fashion/calvinklein-snapchat.ogv" type="video/ogg" />                    
+          <img src="img/comparisons/snapchat/fashion/calvinklein-snapchat.png" >
+        </video>
+      </div>
+
+      <h2 class="drag-instructions / only-sm-md">Tap to Play</h2>
+    </li>
+
+    <li class="comparison__rule snapchat"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/calvin-klein.svg" alt="">
+    </li>
+  </ul>
+</script>
+
+<script id="retail_left_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content / retail__carousel">
+        <div class="slide1">
+          <img src="img/comparisons/instagram/retail/express-instagram1.jpg" alt="">
+        </div>
+
+        <div class="slide2">
+          <img src="img/comparisons/instagram/retail/express-instagram2.jpg" alt="">
+        </div>
+
+        <div class="slide3">
+          <img src="img/comparisons/instagram/retail/express-instagram3.jpg" alt="">
+        </div>
+
+        <div class="slide4">
+          <img src="img/comparisons/instagram/retail/express-instagram4.jpg" alt="">
+        </div>
+      </div>
+
+      <h2 class="drag-instructions"><span class="only-lg">Drag</span><span class="only-sm-md">Swipe</span> Slides to Navigate</h2>
+    </li>
+
+    <li class="comparison__rule instagram"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/express.svg" alt="">
+    </li>
+  </ul>
+
+  <script>
+    $('.retail__carousel').slick({
+                    infinite: true,
+                    dots: false,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    lazyLoad: 'onDemand',
+                    waitForAnimate: true
+                  });
+  </{{!}}script>
+</script>
+
+<script id="retail_right_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content" style="height: 100%;">
+        <video loop autoplay muted poster="img/comparisons/snapchat/retail/express-snapchat.png" style="height: 100%;">
+          <source src="img/comparisons/snapchat/retail/express-snapchat.mov" type="video/quicktime" />
+          <source src="img/comparisons/snapchat/retail/express-snapchat.mp4" type="video/mp4" />  
+          <source src="img/comparisons/snapchat/retail/express-snapchat.webm" type="video/webm" />
+          <source src="img/comparisons/snapchat/retail/express-snapchat.ogv" type="video/ogg" />                    
+          <img src="img/comparisons/snapchat/retail/express-snapchat.png" >
+        </video>
+      </div>
+
+      <h2 class="drag-instructions / only-sm-md">Tap to Play</h2>
+    </li>
+
+    <li class="comparison__rule snapchat"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/express.svg" alt="">
+    </li>
+  </ul>
+</script>
+
+<script id="watches-jewelry_left_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+      <div class="comparison__phone__content">
+        <img src="img/comparisons/instagram/watches-jewelry/chopard-instagram.jpg" alt="">
+      </div>
+    </li>
+
+    <li class="comparison__rule instagram"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/chopard.svg" alt="">
+    </li>
+  </ul>
+</script>
+
+<script id="watches-jewelry_right_template" type="x-handlebars-template">
+  <ul class="row">
+    <li class="comparison__phone / col span-sm-5-md-4-lg-5">
+      <img src="img/iphone-6.png" alt="" class="comparison__phone__frame">
+
+      <div class="comparison__phone__content / watches-jewelry__carousel">
+        <div class="slide1">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat1.jpg" alt="">
+        </div>
+
+        <div class="slide2">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat2.jpg" alt="">
+        </div>
+
+        <div class="slide3">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat3.jpg" alt="">
+        </div>
+
+        <div class="slide4">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat4.jpg" alt="">
+        </div>
+
+        <div class="slide5">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat5.jpg" alt="">
+        </div>
+
+        <div class="slide6">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat6.jpg" alt="">
+        </div>
+
+        <div class="slide7">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat7.jpg" alt="">
+        </div>
+
+        <div class="slide8">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat8.jpg" alt="">
+        </div>
+
+        <div class="slide9">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat9.jpg" alt="">
+        </div>
+
+        <div class="slide10">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat10.jpg" alt="">
+        </div>
+
+        <div class="slide11">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat11.jpg" alt="">
+        </div>
+
+        <div class="slide12">
+          <img src="img/comparisons/snapchat/watches-jewelry/jaeger-snapchat12.jpg" alt="">
+        </div>
+      </div>
+
+      <h2 class="drag-instructions"><span class="only-lg">Drag</span><span class="only-sm-md">Swipe</span> Slides to Navigate</h2>
+    </li>
+
+    <li class="comparison__rule snapchat"></li>
+
+    <li class="comparison__brand-logo">
+      <img src="img/jaeger-lecoultre.svg" alt="">
+    </li>
+  </ul>
+
+  <script>
+    $('.watches-jewelry__carousel').slick({
+                    infinite: true,
+                    dots: false,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    lazyLoad: 'onDemand',
+                    waitForAnimate: true
+                  });
+  </{{!}}script>
+</script>

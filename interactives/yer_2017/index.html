@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Digital Intelligence Case Studies & Best Practices</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12281975-16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-12281975-16');
+    </script>    
+
+    <style>
+      html, body { overflow-x: initial !important; }
+
+      /*body {
+        max-width: 1800px;
+        margin: 0 auto;
+      }*/
+
+      @import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=e4c74e07-1206-4018-8f56-143a8a11c9b1");
+
+      @font-face {
+        font-family: "Helvetica Neue LT W01_71488914";
+        src: url("Fonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix");
+        src: url("Fonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix") format("eot"),
+             url("Fonts/531c5a28-5575-4f58-96d4-a80f7b702d7b.woff2") format("woff2"),
+             url("Fonts/439c5962-f9fe-4eaf-a1f6-f41d42edba75.woff") format("woff"),
+             url("Fonts/419a308d-b777-4f84-9235-2caf4a98ec23.ttf") format("truetype"),
+             url("Fonts/e4d5b881-6835-45b7-8766-3e5b9e7cab8b.svg#e4d5b881-6835-45b7-8766-3e5b9e7cab8b") format("svg");
+      }
+
+      @font-face {
+        font-family: "Helvetica Neue LT W01_55 Roman";
+        src: url("Fonts/a58359b2-ab6c-4eb7-a2ed-b567c68b3388.eot?#iefix");
+        src: url("Fonts/a58359b2-ab6c-4eb7-a2ed-b567c68b3388.eot?#iefix") format("eot"),
+             url("Fonts/02963ef0-dbb8-4ec9-a06d-939c6f252739.woff2") format("woff2"),
+             url("Fonts/411f40ef-ca35-4f60-93ce-b394d5485b62.woff") format("woff"),
+             url("Fonts/aee958bd-461a-4843-929b-4127e918a85e.ttf") format("truetype"),
+             url("Fonts/a5239550-7c80-4408-8598-671485ac7994.svg#a5239550-7c80-4408-8598-671485ac7994") format("svg");
+      }
+  
+      h1 { font-size: 72px; }
+      h2 { font-size: 48px; }
+      h3 { 
+        font-size: 24px; 
+        line-height: 32px;
+      }
+      h5 { font-size: 18px; }
+      h6 { font-size: 12px; }
+
+      p { 
+        font-size: 14px; 
+        line-height: 1.71;
+      }
+
+      sup { font-size: 12px; }
+
+      .neue-bold { font-family: "Helvetica Neue LT W01_71488914", "Ariel", sans-serif; }
+      .neue-roman { font-family: "Helvetica Neue LT W01_55 Roman", "Ariel", sans-serif; }
+
+      .full-screen {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      .js-rotate {
+        display: none;
+        background-color: rgba(50, 50, 50, 0.95);
+        opacity: 0;
+        z-index: 2147483647;
+      }
+
+      body.rotate { overflow: hidden; }
+
+      .js-sticky-nav.clone {
+        position: fixed;
+        top: -6rem;
+        left: 0;
+        right: 0;
+        z-index: 214748366;
+        transition: 0.4s top cubic-bezier(.3, .73, .3, .74);
+      }
+
+      .nav__item {
+        border-top: 0rem solid white;
+        line-height: 3rem;
+      }
+
+      .nav__item.is-active {
+        color: white;
+        border-top: 0.4rem solid white;
+      }
+
+      body.down .js-sticky-nav.clone { top: 0; }
+
+      .content { background-color: #000; }
+
+      .step { min-height: 75vh; }
+
+      .sticky {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      .scroll__graphic {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        right: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        z-index: 21474836;
+      }
+
+      .chart {
+        top: 50%;
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+
+      .domain { display: none; }
+
+      .box {
+        stroke: white;
+        stroke-width: 1;
+      }
+
+      .quad-line {
+        stroke: #4D4D4D;
+        stroke-width: 2;
+      }
+
+      .quad-label { 
+        fill: #999999; 
+        font-size: 12px;
+      }
+
+      .diq-tip {
+        position: absolute;
+        visibility: hidden;
+        width: 312px;
+        padding: 1rem 1.5rem;
+        background: black;
+        border: 1px solid #4D4D4D;
+        pointer-events: none; 
+        opacity: 0;
+        z-index: 214748364 !important;
+
+        -webkit-transition: visibility 0.4s linear, opacity 0.4s;
+        -moz-transition: visibility 0.4s linear, opacity 0.4s;
+        -ms-transition: visibility 0.4s linear, opacity 0.4s;
+        transition: visibility 0.4s linear, opacity 0.4s;
+      }
+
+      .tip-chart,
+      .case-study__chart { height: 228px; }
+
+      .chart-legend { z-index: 214 !important; }
+
+      .chart-legend div p { bottom: 4px; }
+
+      .chart-legend__square {
+        width: 18px;
+        height: 18px;
+      }
+
+      .legend__square,
+      .tip-legend__square {
+        width: 11px;
+        height: 11px;
+        border: 1px solid white;
+      }
+
+      #vertical-select,
+      #case-study-select {
+        background-color: white;
+        color: black;
+      }
+
+      .chosen-container-single .chosen-single {
+        height: auto;
+        padding: 1rem 1.5rem;
+        border-radius: 0;
+        box-shadow: none;
+        color: black;
+        border-color: #4D4D4D;
+        background: white;
+        font-family: "Helvetica Neue LT W01_71488914", "Ariel", sans-serif;
+        font-size: 14px;
+      }
+
+      .chosen-container-active.chosen-with-drop .chosen-single { background: white; }
+
+      .chosen-container-single .chosen-drop {
+        margin-top: 0;
+        padding-top: 12px;
+        font-family: "Helvetica Neue LT W01_71488914", "Ariel", sans-serif;
+        font-size: 14px;                             
+      }
+
+      .chosen-container-single .chosen-single div { display: none; }
+
+      @media only screen and (max-width: 1030px) {
+        h1 { font-size: 32px; }
+        h2 { font-size: 32px; }
+        h3 { font-size: 18px; }
+        h5 { font-size: 15px; }
+        h6 { font-size: 12px; }
+        p { font-size: 12px; }
+      }
+    </style>
+  </head>
+
+  <body class="content / wrapper">
+    <div class="js-rotate / full-screen / wrapper">
+      <div class="center-a--abs / w100 / tac">
+        <h3 class="neue-bold / mb4 / white / w100">Please rotate your device.</h3>
+        <img src="img/RotateScreen.svg" alt="" class="w5 h5 / mb4">
+        <h5 class="neue-bold / white">This page is best viewed in landscape mode.</h5>
+      </div>
+    </div>
+
+    <div class="js-sticky-nav clone / absolute top2 / hide block-l / w100 h4 / tac / bg-black / bb b-grey85">
+      <nav class="center-a--rel / w100 h100">
+        <ul class="h100">
+          <li class="inline-block / h100 / ph3">
+            <a href="#activewear" class="pointer link">
+              <h6 class="nav__item / is-active / neue-bold" data-nav="Activewear">Activewear</h6>
+            </a>
+          </li>
+
+          <li class="inline-block / h100 / ph3">
+            <a href="#beauty" class="pointer link">
+              <h6 class="nav__item / neue-bold" data-nav="Beauty">Beauty</h6>
+            </a>
+          </li>
+
+          <li class="inline-block / h100 / ph3">
+            <a href="#fashion" class="pointer link">
+              <h6 class="nav__item / neue-bold" data-nav="Fashion">Fashion</h6>
+            </a>
+          </li>
+
+          <li class="inline-block / h100 / ph3">
+            <a href="#retail" class="pointer link">
+              <h6 class="nav__item / neue-bold" data-nav="Retail">Retail</h6>
+            </a>
+          </li>
+
+          <li class="inline-block / h100 / ph3">
+            <a href="#specialty-retail" class="pointer link">
+              <h6 class="nav__item / neue-bold" data-nav="Specialty Retail">Specialty Retail</h6>
+            </a>
+          </li>
+
+          <li class="inline-block / h100 / ph3">
+            <a href="#other" class="pointer link">
+              <h6 class="nav__item / neue-bold" data-nav="Other">Other</h6>
+            </a>
+          </li>
+
+          <li class="inline-block / h100 / ph3">
+            <a href="#explore" class="pointer link">
+              <h6 class="nav__item / neue-bold white" data-nav="Explore">Explore the data &#187;</h6>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <section id="intro">
+      <div>
+        <h3 class="white / neue-roman"><span class="neue-bold">Digital Intelligence</span></h3>
+        <h3 class="white / neue-roman / mb3 mb6-l">Case Studies & Best Practices</h3>
+
+        <img src="img/L2-Logo.svg" alt="" class="absolute top0 right0">
+      </div>
+
+      <video id="bgvid" playsinline autoplay muted class="hide block-l / w100 max-h100 / mb2">
+        <source src="img/video/2017 - Synced Pre v2.mp4" type="video/mp4">
+        <source src="img/video/2017 - Synced Pre v2.webmhd.webm" type="video/webm">
+        <source src="img/video/2017 - Synced Pre v2.oggtheora.ogv" type="video/ogg">
+      </video>
+
+      <img src="img/2017.gif" alt="" class="block hide-l / w100 max-w100 / mb2">
+
+      <img src="img/down-arrow.svg" alt="" class="center-a--rel / mv4 mv6-l">
+
+      <h3 id="copy" class="col-8-l / mb3 / neue-bold / white">
+        Each year L2’s Intelligence Reports each focus in depth on an evolving set of key, topical themes. In 2016, L2 evaluated over 900 brands across several Intelligence Reports, providing benchmarking and digital best practices by blending data-driven insights and performance analysis across industries to identify brand-specific risks and opportunities. 
+      </h3>
+
+      <h3 class="col-8-l / mb4 mb5-l / neue-bold / white">
+        In order to benchmark such strategies holistically, for each study L2 plotted brands on a two-dimensional grid based on the specific data and analysis collected for individual studies, in each case identifying brands ahead and behind the innovation curve. Digital Intelligence 2017 Case Studies and Best Practices seeks to highlight market innovators across our 2017 studies in the following areas:
+      </h3>
+
+      <div class="flex flex-wrap grid / w100 / mb3 mb5-l">
+        <div class="col col-6 col-4-l">
+          <img src="img/commerce-icon.svg" alt="" class="mb2">
+          <h3 class="mb3 / neue-bold / white">Content & Commerce</h3>
+          <p class="neue-roman / grey40">Brands have begun to refocus their digital strategies, prioritizing quality content over quantity and integrating content features directly into the purchase path. L2 identi ed several key areas where content investments result in a signi cantly improved user experience—from personalizing the homepage to reducing page reloads in the checkout process.</p>
+        </div>
+
+        <div class="col col-6 col-4-l">
+          <img src="img/data-icon.svg" alt="" class="mb2">
+          <h3 class="mb3 / neue-bold / white">Data & Targeting</h3>
+          <p class="neue-roman / grey40">Digital has long been proclaimed as a harbinger of a new era of hyper-personalized, targeted, and effective marketing. But this is a promise it has yet to deliver upon. Both data capture and personalization efforts have stagnated among brands over the last year, even though there are several easy wins— from improved data collection to better deployment of email campaigns—that brands can use to move the needle.</p>
+        </div>
+
+        <div class="col col-6 col-4-l">
+          <img src="img/localization-icon.svg" alt="" class="mb2">
+          <h3 class="mb3 / neue-bold / white">Localization</h3>
+          <p class="neue-roman / grey40">While international expansion is often seen as an panacea for revenue growth, local variables like language, currency, platform, ful llment, and consumer preference challenge brands to develop offerings that scale effectively across markets. L2’s analysis identi es key digital strategies that reinforce global branding and maximize in-market e-commerce.</p>
+        </div>
+
+        <div class="col col-6 col-4-l">
+          <img src="img/loyalty-icon.svg" alt="" class="mb2">
+          <h3 class="mb3 / neue-bold / white">Loyalty</h3>
+          <p class="neue-roman / grey40">Well-executed loyalty programs can drive consumer engagement, facilitate data collection, personalize on-site experiences, and help brands identify the most valuable customers. However, less than half of consumers are satis ed with their loyalty program experiences. L2 identi ed several key areas for investment to improve the user experience and encourage brand engagement, from increasing loyalty-speci c communications to integrating programs across all digital touchpoints.</p>
+        </div>
+
+        <div class="col col-6 col-4-l">
+          <img src="img/mobile-icon.svg" alt="" class="mb2">
+          <h3 class="mb3 / neue-bold / white">Mobile</h3>
+          <p class="neue-roman / grey40">Although most brands have invested in basic mobile optimization, user experiences continue to be plagued by careless execution and faulty features. Brand strategies have been reactive rather than proactive, and mobile apps regularly fail to present compelling value propositions. As the importance of mobile grows, brands must not only meet baseline expectations, but also innovate with forward-looking, mobile- rst investments.</p>
+        </div>
+
+        <div class="col col-6 col-4-l">
+          <img src="img/omnichannel-icon.svg" alt="" class="mb2">
+          <h3 class="mb3 / neue-bold / white">Omnichannel</h3>
+          <p class="neue-roman / grey40">From its inception, digital has accelerated the opportunities for always-on interaction and sales channels, but it’s taken a while for the retail industry (via infrastructure and technology) and consumers (via behavior and devices) to reach full omnichannel potential. L2’s analysis found that while most retailers are getting the basics right, leaders break away by employing omnichannel tactics and technologies across the entire retail operation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="scroll" class="relative / flex / gutters">
+      <div class="scroll__graphic sticky / col col-6 col-8-l">
+        <div id="chart" class="chart / flex-l / w100">
+          <div class="chart-legend / center-h--abs / hide block-l / w100 / tac">
+            <div class="inline-block / mr4">
+              <p class="neue-roman / relative / inline-block / mr2 / grey40">View Case Study</p>
+
+              <div class="chart-legend__square / inline-block" style="border: 2px solid white; background-color: black;"></div>
+            </div>
+
+            <div class="inline-block / mr4">
+              <p class="neue-roman / relative / inline-block / mr2 / grey40">Leader</p>
+
+              <div class="chart-legend__square / inline-block" style="background-color: #17D455;"></div>
+            </div>
+
+            <div class="inline-block / mr4">
+              <p class="neue-roman / relative / inline-block / mr2 / grey40">Focused</p>
+
+              <div class="chart-legend__square / inline-block" style="background-color: #E6D101;"></div>
+            </div>
+           
+            <div class="inline-block / mr4">
+              <p class="neue-roman / relative / inline-block / mr2 / grey40">Laggard</p>
+
+              <div class="chart-legend__square / inline-block" style="background-color: #E62A02;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll__text / relative / col col-6 col-4-l">
+        <div class="step / mv4 pt7" data-step=""></div>
+
+        <div id="activewear" class="step / mv4 pt7" data-step="Activewear" data-featured='{"brand":"adidas","vertical":"Activewear","explore_vertical":"Activewear","class":"Leader","score_x":"70","score_y":"57.77777778","case_study":"TRUE","report":"Localization"}'>
+          <div class="ph4">
+            <h2 class="mb3 mb4-l / neue-bold / white">Activewear</h2>
+          </div>
+        </div>
+
+        <div id="beauty" class="step / mv4 pt7" data-step="Beauty" data-featured='{"brand":"Urban Decay","vertical":"Beauty","explore_vertical":"Beauty","class":"Leader","score_x":"4.4995545","score_y":"7.53","case_study":"TRUE","report":"Data & Targeting"}'>
+          <div class="ph4">
+            <h2 class="mb1 / neue-bold / white">Beauty</h2>
+            <h5 class="neue-roman grey60 mb3 mb4-l">Beauty, Hair Care & Color</h5>
+          </div>
+        </div>
+
+        <div id="fashion" class="step / mv4 pt7" data-step="Fashion" data-featured='{"brand":"Michael Kors","vertical":"Fashion","explore_vertical":"Fashion","class":"Laggard","score_x":"1.486486486","score_y":"2.786885246","case_study":"TRUE","report":"Content & Commerce"}'>
+          <div class="ph4">
+            <h2 class="mb1 / neue-bold / white">Fashion</h2>
+            <h5 class="neue-roman grey60 mb3 mb4-l">Fashion, Watches & Jewelry</h5>
+          </div>
+        </div>
+
+
+        <div id="retail" class="step / mv4 pt7" data-step="Retail" data-featured='{"brand":"Bloomingdale&#39;s","vertical":"Retail","explore_vertical":"Department Stores","class":"Other","score_x":"5.2","score_y":"3.33","case_study":"TRUE","report":"Omnichannel"}'>
+          <div class="ph4">
+            <h2 class="mb1 / neue-bold / white">Retail</h2>
+            <h5 class="neue-roman grey60 mb3 mb4-l">Big Box, Department Stores</h5>
+          </div>
+        </div>
+
+        <div id="specialty-retail" class="step / mv4 pt7" data-step="Specialty Retail" data-featured='{"brand":"Sephora","vertical":"Specialty Retail","explore_vertical":"Specialty Retail","class":"Leader","score_x":"8.17679558","score_y":"3.548387097","case_study":"TRUE","report":"Loyalty"}'>
+          <div class="ph4">
+            <h2 class="mb3 mb4-l / neue-bold / white">Specialty Retail</h2>
+          </div>
+        </div>
+
+        <div id="other" class="step / mv4 pt7" data-step="Other" data-featured='{"brand":"Apple","vertical":"Other","explore_vertical":"Other","class":"Leader","score_x":"74.44444444","score_y":"52.77777778","case_study":"TRUE","report":"Localization"}'>
+          <div class="ph4">
+            <h2 class="mb1 / neue-bold / white">Other</h2>
+            <h5 class="neue-roman grey60 mb3 mb4-l">Auto, Consumer Electronics, CPG, Grocery, Hotels</h5>
+          </div>
+        </div>
+
+        <div id="explore" class="step / mv4 pv7" data-step="Explore">
+          <h1 class="mb3 mb4-l neue-bold white">Explore the data</h1>
+
+          <div class="hide inline-block-l / w100 w60-l / mb4 mr2-l">
+            <h5 class="center-v--abs right1 right0-l / pa2 pa3-m / click-through / z4">
+              <i class="l2-down-angle"></i>
+            </h5>
+
+            <select name="vertical-select" id="vertical-select" class="w100"></select>
+          </div>
+
+          <div class="inline-block / w100 w60-l / mb5 mr2-l">
+            <h5 class="center-v--abs right1 right0-l / pa2 pa3-m / click-through / z4">
+              <i class="l2-down-angle"></i>
+            </h5>
+
+            <select name="case-study-select" id="case-study-select" class="w100"></select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outro" class="relative / flex-l / gutters / mt7 pb5">
+      <div class="col col-12 col-8-l">
+        <h3 class="mb4 / neue-bold / white"> L2 is a member-based business intelligence firm that benchmarks the digital performance of brands.</h3>
+
+        <a href="https://www.l2inc.com/about">
+          <p class="neue-bold / neondemon">Learn More About L2</p>
+        </a>
+
+        <a href="https://www.l2inc.com">
+          <p class="neue-bold / neondemon">L2Inc.com</p>
+        </a>
+
+        <h6 class="grey40 neue-roman / mt2">&#169; 2017 L2 inc. All Rights Reserved.</h6>
+      </div>
+
+      <div class="hide block-l / col col-4">
+        <h3 class="mb4 neue-bold white">Related Content from L2</h3>
+
+        <a href="https://www.l2inc.com/research/content-commerce-2017">
+          <p class="neue-bold / neondemon">Content & Commerce 2017</p>
+        </a>
+
+        <a href="https://www.l2inc.com/research/data-targeting-2017">
+          <p class="neue-bold / neondemon">Data & Targeting 2017</p>
+        </a>
+
+        <a href="https://www.l2inc.com/research/localization-2017">
+          <p class="neue-bold / neondemon">Localization 2017</p>
+        </a>
+
+        <a href="https://www.l2inc.com/research/loyalty-2017">
+          <p class="neue-bold / neondemon">Loyalty 2017</p>
+        </a>
+
+        <a href="https://www.l2inc.com/research/mobile-2017">
+          <p class="neue-bold / neondemon">Mobile 2017</p>
+        </a>
+
+        <a href="https://www.l2inc.com/research/omnichannel-2016">
+          <p class="neue-bold / neondemon">Omnichannel 2016</p>
+        </a>
+      </div>
+    </section>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src='//unpkg.com/scrollama'></script>
+    <script src='js/stickyfill.min.js'></script>
+    <script src="js/jetpack.js"></script>
+    
+    <script src="js/main.js"></script>
+  </body>
+</html>

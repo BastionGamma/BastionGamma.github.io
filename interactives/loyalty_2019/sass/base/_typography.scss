@@ -1,0 +1,169 @@
+//  ==========================================================================
+//  Typography Base Styles
+//  ==========================================================================
+body {
+  font: {
+    family: $neue-roman;
+    size: $text-5;
+  }
+}
+
+h1 {
+  font-family: $neue-bold;
+
+  $map: (calculate-rem(320): $mobile-text-1, calculate-rem(1030): $text-1);
+  @include poly-fluid-sizing('font-size', $map);
+}
+
+h2 { 
+  font-family: $neue-roman;
+
+  $map: (calculate-rem(320): $mobile-text-2, calculate-rem(1030): $text-2);
+  @include poly-fluid-sizing('font-size', $map);
+}
+
+h3 { 
+  font-family: $neue-roman;
+
+  $map: (calculate-rem(320): $mobile-text-3, calculate-rem(1030): $text-3);
+  @include poly-fluid-sizing('font-size', $map);
+}
+
+h4 {
+  font-family: $neue-roman;
+
+  $map: (calculate-rem(320): $mobile-text-4, calculate-rem(1030): $text-4);
+  @include poly-fluid-sizing('font-size', $map);
+}
+
+h5 { 
+  font-family: $neue-roman;
+
+  $map: (calculate-rem(320): $mobile-text-5, calculate-rem(1030): $text-5);
+  @include poly-fluid-sizing('font-size', $map);
+}
+
+h6 { 
+  font-family: $neue-roman;
+
+  $map: (calculate-rem(320): $mobile-text-6, calculate-rem(1030): $text-6);
+  @include poly-fluid-sizing('font-size', $map);
+  color: $grey60;
+}
+
+p {
+  font-family: $neue-roman;
+  color: $grey60;
+
+  $map: (calculate-rem(320): $mobile-text-base, calculate-rem(1030): $text-base);
+  @include poly-fluid-sizing('font-size', $map);
+}
+
+ul {
+  font-family: $neue-roman;
+
+  $map: (calculate-rem(320): $mobile-text-base, calculate-rem(1030): $text-base);
+  @include poly-fluid-sizing('font-size', $map);
+}
+
+ol {
+  font-family: $neue-roman;
+
+  $map: (calculate-rem(320): $mobile-text-base, calculate-rem(1030): $text-base);
+  @include poly-fluid-sizing('font-size', $map);
+}
+
+.bold,
+strong,
+b { font-weight: bold; }
+
+a { 
+  text-decoration: none; 
+  outline: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.helvetica { font-family: $helvetica; }
+.neue-roman { font-family: $neue-roman; }
+.neue-italic { font-family: $neue-italic; }
+.neue-black { font-family: $neue-black; }
+.neue-black-italic { font-family: $neue-black-italic; }
+.neue-condensed { font-family: $neue-condensed; }
+.neue-oblique { font-family: $neue-oblique; }
+.neue-bold { font-family: $neue-bold; }
+
+// Font Family
+@import url("https://fast.fonts.net/t/1.css?apiType=css&projectid=a5bd8829-cddf-4946-8a42-ed47ee44fee4");
+
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=e4c74e07-1206-4018-8f56-143a8a11c9b1");
+
+@font-face {
+  font-family: "Helvetica Neue LT W01_71488914";
+  src: url("webfonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix");
+  src: url("webfonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix") format("eot"),
+       url("webfonts/531c5a28-5575-4f58-96d4-a80f7b702d7b.woff2") format("woff2"),
+       url("webfonts/439c5962-f9fe-4eaf-a1f6-f41d42edba75.woff") format("woff"),
+       url("webfonts/419a308d-b777-4f84-9235-2caf4a98ec23.ttf") format("truetype"),
+       url("webfonts/e4d5b881-6835-45b7-8766-3e5b9e7cab8b.svg#e4d5b881-6835-45b7-8766-3e5b9e7cab8b") format("svg");
+}
+
+@font-face {
+  font-family: "Helvetica Neue LT W01_55 Roman";
+  src: url("webfonts/bf7ef4ce-de2a-4213-a9d7-826a3ee323cd.eot?#iefix");
+  src: url("webfonts/bf7ef4ce-de2a-4213-a9d7-826a3ee323cd.eot?#iefix") format("eot"),
+       url("webfonts/3dac71eb-afa7-4c80-97f0-599202772905.woff2") format("woff2"),
+       url("webfonts/34e0e4c0-c294-49bb-9a8e-1b2cafd54e32.woff") format("woff"),
+       url("webfonts/8a8bfee3-197c-4942-9b11-71508cc9f406.ttf") format("truetype"),
+       url("webfonts/5101995a-e73b-4cf9-84e8-f99eb43277b1.svg#5101995a-e73b-4cf9-84e8-f99eb43277b1") format("svg");
+}
+
+@font-face {
+  font-family: "Helvetica Neue LT W01_56 It";
+  src: url("webfonts/5d0e5dca-869d-4e14-ac6b-45fbab3c4047.eot?#iefix");
+  src: url("webfonts/5d0e5dca-869d-4e14-ac6b-45fbab3c4047.eot?#iefix") format("eot"),
+       url("webfonts/21c44514-f4d6-4cff-a5de-e4cac5e61aff.woff2") format("woff2"),
+       url("webfonts/e7c4b231-76ad-47c7-a54b-5d84dcd78d0f.woff") format("woff"),
+       url("webfonts/b6db417f-e795-426a-a2af-adc37a3419a6.ttf") format("truetype"),
+       url("webfonts/0c6d116c-89d1-402b-b9f3-2d9890d7a4ee.svg#0c6d116c-89d1-402b-b9f3-2d9890d7a4ee") format("svg");
+}
+
+@font-face {
+    font-family: "Helvetica Neue LT W01_95 Black";
+    src: url("webfonts/6492b5a6-2267-40e3-8ede-fd8b730790b1.eot?#iefix");
+    src: url("webfonts/6492b5a6-2267-40e3-8ede-fd8b730790b1.eot?#iefix") format("eot"),
+         url("webfonts/bd8486cc-4614-412d-ba1d-15e1a7c9fada.woff2") format("woff2"),
+         url("webfonts/a7bdf5a9-752e-4e69-b17c-b7e62575b07a.woff") format("woff"),
+         url("webfonts/e1f8b69f-5d23-44bc-88bf-94778cc978a3.ttf") format("truetype"),
+         url("webfonts/22a406f9-eeb2-41eb-ab5e-242ec26f3a88.svg#22a406f9-eeb2-41eb-ab5e-242ec26f3a88") format("svg");
+}
+
+@font-face {
+    font-family: "Helvetica Neue LT W01_96 BlkIt";
+    src: url("webfonts/8076926d-997f-43d6-9f72-fb7127f14fb0.eot?#iefix");
+    src: url("webfonts/8076926d-997f-43d6-9f72-fb7127f14fb0.eot?#iefix") format("eot"),
+         url("webfonts/42535969-7bc6-4047-b3ce-bd8aea29420c.woff2") format("woff2"),
+         url("webfonts/35e69fef-20b6-4357-b3a2-075224efa08a.woff") format("woff"),
+         url("webfonts/6d1a8bf6-da88-40ad-bc22-d13faa0a4564.ttf") format("truetype"),
+         url("webfonts/fb0bd0ef-00fd-4ad7-bec5-50cf4a860a81.svg#fb0bd0ef-00fd-4ad7-bec5-50cf4a860a81") format("svg");
+}
+
+@font-face {
+    font-family: "Helvetica Neue LT W01_57 Cond";
+    src: url("webfonts/3808766e-26cf-47cb-97a7-1f1c64db9c48.eot?#iefix");
+    src: url("webfonts/3808766e-26cf-47cb-97a7-1f1c64db9c48.eot?#iefix") format("eot"),
+         url("webfonts/946b2f3f-a9d7-47e4-9738-ee963004d697.woff2") format("woff2"),
+         url("webfonts/ce90a9c3-4580-4fa7-b453-9a4e86d0c271.woff") format("woff"),
+         url("webfonts/a621a6bf-fa40-4115-9f42-6ffb55c017e2.ttf") format("truetype"),
+         url("webfonts/436f9358-58a7-4f85-bdef-f4cd10831df6.svg#436f9358-58a7-4f85-bdef-f4cd10831df6") format("svg");
+}
+
+@font-face{
+    font-family: "Helvetica Neue LT W01_57 CnObl";
+    src: url("webfonts/afa6040d-15b1-44a1-8d96-ac4bf08b88e0.eot?#iefix");
+    src: url("webfonts/afa6040d-15b1-44a1-8d96-ac4bf08b88e0.eot?#iefix") format("eot"),
+         url("webfonts/c105a2ab-affc-4d8b-af03-a091adb0ce8d.woff2") format("woff2"),
+         url("webfonts/4fe57c2d-a37a-4c08-8264-0dcda238b39e.woff") format("woff"),
+         url("webfonts/d3c65138-d901-48c5-a694-74c11336db3f.ttf") format("truetype"),
+         url("webfonts/19d8ce57-2ac2-4881-9263-b8d619be86e4.svg#19d8ce57-2ac2-4881-9263-b8d619be86e4") format("svg");
+}

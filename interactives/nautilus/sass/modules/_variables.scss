@@ -1,0 +1,37 @@
+//  ======================================================================
+//  DEFAULTS
+//  ======================================================================
+  
+  $default-min-width: 980px !default;
+  $default-min-height: 768px !default;
+
+//  ======================================================================
+//  COLORS
+//  ======================================================================
+
+  $color-l2-kiwi: #A0CD55;
+  $color-l2-lake: #3C94D1;
+  $color-l2-violet: #8971B3;
+  $color-l2-orange: #F5814C;
+  $color-l2-orchid: #BF4498;
+  $color-l2-grass: #3FA548;
+  $color-l2-cactus: #00b09E;
+  $color-l2-banana: #DFC423;
+  $color-l2-pomegranate: #E74341;
+  $color-l2-clove: #837369;
+  $color-l2-strawberry: #ED1870;
+
+  $color-l2-darkergrey: #808080;
+  $color-l2-darkgrey: #4C4D4D;
+  $color-l2-medgrey: #CCCCCC;
+  $color-l2-lightgrey: #E5E6E6;
+  $color-l2-lightergrey: #F1F1F1;
+
+  $color-genius: $color-l2-grass;
+  $color-gifted: $color-l2-cactus;
+  $color-average: $color-l2-violet;
+  $color-challenged: $color-l2-banana;
+  $color-feeble: $color-l2-pomegranate;
+
+  $color-facebook: #484B9F;
+  $color-twitter: #3C94D1;

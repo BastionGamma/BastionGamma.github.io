@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <style type="text/css">
+      body, html { font-size: 1rem; }
+
+      p { font-size: 20px; }
+
+      :root {
+        --cube--big: 20vw;
+        --cube--big--half: calc( var(--cube--big) / 2 );
+        --cube--big--half--neg: calc( -1 * var(--cube--big--half) );
+
+        --cube--small: 10vw;
+        --cube--small--half: calc( var(--cube--small) / 2 );
+        --cube--small--half--neg: calc( -1 * var(--cube--small--half) );
+      }
+
+      .body-copy { line-height: 1.75; }
+
+      .underline { text-decoration: underline !important; }
+
+      .vh100 { height: calc(100vh - 15rem); }
+
+      .bg-clear { background-color: rgba(255, 255, 255, 0.5); }
+
+      .scrolly-container.scrolly--third .scrolly,
+      .scrolly-container.scrolly--full .scrolly {
+        max-width: 1800px;
+        margin: 3rem auto;
+      }
+
+      .scrolly-container.scrolly--third .scrolly { display: flex; }
+      .scrolly-container.scrolly--full .scrolly { display: block; }
+
+      .scrolly-container.scrolly--third .scrolly > * { flex: 1; }
+      .scrolly-container.scrolly--full .scrolly > * { flex: none; }
+
+      .scrolly-container.scrolly--full > article {
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .scrolly-container.scrolly--third > article { max-width: 30rem; }
+
+      article .step { margin-bottom: 25vh; }
+
+      article .step:last-of-type { margin-bottom: 0; }
+
+      figure.sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 25vh;
+      }
+
+      .js-reveal { opacity: 0; }
+
+      .scene {
+        width: var(--cube--big);
+        height: var(--cube--big);
+        perspective: 1500px;
+      }
+
+      .scene-small {
+        width: var(--cube--small);
+        height: var(--cube--small);
+      }
+
+      .cube {
+        width: var(--cube--big);
+        height: var(--cube--big);
+        position: relative;
+        transform-style: preserve-3d;
+        transform: translateZ( var(--cube--big--half--neg) );
+        transition: transform 1s;
+      }
+
+      .cube.show-front  { transform: translateZ(var(--cube--big--half--neg)) rotateX(-15deg) rotateY(20deg); }
+      .cube.show-left   { transform: translateZ(var(--cube--big--half--neg)) rotateX(-15deg) rotateY(70deg); }
+      .cube.show-top    { transform: translateZ(var(--cube--big--half--neg)) rotateX(-60deg) rotateY(45deg); }
+
+      .cube.show-corner    { transform: translateZ(var(--cube--big--half--neg)) rotateX(-40deg) rotateY(45deg); }
+      .cube.show-inside-corner    { transform: translateZ(var(--cube--big--half--neg)) rotateX(35deg) rotateY(-135deg) }
+
+      .cube.show-right  { transform: translateZ(var(--cube--big--half--neg)) rotateX(-15deg) rotateY(75deg); }
+      .cube.show-back   { transform: translateZ(var(--cube--big--half--neg)) rotateX(-15deg) rotateY(15deg); }
+      .cube.show-bottom { transform: translateZ(var(--cube--big--half--neg)) rotateX(-65deg) rotateY(45deg); }
+
+      .cube__face {
+        position: absolute;
+        width: var(--cube--big);
+        height: var(--cube--big);
+        line-height: var(--cube--big);
+        font-weight: bold;
+        border: 3px solid white;
+        color: black;
+        text-align: center;
+        transition: all 0.3s ease-out;
+      }
+
+      .cube__face--clear { background: rgba(0, 0, 0, 0) !important; }
+
+      .cube__face--front,
+      .cube__face--left,
+      .cube__face--top { background: rgba(0, 40, 86, 1); }
+
+      .cube__face--right,
+      .cube__face--back,
+      .cube__face--bottom { background: rgba(0, 154, 215, 1); }
+
+      .cube__face--front  { transform: rotateY(  0deg) translateZ(var(--cube--big--half)); }
+      .cube__face--left   { transform: rotateY(-90deg) translateZ(var(--cube--big--half)); }
+      .cube__face--top    { transform: rotateX( 90deg) translateZ(var(--cube--big--half)); }
+
+      .cube__face--right  { transform: rotateY(-90deg) translateZ(var(--cube--big--half--neg)); }
+      .cube__face--back   { transform: rotateY(  0deg) translateZ(var(--cube--big--half--neg)); }
+      .cube__face--bottom { transform: rotateX( 90deg) translateZ(var(--cube--big--half--neg)); }
+
+      .cube__face.active { 
+        border: 5px solid white; 
+        background: rgba(232, 17, 89, 1) !important;
+      }
+
+      .cube--small {
+        transform: translateZ(var(--cube--small--half--neg)) rotateX(-18deg) rotateY(45deg);
+        width: var(--cube--small);
+        height: var(--cube--small);
+      }
+
+      .cube--small .cube__face {
+        width: var(--cube--small);
+        height: var(--cube--small);
+        line-height: var(--cube--small);
+      }
+
+      .cube--small .cube__face--front  { transform: rotateY(  0deg) translateZ(var(--cube--small--half)); }
+      .cube--small .cube__face--left   { transform: rotateY(-90deg) translateZ(var(--cube--small--half)); }
+      .cube--small .cube__face--top    { transform: rotateX( 90deg) translateZ(var(--cube--small--half)); }
+
+      .cube--small .cube__face--right  { transform: rotateY(-90deg) translateZ(var(--cube--small--half--neg)); }
+      .cube--small .cube__face--back   { transform: rotateY(  0deg) translateZ(var(--cube--small--half--neg)); }
+      .cube--small .cube__face--bottom { transform: rotateX( 90deg) translateZ(var(--cube--small--half--neg)); }
+
+      .bar { fill: #002856; }
+
+      @media only screen and (max-width: 1030px) {
+        body, html { font-size: 2rem; }
+
+        :root {
+          --cube--big: 50vw;
+          --cube--big--half: calc( var(--cube--big) / 2 );
+          --cube--big--half--neg: calc( -1 * var(--cube--big--half) );
+
+          --cube--small: 20vw;
+          --cube--small--half: calc( var(--cube--small) / 2 );
+          --cube--small--half--neg: calc( -1 * var(--cube--small--half) );
+        }
+
+        p { font-size: 24px; }
+
+        .scrolly-container.scrolly--third .scrolly { display: block; }
+
+        .scrolly-container.scrolly--third .scrolly > * { flex: none; }
+
+        article {
+          position: relative;
+          margin: 0 auto;
+        }
+      }
+
+      @keyframes rotate {
+        from { transform: rotateX(0deg) rotateY(0deg); }
+        
+        to { transform: rotateX(360deg) rotateY(360deg); }
+      }
+
+      .ani-cube { animation: rotate 20s infinite linear; }
+    </style>
+  </head>
+
+  <body class="wrapper / l2-viz">
+    <section class='filler / vh100' style="margin-bottom: 40vh;">
+      <div class="center-v--abs / w100 h100">
+        <img id="l2Logo" src="img/gartner-l2-logo-blue.svg" alt="Gartner + L2 logo" class="center-h--abs / w6 w5-l / pb4 mt5">
+
+        <div class="scene scene-small / center-a--abs">
+          <div class="cube cube--small ani-cube">
+            <div class="cube__face cube__face--front"></div>
+            <div class="cube__face cube__face--left"></div>
+            <div class="cube__face cube__face--top"></div>
+
+            <div class="cube__face cube__face--back"></div>
+            <div class="cube__face cube__face--right"></div>
+            <div class="cube__face cube__face--bottom"></div>
+          </div>
+        </div>
+        
+        <div class="center-a--abs / inline / w100 w50-l / pa3 / tac / bg-clear">
+          <h1 class="bold">Inside & Outside</h1>
+          <h1 class="bold">Loyalty Programs</h1>
+        </div>
+
+        <h4 class='center-h--abs bottom2 / tac / pa3 mb4 / w100 w60-l / body-copy'>A field guide to looking at loyalty programs from Gartner L2 research</h4>
+
+        <h5 id="" class="center-h--abs bottom0 / gartner-blue / w100 / bold / tac ttu" style="letter-spacing: 2.5px;">Scroll down to begin</h5>
+      </div>
+    </section>
+
+    <section id="text1" class='filler'>
+      <div class="w100">
+        <h4 class='center-h--rel / pa3 mb4 / tac / w100 w60-l / bg-clear / body-copy'>When evaluating loyalty programs, Gartner L2 asks two questions:</h4>
+
+        <h4 class='center-h--rel / pa3 mb4 / tac / w100 w60-l / bg-clear / body-copy'>1) What different types of relationships can brands have with customers?</h4>
+      </div>
+    </section>
+
+    <section class='scrolly-container scrolly--full / tac' data-section='0'>
+      <div class='scrolly / pa3'>
+        <figure class='sticky / left0 / w100 vh50 / ma0'>
+          <div id="cube1" class="js-reveal / center-h--abs scene scene-small" style="top: 15%;">
+            <h5 class="tac / mb2 / bold">Outside</h5>
+
+            <h5 class="tac" style="margin-bottom: 8vh;">Customer Loyalty</h5>
+
+            <div class="cube show-corner cube--small">
+              <div class="cube__face cube__face--front">
+                <p class="white">Transactional</p>
+              </div>
+
+              <div class="cube__face cube__face--left">
+                <p class="white">Emotional</p>
+              </div>
+
+              <div class="cube__face cube__face--top">
+                <p class="white" style="transform: rotateZ(45deg);">Fundamental</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="line1" class="js-reveal / center-a--abs" style="top: 45%;">
+            <div class="">
+              <img src="img/line.svg" alt="">
+            </div>
+          </div>
+
+          <div id="cube2" class="js-reveal / center-h--abs scene scene-small" style="top: 15%;">
+            <h5 class="tac / mb2 / bold">Inside</h5>
+
+            <h5 class="tac" style="margin-bottom: 8vh;">Loyalty Programs</h5>
+
+            <div class="cube show-corner cube--small">
+              <div class="cube__face cube__face--front cube__face--clear"></div>
+
+              <div class="cube__face cube__face--left cube__face--clear"></div>
+
+              <div class="cube__face cube__face--top cube__face--clear"></div>
+
+              <div class="cube__face cube__face--back">
+                <p class="white">Experiential</p>
+              </div>
+
+              <div class="cube__face cube__face--right">
+                <p class="white">Transactional</p>
+              </div>
+              
+              <div class="cube__face cube__face--bottom">
+                <p class="white" style="transform: rotateZ(45deg);">Blend</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <article id="text2" class="pa0">
+          <div class='step / min-vh100'>
+            <h4 class='center-h--rel / pa3 mb4 / tac / w60-l / bg-clear / body-copy'>2) How can brands build loyalty programs to cultivate these different loyalty relationships?</h4>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class='scrolly-container scrolly--third' data-section='1'>
+      <div class='scrolly / pa3'>
+
+         <!--  sticky graphic   -->
+        <figure class='sticky / left0 / w100 vh50 / ma0'>
+          <div class="scene / center-a--abs">
+            <div id="cube3" class="cube / show-corner js-cube">
+              <div class="cube__face cube__face--front">
+                <h2 class="white">Transactional</h2>
+              </div>
+
+              <div class="cube__face cube__face--left">
+                <h2 class="white">Emotional</h2>
+              </div>
+
+              <div class="cube__face cube__face--top">
+                <h2 class="white" style="transform: rotateZ(45deg);">Fundamental</h2>
+              </div>
+
+              <div class="cube__face cube__face--back">
+                <h2 class="white">Experiential</h2>
+              </div>
+
+              <div class="cube__face cube__face--right">
+                <h2 class="white">Transactional</h2>
+              </div>
+              
+              <div class="cube__face cube__face--bottom">
+                <h2 class="white" style="transform: rotateZ(45deg);">Blend</h2>
+            </div>
+          </div>
+        </figure>
+        
+        <!--  step text   -->
+        <article class="pa0 ph3-l">
+          <div class='step / min-vh100' data-value='corner' data-index='0'>
+            <h1 class='center-v--abs / pa3 / bold / bg-clear'>Outside:<br>Customer Loyalty</h1>
+          </div>
+
+          <div id="text3" class='step / min-vh100' data-value='top' data-index='1'>
+            <h4 class='pa3 / mb3 / bg-clear / body-copy'>Drivers of fundamental loyalty include quality, reliability and price. To foster brand advocacy, brands should focus on these core characteristics.</h4>
+
+            <h5 class="pa3 / bold / bg-clear / body-copy">Top Brand Traits That Create Customer Loyalty</h5>
+
+            <div class="chart-container / bg-clear / pl3" data-chart="fundamental" style="height: 35vh;"></div>
+
+            <h6 class="pa3 / bg-clear / body-copy">n = 1,501 US Respondents, Source: CEB Iconoculture Loyalty Survey</h6>
+          </div>
+
+          <div id="text4" class='step / min-vh100' data-value='left' data-index='2'>
+            <h4 class='pa3 / mb3 / bg-clear / body-copy'>Emotional loyalty is tied to psychological levers such as the feelings that products engender upon purchase. Brands tap into emotional loyalty &#8212; which Gartner L2 recognizes as more robust and long-lasting than either fundamental or transactional loyalty &#8212; by delivering more than just transactional value via tactics like experiences.</h4>
+
+            <h5 class="pa3 / bold / bg-clear / body-copy">Being Loyal to a Brand Means...</h5>
+
+            <div class="chart-container / bg-clear / pl3" data-chart="emotional" style="height: 30vh;"></div>
+
+            <h6 class="pa3 / bg-clear / body-copy">n = 1,501 US Respondents, Source: CEB Iconoculture Loyalty Survey</h6>
+          </div>
+
+          <div id="text5" class='step / min-vh100' data-value='front' data-index='3'>
+            <h4 class='pa3 / mb3 / bg-clear'>Transactional loyalty is based on price and is relative to value.</h4>
+
+            <h5 class="pa3 / bold / bg-clear / body-copy">Being Loyal to a Brand Means...</h5>
+
+            <div class="chart-container / bg-clear / pl3" data-chart="transactional" style="height: 18vh;"></div>
+
+            <h6 class="pa3 / bg-clear / body-copy">n = 1,501 US Respondents, Source: CEB Iconoculture Loyalty Survey</h6>
+          </div>
+
+          <div id="text6" class='step / min-vh100' data-value='corner' data-index='4'>
+            <h1 class='pa3 mb3 / bold / bg-clear'>Inside:<br>Loyalty Program Models</h1>
+
+            <h4 class='pa3 / mb3 / bg-clear / body-copy'>To meet the needs of customer loyalty, Gartner L2 found that brands employ three types of loyalty programs, each with their own strengths: experiential, transactional and blended.</h4>
+          </div>
+
+          <div id="text7" class='step / min-vh100' data-value='back' data-index='5'>
+            <h4 class='pa3 / mb3 / bg-clear / body-copy'>One way that brands grow members' emotional affinity is through experiential rewards. To augment the loyalty experience, brands also make loyalty programs the focal point of the in-store experience.</h4>
+
+            <h5 class="pa3 / bold / bg-clear / body-copy">Adoption of Incentives and Year-Over-Year Change:<br>Experiential Benefits</h5>
+
+            <div class="chart-container / vh50 / bg-clear / pl3" data-chart="experiential"></div>
+
+            <h6 class="pa3 / bg-clear / body-copy">n = 82 Brands, Source: Gartner L2 Intelligence Report Loyalty 2019</h6>
+          </div>
+
+          <div id="text8" class='step / min-vh100' data-value='right' data-index='6'>
+            <h4 class='pa3 / mb3 / bg-clear / body-copy'>To sustain member engagement, transactional loyalty programs are reliant on a points-for-purchases model. This type of loyalty structure is beneficial for brands with members who value cash rewards and have higher purchase frequencies.</h4>
+
+            <h5 class="pa3 / bold / bg-clear / body-copy">Adoption of Incentives and Year-Over-Year Change:<br>Monetary Benefits</h5>
+
+            <div class="chart-container / vh50 / bg-clear / pl3" data-chart="transactional2"></div>
+
+            <h6 class="pa3 / bg-clear / body-copy">n = 82 Brands, Source: Gartner L2 Intelligence Report Loyalty 2019</h6>
+          </div>
+
+          <div id="text9" class='step / min-vh100' data-value='bottom' data-index='7'>
+            <h4 class='pa3 / mb3 / bg-clear / body-copy'>Blended loyalty programs possess both unique offerings that enhance the member experience and digital features that streamline interactions. Brands that adopt this model tend to have a balanced rewards mix and cater to a wider audience.</h4>
+
+            <div class="pa3 / bg-clear">
+              <img src="img/nordstrom-screen.png" alt="" class="center-h--rel / w50 w40-l">
+            </div>
+          </div>
+        </article>
+      </div>      
+    </section>
+
+    <section class='scrolly-container scrolly--third' data-section='2'>
+      <div class='scrolly / pa3'>
+         <!--  sticky graphic   -->
+        <figure class='sticky / left0 / w100 vh50 / ma0'>
+          <div class="scene / center-a--abs">
+            <div id="cube4" class="js-cube center-v--abs scene scene-small" style="left: -10%;">
+              <h5 class="tac / mb3 / bold">Outside</h5>
+
+              <h5 class="tac" style="margin-bottom: 8vh;">Customer Loyalty</h5>
+
+              <div class="cube show-corner cube--small">
+                <div class="cube__face cube__face--front">
+                  <p class="white">Transactional</p>
+                </div>
+
+                <div class="cube__face cube__face--left">
+                  <p class="white">Emotional</p>
+                </div>
+
+                <div class="cube__face cube__face--top">
+                  <p class="white" style="transform: rotateZ(45deg);">Fundamental</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="cube5" class="js-cube center-v--abs scene scene-small" style="left: 72%">
+              <h5 class="tac / mb3 / bold">Inside</h5>
+
+              <h5 class="tac" style="margin-bottom: 8vh;">Loyalty Programs</h5>
+
+              <div class="cube show-corner cube--small">
+                <div class="cube__face cube__face--front cube__face--clear"></div>
+
+                <div class="cube__face cube__face--left cube__face--clear"></div>
+
+                <div class="cube__face cube__face--top cube__face--clear"></div>
+
+                <div class="cube__face cube__face--back">
+                  <p class="white">Experiential</p>
+                </div>
+
+                <div class="cube__face cube__face--right">
+                  <p class="white">Transactional</p>
+                </div>
+                
+                <div class="cube__face cube__face--bottom">
+                  <p class="white" style="transform: rotateZ(45deg);">Blend</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
+        
+        <!--  step text   -->
+        <article class="pa0 ph3-l">
+          <div class='step / min-vh100' data-value='corner' data-index='0'>
+            <h1 class='center-v--abs / pa3 / bold / bg-clear'>Case Studies</h1>
+          </div>
+
+          <div id="" class='step / min-vh100' data-value='top,front,right' data-index='1'>
+            <div class="pa3 / bg-clear">
+              <img src="img/dunkin.svg" alt="dunkin brand logo" class="mb2 / h2">
+
+              <h4 class="mv3 / body-copy">Restaurant brand programs, including LevelUp and others run by third parties, incorporate features that seamlessly track purchases and automatically redeem rewards for members. Dunkin' recently piloted a multitender loyalty program, allowing members to earn points regardless of their payment method, streamlining purchases through the app's mobile ordering service.</h4>
+            </div>
+
+            <div class="pa3 / bg-clear">
+              <img src="img/dunkin-screen.png" alt="" class="center-h--rel / w50 w40-l">
+            </div>
+          </div>
+
+          <div id="" class='step / min-vh100' data-value='top,left,back' data-index='2'>
+            <div class="pa3 / bg-clear">
+              <img src="img/toms.svg" alt="dunkin brand logo" class="mb2 / w5">
+
+              <h4 class="mv3 / body-copy">Brands that give members opportunities to connect with certain philanthropic missions and motivational brand purposes can activate emotional loyalty. TOMS, a brand that heavily focuses on experiences in its loyalty program, allows loyalty members to donate collected rewards to support a cause of their choice.</h4>
+            </div>
+
+            <div class="pa3 / bg-clear">
+              <img src="img/toms-screen.png" alt="" class="center-h--rel / w75 w60-l">
+            </div>
+          </div>
+
+          <div id="" class='step / min-vh100' data-value='top,front,left,bottom' data-index='3'>
+            <div class="pa3 / bg-clear">
+              <img src="img/newbalance.svg" alt="dunkin brand logo" class="mb2 / w5">
+
+              <h4 class="pv3 mb3 / body-copy">In addition to having a diverse range of rewards, including access to exclusive products and race entries, New Balance fully integrates loyalty features within its app, including a rewards tracker and a preferences setting. The activewear brand then leverages these app functionalities to aggregate valuable member-specific data that helps personalize rewards and messaging.</h4>
+              
+              <div class="disp-grid col-rp-2 grid-col-wide-gap">
+                <div class="">
+                  <h5 class="tac / pa3 / bold / bg-clear / body-copy">Preferences Setting</h5>
+                  <img src="img/new-balance-screen1.png" alt="" class="center-h--rel / w100">
+                </div>
+
+                <div class="">
+                  <h5 class="tac / pa3 / bold / bg-clear / body-copy">Personalized Product & Rewards Email Content</h5>
+                  <img src="img/new-balance-screen2.png" alt="" class="center-h--rel / w80 w70-l">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="" class='step / min-vh100' data-value='top,front,left,bottom' data-index='4'>
+            <div class="pa3 / bg-clear">
+              <img src="img/sephora.svg" alt="dunkin brand logo" class="mb2 / h2">
+
+              <h4 class="pv3 mb3 / body-copy">Sephora drives continued engagement across its stores and digital properties with its Beauty Insider program, which has an award-winning app. The specialty retailer also takes advantage of tracking at every stage of the consumer journey, tracking customers on the account itself and as they shop to inform algorithmic recommendations, retargeting and enhanced segmentation through member tiers. This is all balanced by the inclusion of valuable reward points that can be exchanged for valued products and exclusive experiences.</h4>
+
+              <div class="center-h--rel / disp-grid col-rp-2 grid-col-wide-gap / w100 w80-l">
+                <div class="pa3 / bg-clear / mb4">
+                  <h5 class="tac / bold / body-copy / mb3">Account and Social</h5>
+                  <img src="img/sephora-screen1.png" alt="" class="center-h--rel / w100">
+                </div>
+
+                <div class="pa3 / bg-clear / mb4">
+                  <h5 class="tac / bold / body-copy / mb3">Activity Tracking</h5>
+                  <img src="img/sephora-screen2.png" alt="" class="center-h--rel / w100">
+                </div>
+
+                <div class="pa3 / bg-clear">
+                  <h5 class="tac / bold / body-copy / mb3">Enhanced Segments</h5>
+                  <img src="img/sephora-screen3.png" alt="" class="center-h--rel / w100">
+                </div>
+
+                <div class="pa3 / bg-clear">
+                  <h5 class="tac / bold / body-copy / mb3">Valuable Rewards</h5>
+                  <img src="img/sephora-screen4.png" alt="" class="center-h--rel / w100">
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>      
+    </section>
+
+    <section class='filler / vh100 / tac' data-section='3'>
+      <div class="center-a--abs / pa3 / w100 w60-l" data-value='corner'>
+        <h4 class='body-copy / mb7'>The third annual <a href="https://www.l2inc.com/research/loyalty-2019" class="underline / rose">Gartner L2 Intelligence Report: Loyalty 2019</a> covers 187 brands across six sectors and evaluates their promotional tactics, loyalty program models, multichannel deployment and mobile integration.</h4>
+
+        <h6 class="">Credits: Lili Meng (research); Minh-Anh Nguyen (design); Wright Rickman (development)</h6>
+      </div>
+    </section>
+  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script src="//unpkg.com/d3@5.4.0/dist/d3.min.js"></script>
+  <script src="//d3js.org/d3-selection-multi.v1.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/d3-jetpack@2.0.20/build/d3-jetpack.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineLite.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/AttrPlugin.min.js"></script>
+
+  <script src="//unpkg.com/enter-view@1.0.0/enter-view.min.js"></script>
+  <script src="//unpkg.com/stickyfilljs@2.0.5/dist/stickyfill.js"></script>
+
+  <script src="js/main.js"></script>
+</html>

@@ -1,0 +1,51 @@
+//  ==========================================================================
+//  MIXINS
+//  ==========================================================================
+
+  @mixin size($size: 100%) {
+    width: $size;
+    height: $size;
+  }
+  
+  @mixin center($position: relative, $horizontal: true, $vertical: true) {
+    @if ($position == 'relative') {
+      position: relative;
+    } @else if ($position == 'absolute') {
+      position: absolute;
+    } @else if ($position == 'fixed') {
+      position: fixed;
+    }
+
+    @if ($horizontal and $vertical) {
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%, -50%));
+    } @else if ($horizontal) {
+      left: 50%;
+      @include transform(translate(-50%, 0));
+    } @else if ($vertical) {
+      top: 50%;
+      @include transform(translate(0, -50%));
+    }
+  }
+
+  @mixin button($fill: white) {
+    padding: 1.2vh 0.5vw;
+    cursor: pointer;
+    text-decoration: initial;
+    font: {
+      family: $light;
+      size: 15pt;
+    }
+    border: 1px solid $color-l2-lightgrey;
+
+    @if ($fill == white) {
+      background-color: $fill;
+
+      &:hover,
+      &.active { background-color: $color-l2-lightergrey; }
+    } @else {
+      display: inline-block;
+      background-color: $fill;
+    }
+  }

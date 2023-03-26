@@ -1,0 +1,9 @@
+//  ==========================================================================
+//  MODULES
+//  ==========================================================================
+
+  %--animate {
+    @include transition-duration(0.3s);
+    @include transition-property(all);
+    @include transition-timing-function(ease-in); 
+  }

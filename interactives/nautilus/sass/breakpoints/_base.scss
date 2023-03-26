@@ -1,0 +1,103 @@
+.Average { fill: $color-average; }
+.Genius { fill: $color-genius; }
+.Gifted { fill: $color-gifted; }
+.Challenged { fill: $color-challenged; }
+.Feeble { fill: $color-feeble; }
+
+h2 { font-size: 1.25em; }
+
+.chart {
+  position: absolute;
+  bottom: 0;
+  width: 92vw;
+  height: 60vh;
+  z-index: 2;
+
+  &__container { width: 100%; }
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform( translate(-50%, -50%) );
+}
+
+.back {
+  position: absolute;
+  top: 50%;
+  left: 49.8%;
+  cursor: pointer;
+  visibility: hidden;
+  z-index: 3;
+  @include transform( translate(-50%, -50%) );
+
+  &.visible { visibility: visible; }
+}
+
+.back {
+  &.only-sm { display: initial; }
+  &.only-med-lg { display: none; }
+
+  img {
+    position: relative;
+    left: 50%;
+    width: 10vw;
+    @include transform( translate(-50%, 0) );
+  }
+}
+
+#details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  max-width: 145px;
+  @include transform( translate(-50%, -50%) );
+
+  h4,
+  h5 { text-align: center; }
+}
+
+#study {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  @include transform( translate(-50%, 0) );
+
+  &.only-sm { display: initial; }
+}
+
+.label { 
+  font-size: 12pt;
+  font-family: $neue;
+
+  &.only-med-lg { display: none; }
+}
+
+.legend {
+  position: absolute;
+  top: 100px;
+  margin: 0 !important;
+  z-index: 3;
+  left: 3vw;
+  max-width: 92%;
+  pointer-events: none;
+
+  &.desktop { 
+    &.is-all { display: none; }
+  }
+
+  &.mobile { 
+    &.is-all {
+      display: initial; 
+    }
+  }
+
+  img { width: 100%; }
+
+  div:nth-of-type(1) { margin-bottom: 35px; }
+  div:nth-of-type(2) { margin-bottom: 20px; }
+
+  &.is-single { display: none; }
+}

@@ -1,0 +1,65 @@
+//  ==========================================================================
+//  MIXINS
+//  ==========================================================================
+
+  @mixin size($size: 100%) {
+    width: $size;
+    height: $size;
+  }
+  
+  @mixin center($position: 'absolute', $horizontal: true, $vertical: true) {
+    @if ($position == 'relative') {
+      position: relative;
+    } @else if ($position == 'absolute') {
+      position: absolute;
+    } @else if ($position == 'fixed') {
+      position: fixed;
+    }
+
+    @if ($horizontal and $vertical) {
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%, -50%));
+    } @else if ($horizontal) {
+      left: 50%;
+      @include transform(translate(-50%, 0));
+    } @else if ($vertical) {
+      top: 50%;
+      @include transform(translate(0, -50%));
+    }
+  }
+
+  @mixin button($color: $color-l2-lightgrey) {
+    text: {
+      decoration: initial;
+      align: center;
+    }
+    padding: 12px;
+    min-width: 100px;
+    background-color: $color-l2-lightergrey;
+    border: 1px solid $color-l2-lightgrey;
+    color: $color-l2-darkgrey;
+    cursor: default;
+    outline: none;
+    
+    @if ($color == $color-l2-kiwi) {
+      color: white;
+      cursor: pointer;
+      background-color: $color-l2-kiwi;
+      border: 1px solid $color-l2-kiwi;
+    } @else if ($color == $color-l2-lightergrey) {
+      background-color: transparent;
+      color: $color-l2-darkgrey;
+    } @else if ( $color == $color-facebook or $color == $color-twitter ) {
+      background: $color;
+      color: white;
+      font-family: $light;
+      border-color: transparent;
+    }
+  }
+
+  @mixin animate($time: 0.3s, $property: all) {
+    @include transition-duration($time);
+    @include transition-property($property);
+    @include transition-timing-function(ease-in); 
+  } 

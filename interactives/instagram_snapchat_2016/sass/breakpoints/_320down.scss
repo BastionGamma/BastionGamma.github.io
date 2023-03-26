@@ -1,0 +1,21 @@
+.hero {
+  .hero__content { margin-top: 25px; }
+
+  &__middle .copy { margin-bottom: 25px; }
+}
+
+.copy { font-size: 12pt; }
+
+.comparison__button__text,
+.mobile-nav__button h2 { font-size: 8pt; }
+
+.comparison .slide__header .copy {
+  margin-bottom: 15px;
+  font-size: 10pt;
+}
+
+.drag-instructions { font-size: 6pt; }
+
+.graph-container { height: 74%; }
+
+.bar-group .label { font-size: 10pt; }

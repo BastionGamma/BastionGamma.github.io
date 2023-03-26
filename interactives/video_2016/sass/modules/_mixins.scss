@@ -1,0 +1,45 @@
+//  ==========================================================================
+//  MIXINS
+//  ==========================================================================
+
+  @mixin size($size: 100%) {
+    width: $size;
+    height: $size;
+  }
+  
+  @mixin center($position: absolute, $horizontal: true, $vertical: true) {
+    @if ($position == 'relative') {
+      position: relative;
+    } @else if ($position == 'absolute') {
+      position: absolute;
+    } @else if ($position == 'fixed') {
+      position: fixed;
+    }
+
+    @if ($horizontal and $vertical) {
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%, -50%));
+    } @else if ($horizontal) {
+      left: 50%;
+      @include transform(translate(-50%, 0));
+    } @else if ($vertical) {
+      top: 50%;
+      @include transform(translate(0, -50%));
+    }
+  }
+
+  @mixin gradient($direction: left, $from: $color-l2-blueberry, $to: $color-l2-strawberry) {
+    background-color: $to;
+    // background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));s
+    background-image: -webkit-linear-gradient($direction, $from, $to);
+    background-image: -moz-linear-gradient($direction, $from, $to);
+    background-image: -o-linear-gradient($direction, $from, $to);
+    // background-image: linear-gradient(to bottom, $from, $to);
+  }
+
+  @mixin animate($time: 0.3s, $property: all) {
+    @include transition-duration($time);
+    @include transition-property($property);
+    @include transition-timing-function(ease-in); 
+  }

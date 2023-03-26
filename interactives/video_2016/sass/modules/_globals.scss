@@ -1,0 +1,70 @@
+//  ==========================================================================
+//  GLOBAL STYLES
+//  ==========================================================================
+  html,
+  body {
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden; 
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+
+    @include gradient();
+  }
+
+  h1, h2, h3, h4, h5, p { 
+    margin: 0; 
+    font-weight: initial;
+    color: white;
+  }
+
+  h1 { 
+    font: {
+      size: 34pt;
+      family: $light; 
+    }
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font: {
+      family: $light;
+      size: 20pt;
+    }
+  }
+
+  h3 {
+    font: {
+      family: $light;
+      size: 16pt;
+    }
+    text-transform: capitalize;
+  }
+ 
+  h4 {
+    font: {
+      family: $roman;
+      size: 11pt;
+    }
+  }
+
+  h5 {
+    font: {
+      family: $condensed;
+      size: 10pt;
+    }
+  }
+
+  p { font-size: 12pt; }
+
+  a { text-decoration: none; }
+
+  .wrapper { padding: 3%; }
+
+  .hidden { 
+    display: none; 
+    visibility: hidden;
+    opacity: 0;
+  }
