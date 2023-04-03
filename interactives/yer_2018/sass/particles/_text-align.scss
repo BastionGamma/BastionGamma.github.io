@@ -1,0 +1,36 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+  TEXT ALIGN
+  Docs: http://tachyons.io/docs/typography/text-align/
+
+  Base
+    ta = text-align
+
+  Modifiers
+    l = left
+    r = right
+    c = center
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$text-align-map: (
+  l: left,
+  r: right,
+  c: center
+);
+  
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {  
+    @each $key, $value in $text-align-map {
+      .ta#{$key}#{nth($screen-sizes, $index)} { text-align: $value; }
+    }
+  }
+}

@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title></title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12281975-16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-12281975-16');
+    </script>    
+
+    <style>
+      html, body { overflow-x: initial !important; }
+
+      body {
+        max-width: 1800px;
+        margin: 0 auto;
+      }
+
+      h6 { line-height: 1rem; }
+
+      a { color: #009AD7; }
+
+      .underline { text-decoration: underline; }
+
+      span { cursor: pointer; }
+
+      p { line-height: 1.5; }
+
+      .sky { color: #009AD7; }
+
+      .grey { color: #999999; }
+
+      .image { opacity: 0; }
+
+      .vam { vertical-align: middle; }
+
+      @import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=e4c74e07-1206-4018-8f56-143a8a11c9b1");
+
+      @font-face {
+        font-family: "Helvetica Neue LT W01_71488914";
+        src: url("Fonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix");
+        src: url("Fonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix") format("eot"),
+             url("Fonts/531c5a28-5575-4f58-96d4-a80f7b702d7b.woff2") format("woff2"),
+             url("Fonts/439c5962-f9fe-4eaf-a1f6-f41d42edba75.woff") format("woff"),
+             url("Fonts/419a308d-b777-4f84-9235-2caf4a98ec23.ttf") format("truetype"),
+             url("Fonts/e4d5b881-6835-45b7-8766-3e5b9e7cab8b.svg#e4d5b881-6835-45b7-8766-3e5b9e7cab8b") format("svg");
+      }
+
+      @font-face {
+        font-family: "Helvetica Neue LT W01_55 Roman";
+        src: url("Fonts/a58359b2-ab6c-4eb7-a2ed-b567c68b3388.eot?#iefix");
+        src: url("Fonts/a58359b2-ab6c-4eb7-a2ed-b567c68b3388.eot?#iefix") format("eot"),
+             url("Fonts/02963ef0-dbb8-4ec9-a06d-939c6f252739.woff2") format("woff2"),
+             url("Fonts/411f40ef-ca35-4f60-93ce-b394d5485b62.woff") format("woff"),
+             url("Fonts/aee958bd-461a-4843-929b-4127e918a85e.ttf") format("truetype"),
+             url("Fonts/a5239550-7c80-4408-8598-671485ac7994.svg#a5239550-7c80-4408-8598-671485ac7994") format("svg");
+      }
+
+      .neue-bold { font-family: "Helvetica Neue LT W01_71488914", "Ariel", sans-serif; }
+      .neue-roman { font-family: "Helvetica Neue LT W01_55 Roman", "Ariel", sans-serif; }
+
+      .domain { display: none; }
+
+      .grey-bar { fill: #262626; }
+
+      .white-label { fill: #FFFFFF; }
+
+      .blue-label,
+      .blue-bar { fill: #009AD7; }
+
+      text { font-family: "Helvetica Neue LT W01_55 Roman", "Ariel", sans-serif; }
+
+      .label {
+        fill: white;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .axis .tick text,
+      .stack-axis .tick text { 
+        fill: white; 
+        font-size: 12px;
+      }
+
+      .x.axis .tick line { 
+        stroke: white;
+        stroke-dasharray: 5px 5px;
+      }
+
+      .y.axis .tick line,
+      .stack-axis .tick line { display: none; }
+
+      .circle {
+        stroke: white;
+        fill: #009AD7;
+      }
+
+      .tooltip {
+        top: -1000px;
+        position: fixed;
+        padding: 10px;
+        background: black;
+        color: white;
+        pointer-events: none;
+        font-family: "Helvetica Neue LT W01_55 Roman", "Ariel", sans-serif;
+        font-size: 12px;
+      }
+
+      .tooltip-hidden {
+        opacity: 0;
+        transition: all .3s;
+        transition-delay: .1s;
+      }
+
+      .white-square { background-color: #FFFFFF; }
+      .blue-square { background-color: #009AD7; }
+      .grey-square { background-color: #999999; }
+
+      .aspect-ratio--16x9 { padding-bottom: 56.28%; }
+    </style>
+  </head>
+
+  <body class="wrapper / bg-black">
+    <section id="intro" class="h100 / mb7">
+      <a href="https://l2inc.com" target="_blank"><img src="img/gartner-l2-logo.svg" alt="Gartner + L2 logo" class="center-h--rel / w5"></a>
+
+      <div class="center-a--abs / w100 / mt4">
+        <div class="center-a--rel / w100">
+          <img src="img/2018.png" alt="A Year in Digital Intellignece" class="image center-a--abs / w80 w30-l" id="twenty-eighteen">
+          <h1 class="neue-bold / tac / white / image" id="title">A Year in Digital Intelligence</h1>
+        </div>
+
+        <h4 class="center-h--rel / tac / w90 w40-l / mt5 mt7-l / white / neue-roman / image" id="subtitle" style="line-height: 1.75rem;">Learn about an evolving set of key topical themes and industry best practices based on the performance of 603 brands across 14 sectors analyzed in Gartner L2’s Intelligence reports.</h4>
+      </div>
+
+      <img src="img/down-arrow.svg" alt="" class="center-h--abs / bottom0">
+    </section>
+
+    <style>
+      .cd-vertical-nav {
+        position: fixed;
+        top: 50% !important;
+        -webkit-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        left: 2rem !important;
+        opacity: 0;
+      }
+
+      .cd-vertical-nav ul {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        cursor: default;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .cd-vertical-nav li {
+        position: relative;
+        display: block;
+        margin: 1.5rem 0;
+        width: 0.6rem;
+        height: 0.6rem;
+        cursor: pointer;
+      }
+
+      .cd-vertical-nav li a {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid white;
+        text-indent: -999em;
+        cursor: pointer;
+        position: absolute;
+      }
+
+      .cd-vertical-nav li:last-child {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        margin: 0;
+        height: 48px;
+        -webkit-transition: -webkit-transform 0.3s ease;
+        transition: transform 0.3s ease;
+      }
+
+      .cd-vertical-nav li:last-child::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background-color: #fff;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+
+      .cd-vertical-nav li.current:first-child ~ li:last-child {
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+      }
+
+      .cd-vertical-nav li.current:nth-child(2) ~ li:last-child {
+        -webkit-transform: translateY(71%);
+        transform: translateY(71%);
+      }
+
+      .cd-vertical-nav li.current:nth-child(3) ~ li:last-child {
+        -webkit-transform: translateY(142%);
+        transform: translateY(142%);
+      }
+
+      .cd-vertical-nav li.current:nth-child(4) ~ li:last-child {
+        -webkit-transform: translateY(210%);
+        transform: translateY(210%);
+      }
+
+      .cd-vertical-nav li.current:nth-child(5) ~ li:last-child {
+        -webkit-transform: translateY(282%);
+        transform: translateY(282%);
+      }
+
+      .cd-vertical-nav li.current:nth-child(6) ~ li:last-child {
+        -webkit-transform: translateY(352%);
+        transform: translateY(352%);
+      }
+
+      .cd-vertical-nav li.current:nth-child(7) ~ li:last-child {
+        -webkit-transform: translateY(422%);
+        transform: translateY(422%);
+      }
+
+      .cd-vertical-nav li a {
+        -webkit-transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease;
+      }
+    </style>
+
+    <nav class="hide block-l / cd-vertical-nav" id="vert-nav">
+      <ul>
+        <li class="current">
+          <a href="#omnichannel" data-number="1">Omnichannel</a>
+        </li>
+
+        <li>
+          <a href="#content-commerce" data-number="2">Content & Commerce</a>
+        </li>
+
+        <li>
+          <a href="#social-platforms" data-number="3">Social Platforms & Influencers</a>
+        </li>
+
+        <li>
+          <a href="#retailers" data-number="4">Retailers & Marketplaces</a>
+        </li>
+
+        <li>
+          <a href="#data-targeting" data-number="5">Data & Targeting</a>
+        </li>
+
+        <li>
+          <a href="#mobile" data-number="6">Mobile Marketing</a>
+        </li>
+
+        <li>
+          <a href="#reports" data-number="7">Reports</a>
+        </li>
+
+        <li><!-- dummy dot --></li>
+      </ul>
+    </nav>
+
+    <section id="omnichannel" class="scroll / relative / flex-l">
+      <div class="scroll__graphic / col col-8-l">
+        <div id="omnichannel_graphic" class="scroll__container / chart">
+          <div>
+            <h5 class="inline-block-l / neue-bold white">Related Research</h5>
+            <h5 class="inline-block-l / ml5-l / neue-bold sky">
+              <a href="https://www.l2inc.com/research/omnichannel-2018" target="_blank">
+                Omnichannel 2018
+              </a>
+            </h5>
+          </div>
+
+          <h1 class="hide block-l / center-v--abs / neue-bold white / zmax gradient / mt7 pl4-l">Digital Goes In-Store</h1>
+
+          <div title aria-label="aimation" style="width: 100%; height: 100%; overflow: hidden; margin: 0px auto;">
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="0 -100 800 1000" width="1340" height="1440" style="width: 100%; height: 100%;">
+              <g>
+                <g id="o-phone" class="image" transform="translate(-500 500)">
+                  <image width="500px" height="300px" xlink:href="img/omnichannel/Phone.svg"></image>
+                </g>
+
+                <g id="o-floating-shelf" class="image" transform="translate(750 -200)">
+                  <image width="120px" height="300px" xlink:href="img/omnichannel/Floating Shelves.svg"></image>
+                </g>
+
+                <g id="o-bookshelf1" class="image" transform="translate(445 -1000)">
+                  <image width="150px" height="300px" xlink:href="img/omnichannel/Bookshelf.svg"></image>
+                </g>
+
+                <g id="o-stack1" class="image" transform="translate(520 -500)">
+                  <image width="35px" height="300px" xlink:href="img/omnichannel/Stack Back Bottom.svg"></image>
+                </g>
+
+                <g id="o-stack4" class="image" transform="translate(494 -500)">
+                  <image width="35px" height="300px" xlink:href="img/omnichannel/Stack Back Middle.svg"></image>
+                </g>
+
+                <g id="o-stack5" class="image" transform="translate(470 -500)">
+                  <image width="35px" height="300px" xlink:href="img/omnichannel/Stack Back Top.svg"></image>
+                </g>
+
+                <g id="o-bookshelf2" class="image" transform="translate(420 -1000)">
+                  <image width="150px" height="300px" xlink:href="img/omnichannel/Bookshelf.svg"></image>
+                </g>
+
+                <g id="o-shirt" class="image" transform="translate(320 -500) rotate(0)">
+                  <image width="30px" height="80px" xlink:href="img/omnichannel/Front Shirt.svg"></image>
+                </g>
+
+                <g id="o-clothes-rack" class="image" transform="translate(240 -1000)">
+                  <image width="120px" height="300px" xlink:href="img/omnichannel/Clothing Rack.svg"></image>
+                </g>
+
+                <g id="o-stack2" class="image" transform="translate(390 -500)">
+                  <image width="35px" height="300px" xlink:href="img/omnichannel/Stack Front Bottom.svg"></image>
+                </g>
+
+                <g id="o-stack3" class="image" transform="translate(440 -500)">
+                  <image width="35px" height="300px" xlink:href="img/omnichannel/Stack Front Middle.svg"></image>
+                </g>
+
+                <g id="o-stack6" class="image" transform="translate(400 -500)">
+                  <image width="35px" height="300px" xlink:href="img/omnichannel/Stack Front Top.svg"></image>
+                </g>
+
+                <g id="o-stack7" class="image" transform="translate(255 -500)">
+                  <image width="35px" height="300px" xlink:href="img/omnichannel/Stack Floating Top.svg"></image>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <h1 class="block hide-l / absolute bottom1 / neue-bold white / zmax gradient">Digital Goes In-Store</h1>
+        </div>
+      </div>
+
+      <div class="scroll__text / relative / col col-4-l">
+        <div class="step / h100" data-step="omnichannel">
+          <h6 class="neue-bold / white">Omnichannel 2018</h6>
+          <h6 class="neue-roman / white">Performance Distribution</h6>
+
+          <div class="chart-container / w100 vh25" data-chart="omnichannel"></div>
+
+          <p class="mt2 neue-roman white">Omnichannel - the seamless integration of digital and physical assets - has moved from an abstract concept to a central component of a successful retail strategy.</p> 
+
+          <p class="mt4 neneu-roman white">Fifty-two percent of brands evaluated year over year in Gartner L2’s Intelligence Report: Omnichannel 2018 have both <span class="hover sky underline" data-hover="drive">enhanced their use of digital channels to drive store visits <img src="img/hover-icon.svg" alt="" class="mb1 mr1"></span> and made <span class="hover sky underline" data-hover="e-commerce">online shopping more convenient and advantageous <img src="img/hover-icon.svg" alt="" class="mb1 mr1"></span>. Leading retailers and direct-to-consumer brands balance their brick-and-mortar footprint with a digitally powered marketing and fulfillment strategy.</p>
+
+          <p class="mt4 mb5 grey40">Hover over text with a <img src="img/hover-icon.svg" alt="" class="mh1"> symbol to see product examples.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="content-commerce" class="scroll / relative / flex-l">
+      <div class="scroll__graphic / col  col-8-l">
+        <div id="content-commerce_graphic" class="scroll__container / chart">
+          <div>
+            <h5 class="inline-block-l / neue-bold white">Related Research</h5>
+            <h5 class="inline-block-l / ml5-l / neue-bold sky">
+              <a href="https://www.l2inc.com/research/content-commerce-2018" target="_blank">Content & Commerce 2018</a>
+            </h5>
+          </div>
+
+          <h1 class="hide block-l / center-v--abs / neue-bold white / zmax gradient / mt7 / pl4-l">Play Your Best Hand</h1>
+
+          <div title aria-label="aimation" style="width: 100%; height: 100%; overflow: hidden; margin: 0px auto;">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="0 0 900 1000" width="1340" height="1440" style="width: 100%; height: 100%;"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="0 -100 800 1000" width="1340" height="1440" style="width: 100%; height: 100%;">
+              <g>
+                <g id="cc-die" class="image" transform="translate(800 -225)">
+                  <image width="42px" height="400px" xlink:href="img/content-commerce/Die.svg"></image>
+                </g>
+
+                <g id="cc-game-board" class="image" transform="translate(40 500)">
+                  <image width="660px" height="400px" xlink:href="img/content-commerce/Board.svg"></image>
+                </g>
+
+                <g id="cc-black-cards" class="image" transform="translate(-160 -200)">
+                  <image width="175px" height="400px" xlink:href="img/content-commerce/Black cards.svg"></image>
+                </g>
+
+                <g id="cc-white-cards" class="image" transform="translate(800 400)">
+                  <image width="185px" height="400px" xlink:href="img/content-commerce/White cards.svg"></image>
+                </g>
+
+                <g id="cc-icon1" class="image" transform="translate(338 -500)">
+                  <image width="62px" height="400px" xlink:href="img/content-commerce/Product matching.svg"></image>
+                </g>
+
+                <g id="cc-product-page" class="image" transform="translate(302 -500)">
+                  <image width="130px" height="400px" xlink:href="img/content-commerce/Product page.svg"></image>
+                </g>
+
+                <g id="cc-icon2" class="image" transform="translate(554 -500)">
+                  <image width="62px" height="400px" xlink:href="img/content-commerce/Blog icon.svg"></image>
+                </g>
+
+                <g id="cc-icon3" class="image" transform="translate(342 -500)">
+                  <image width="62px" height="400px" xlink:href="img/content-commerce/Tutorial icon.svg"></image>
+                </g>
+
+                <g id="cc-icon4" class="image" transform="translate(118 -500)">
+                  <image width="62px" height="400px" xlink:href="img/content-commerce/Video icon.svg"></image>
+                </g>
+
+                <g id="cc-black-piece1" class="image" transform="translate(62 -500)">
+                  <image width="35px" height="400px" xlink:href="img/content-commerce/Black piece.svg"></image>
+                </g>
+
+                <g id="cc-black-piece2" class="image" transform="translate(470 -500)">
+                  <image width="35px" height="400px" xlink:href="img/content-commerce/Black piece.svg"></image>
+                </g>
+
+                <g id="cc-black-piece3" class="image" transform="translate(200 -500)">
+                  <image width="35px" height="400px" xlink:href="img/content-commerce/Black piece.svg"></image>
+                </g>
+
+                <g id="cc-black-piece4" class="image" transform="translate(430 -500)">
+                  <image width="35px" height="400px" xlink:href="img/content-commerce/Black piece.svg"></image>
+                </g>
+
+                <g id="cc-white-piece1" class="image" transform="translate(238 -500)">
+                  <image width="35px" height="400px" xlink:href="img/content-commerce/White piece.svg"></image>
+                </g>
+
+                <g id="cc-white-piece2" class="image" transform="translate(500 -500)">
+                  <image width="35px" height="400px" xlink:href="img/content-commerce/White piece.svg"></image>
+                </g>
+
+                <g id="cc-white-piece3" class="image" transform="translate(520 -500)">
+                  <image width="35px" height="400px" xlink:href="img/content-commerce/White piece.svg"></image>
+                </g>
+
+                <g id="cc-white-piece4" class="image" transform="translate(565 -500)">
+                  <image width="35px" height="400px" xlink:href="img/content-commerce/White piece.svg"></image>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <h1 class="block hide-l / absolute bottom1 / neue-bold white / zmax gradient">Play Your Best Hand</h1>
+        </div>
+      </div>
+
+      <div class="scroll__text / relative / col col-4-l">
+        <div class="step / h100" data-step="content-commerce">
+          <h6 class="neue-bold / white">Content & Commerce 2018</h6>
+          <h6 class="neue-roman / white">Performance Distribution</h6>
+
+          <div class="chart-container / w100 vh25" data-chart="content-commerce"></div>
+
+          <p class="mt2 neue-roman white">Content quality and brand equity remain the biggest drivers of desktop site engagement — direct and organic search result traffic accounted for over 75% of total desktop site traffic in 2017.</p> 
+
+          <p class="mt4 neneu-roman white">Brands have taken notice and prioritized creating a frictionless, intuitive site experience for consumers — 40% of analyzed brands now link to product pages from the four assessed content types (blogs, product-matching tools, tutorials and videos), up from 20% last year.</p>
+
+          <h6 class="mt4 / neue-bold white">Share of Site Traffic by Channel on Desktop</h6>
+          <h6 class="mt1 / neue-roman white">2017, n=106 brands</h6>
+
+          <div class="chart-container / mt3 mb7 / w100 vh25" data-chart="content-commerce-pie"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="social-platforms" class="scroll / relative / flex-l">
+      <div class="scroll__graphic / col col-8-l">
+        <div id="social-platforms_graphic" class="scroll__container / chart">
+          <div>
+            <h5 class="inline-block-l / neue-bold white">Related Research</h5>
+            <h5 class="inline-block-l / ml5-l / neue-bold sky">
+              <a href="https://www.l2inc.com/research/social-platforms-influencers-2018" target="_blank">
+                Social Platforms & Influencers 2018
+              </a>
+            </h5>
+          </div>
+
+          <h1 class="hide block-l / center-v--abs / neue-bold white / zmax gradient / mt7 / pl4-l"><s>Slow And</s> Steady Wins The Race</h1>
+
+          <div title aria-label="aimation" style="width: 100%; height: 100%; overflow: hidden; margin: 0px auto;">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="-100 0 1000 1000" width="1340" height="1440" style="width: 100%; height: 100%;"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="-100 -100 900 1000" width="1340" height="1440" style="width: 100%; height: 100%;">
+              <g>
+                <g id="sp-clouds1" class="image" transform="translate(-15 305)">
+                  <image width="125px" height="80px" xlink:href="img/social-platforms/Clouds Left.svg"></image>
+                </g>
+
+                <g id="sp-clouds2" class="image" transform="translate(435 210)">
+                  <image width="135px" height="90px" xlink:href="img/social-platforms/Clouds Right.svg"></image>
+                </g>
+
+                <g id="sp-racetrack" class="image" transform="translate(85 135)">
+                  <image width="625px" height="425px" xlink:href="img/social-platforms/Racetrack.svg"></image>
+                </g>
+
+                <g id="sp-finishline" class="image" transform="translate(40 -500)">
+                  <image width="70px" height="425px" xlink:href="img/social-platforms/Finish Line.svg"></image>
+                </g>
+
+                <g id="sp-tortoise" class="image" transform="translate(180 -30)">
+                  <image width="75px" height="425px" xlink:href="img/social-platforms/Tortoise.svg"></image>
+                </g>
+
+                <g id="sp-heart1" class="image" transform="translate(155 -110)">
+                  <image width="85px" height="425px" xlink:href="img/social-platforms/Tortoise Heart.svg"></image>
+                </g>
+
+                <g id="sp-hare" class="image" transform="translate(680 115)">
+                  <image width="75px" height="425px" xlink:href="img/social-platforms/Hare.svg"></image>
+                </g>
+
+                <g id="sp-heart2" class="image" transform="translate(580 140)">
+                  <image width="50px" height="425px" xlink:href="img/social-platforms/Hare Heart.svg"></image>
+                </g>
+
+                <g id="sp-instagram" class="image" transform="translate(230 -500)">
+                  <image width="80px" height="425px" xlink:href="img/social-platforms/Instagram.svg"></image>
+                </g>
+
+                <g id="sp-facebook" class="image" transform="translate(310 -500)">
+                  <image width="60px" height="425px" xlink:href="img/social-platforms/Facebook.svg"></image>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <h1 class="block hide-l / absolute bottom1 / neue-bold white / zmax gradient"><s>Slow And</s> Steady Wins The Race</h1>
+        </div>
+      </div>
+
+      <div class="scroll__text / relative / col col-4-l">
+        <div class="step / h100" data-step="social-platforms">
+          <h6 class="neue-bold / white">Social Platforms 2018</h6>
+          <h6 class="neue-roman / white">Performance Distribution</h6>
+
+          <div class="chart-container / w100 vh25" data-chart="social-platforms"></div>
+
+          <p class="mt2 neue-roman white">Following a year of mounting hype, influencers have finally hit the mainstream. According to Gartner L2 analysis, nine out of 10 brand Instagram handles mentioned influencers at least once between the second quarter of 2017 and the first quarter of 2018. </p>
+
+          <p class="mt4 neneu-roman white">However, influencers’ payoff has not met brands’ expectations on their own brand handles. In fact, the average engagement lowered when these handles mentioned influencers. On the flip side, brand mentions in influencer posts lifted engagement by 14%. The top-performing brands maintained a roster of regular influencers across the spectrum of follower counts, highlighting influencer content that amplified overall brand aesthetic.</p>
+
+          <h6 class="mt4 / neue-bold white">Influencer Impact on Brand Handle vs. Brand Impact on Influencer Handle on Instagram</h6>
+          <h6 class="mt1 / neue-roman white">April 2017 - March 2018, n = 2,649 Influencers and 376 Brand Handles</h6>
+
+          <div class="mt3">
+            <div class="inline-block">
+              <div class="blue-square / vam / w1 h1 / inline-block / ba b-white br100"></div>
+              <div class="blue-square / vam / inline-block / ba b-white br100" style="width: 0.5rem; height: 0.5rem;"></div>
+              <h6 class="sky / vam / ml2 / inline-block">Size of bubble corresponds with number of influencers.</h6>
+            </div>
+          </div>
+
+          <div class="chart-container / mb5 / w100 vh75" data-chart="social-platforms-bubble"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="retailers" class="scroll / relative / flex-l">
+      <div class="scroll__graphic / col col-8-l">
+        <div id="retailers_graphic" class="scroll__container / chart">
+          <div>
+            <h5 class="inline-block-l / neue-bold white">Related Research</h5>
+            <h5 class="inline-block-l / ml5-l / neue-bold sky">
+              <a href="https://www.l2inc.com/research/data-and-targeting-2018" target="_blank">
+                Retailers & Marketplaces 2018
+              </a>
+            </h5>
+          </div>
+
+          <h1 class="hide block-l / center-v--abs / neue-bold white / zmax gradient / mt7 / pl4-l">Retailers Take The Cake</h1>
+
+          <div title aria-label="aimation" style="width: 100%; height: 100%; overflow: hidden; margin: 0px auto;">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="0 0 900 1000" width="1340" height="1440" style="width: 100%; height: 100%;"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="-50 -100 800 1000" width="1340" height="1440" style="width: 100%; height: 100%;">
+              <g>
+                <g id="rm-shadow" class="image" transform="translate(90 20)">
+                  <image width="500px" height="380px" xlink:href="img/marketplace/Shadow.svg"></image>
+                </g>
+
+                <g id="rm-blue-slice" class="image" transform="translate(250 -440)">
+                  <image width="340px" height="380px" xlink:href="img/marketplace/Blue Slice.svg"></image>
+                </g>
+
+                <g id="rm-knife" class="image" transform="translate(-180 -250)">
+                  <image width="180px" height="380px" xlink:href="img/marketplace/Knife.svg"></image>
+                </g>.
+
+                <g id="rm-black-slice" class="image" transform="translate(74 -353)">
+                  <image width="395px" height="380px" xlink:href="img/marketplace/Black Slice.svg"></image>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <h1 class="block hide-l / absolute bottom1 / neue-bold white / zmax gradient">Retailers Take The Cake</h1>
+        </div>
+      </div>
+
+      <div class="scroll__text / relative / col col-4-l">
+        <div class="step / h100" data-step="social-platforms">
+          <p class="mt2 neue-roman white">Marketers are expected to have an edge over retailers in branded search, as Google gives preference to brand-owned results by discounting the cost of bidding on brand-owned terms — a direct result of stronger search term relevance.</p>
+
+          <p class="mt4 neue-roman white">However, retailers own more search results than brands. Gartner L2 found that analyzed retailers collectively own almost three times more paid mobile results than brands do. Depending on their distribution strategy, brands are incentivized to cede paid search to retail partners and focus on linking brand-owned content and traffic to conversion points.</p>
+
+          <h6 class="mt4 / neue-bold white">Ownership of Showcase Shopping Ads on Branded Google Search Results</h6>
+          <h6 class="neue-roman white">July 2018, n = 90 Brands (Top 10 Across Nine Sectors), 49,187 Search Results on 1,193 Branded Keywords</h6>
+        
+          <div class="mt3 ml1">
+            <div class="inline-block">
+              <div class="white-square / vam / w1 h1 / inline-block"></div>
+              <h6 class="white / vam / ml2 / inline-block">Brands</h6>
+            </div>
+
+            <div class="inline-block / ml4">
+              <div class="blue-square / vam / w1 h1 / inline-block"></div>
+              <h6 class="sky / vam / ml2 / inline-block">Retailer</h6>
+            </div>
+          </div>
+
+          <div class="chart-container / mb5 / w100 vh25" data-chart="retailers"></div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="data-targeting" class="scroll / relative / flex-l">
+      <div class="scroll__graphic / col col-8-l">
+        <div id="data-targeting_graphic" class="scroll__container / chart">
+          <div>
+            <h5 class="inline-block-l / neue-bold white">Related Research</h5>
+            <h5 class="inline-block-l / ml5-l / neue-bold sky">
+              <a href="https://www.l2inc.com/research/data-and-targeting-2018" target="_blank">
+                Data & Targeting 2018
+              </a>
+            </h5>
+          </div>
+
+          <h1 class="hide block-l / center-v--abs / neue-bold white / zmax gradient / mt7 / pl4-l">Breakdown the Bullseye</h1>
+
+          <div title aria-label="aimation" style="width: 100%; height: 100%; overflow: hidden; margin: 0px auto;">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="0 0 1000 1000" width="1340" height="1440" style="width: 100%; height: 100%;"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="-50 -100 1000 1000" width="1340" height="1440" style="width: 100%; height: 100%;">
+              <g>
+                <g id="dt-bullseye" class="image" transform="translate(275 -500)">
+                  <image width="325px" height="575px" xlink:href="img/data-targeting/Bullseye.svg"></image>
+                </g>
+
+                <g id="dt-group1" class="image" transform="translate(475 170) skewX(-15) scale(1.1)">
+                  <image width="120px" height="115px" xlink:href="img/data-targeting/Group 1.svg"></image>
+                </g>
+
+                <g id="dt-group2" class="image" transform="translate(390 230) skewX(-15) scale(1.1)">
+                  <image width="120px" height="200px" xlink:href="img/data-targeting/Group 2.svg"></image>
+                </g>
+
+                <g id="dt-group3" class="image" transform="translate(435 425) skewX(-15) scale(1.1)">
+                  <image width="120px" height="155px" xlink:href="img/data-targeting/Group 3.svg"></image>
+                </g>
+
+                <g id="dt-group4" class="image" transform="translate(175 65) skewX(-15) scale(1.1)">
+                  <image width="200px" height="225px" xlink:href="img/data-targeting/Group 4.svg"></image>
+                </g>
+
+                <g id="dt-group5" class="image" transform="translate(170 220) skewX(-15) scale(1.1)">
+                  <image width="125px" height="125px" xlink:href="img/data-targeting/Group 5.svg"></image>
+                </g>
+
+                <g id="dt-group6" class="image" transform="translate(210 330) skewX(-15) scale(1.1)">
+                  <image width="75px" height="75px" xlink:href="img/data-targeting/Group 6.svg"></image>
+                </g>
+
+                <g id="dt-arrow" class="image" transform="translate(-300 450) skewX(-15) scale(1.1)">
+                  <image width="255px" height="175px" xlink:href="img/data-targeting/Arrow.svg"></image>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <h1 class="block hide-l / absolute bottom1 / neue-bold white / zmax gradient">Breakdown the Bullseye</h1>
+        </div>
+      </div>
+
+      <div class="scroll__text / relative / col col-4-l">
+        <div class="step / h100" data-step="social-platforms">
+          <h6 class="neue-bold / white">Data & Targeting 2018</h6>
+          <h6 class="neue-roman / white">Performance Distribution</h6>
+
+          <div class="chart-container / w100 vh25" data-chart="data-targeting"></div>
+
+          <p class="mt2 / neue-roman / white">Brands realize the importance of relevant messaging, with 92% of brands identifying personalization as a top priority. However, they continually struggle with execution: in 2018, only 23% of analyzed brands personalized their websites with user data-based recommendations.</p>
+
+          <p class="mt4 / neue-roman / white">Leader brands in Gartner L2’s Data & Targeting report not only outperform in data capture, but also effectively deploy user data. Top players more frequently pursue targeted marketing across email, social and display advertising; 69% deploy targeted content on all three channels, compared to 43% of Laggards.
+          </p>
+
+          <h6 class="mt4 / neue-bold white">Adoption of Data Collection vs. Deployment</h6>
+          <h6 class="neue-roman white">August 2018, n=103 brands</h6>
+
+          <div class="mt3 ml1">
+            <div class="">
+              <div class="blue-square / vam / w1 h1 / inline-block"></div>
+              <h6 class="sky / vam / ml2 / inline-block">Collects Segmentation Data</h6>
+            </div>
+
+            <div class="mt2">
+              <div class="white-square / vam / w1 h1 / inline-block"></div>
+              <h6 class="white / vam / ml2 / inline-block">Implements Personalized Content</h6>
+            </div>
+          </div>
+
+          <div class="chart-container / mb5 / w100 vh50" data-chart="data-targeting-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mobile" class="scroll / relative / flex-l">
+      <div class="scroll__graphic / col col-8-l">
+        <div id="mobile_graphic" class="scroll__container / chart">
+          <div>
+            <h5 class="inline-block-l / neue-bold white">Related Research</h5>
+            <h5 class="inline-block-l / ml5-l / neue-bold sky">
+              <a href="https://www.l2inc.com/research/mobile-marketing-2018" target="_blank">
+                Mobile Marketing 2018
+              </a>
+            </h5>
+          </div>
+
+          <h1 class="hide block-l / center-v--abs / neue-bold white / zmax gradient / mt7 / pl4-l">Mobile Moves Down The Funnel</h1>
+
+          <div title aria-label="aimation" style="width: 100%; height: 100%; overflow: hidden; margin: 0px auto;">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="0 0 900 1000" width="1340" height="1440" style="width: 100%; height: 100%;"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewbox="0 -100 800 1000" width="1340" height="1440" style="width: 100%; height: 100%;">
+              <g>
+                <g id="m-pool" class="image" transform="translate(70 190)">
+                  <image width="670px" height="333px" xlink:href="img/mobile-marketing/Pool.svg"></image>
+                </g>
+
+                <g id="m-phone-bg" class="image" transform="translate(242 -448)">
+                  <image width="60px" height="247px" xlink:href="img/mobile-marketing/Phone background.svg"></image>
+                </g>
+
+                <g id="m-phone-base" class="image" transform="translate(215 -430)">
+                  <image width="113px" height="210px" xlink:href="img/mobile-marketing/Phone base.svg"></image>
+                </g>
+
+                <g id="m-slide" class="image" transform="translate(-230 -50)">
+                  <image width="270px" height="200px" xlink:href="img/mobile-marketing/Slide.svg"></image>
+                </g>
+
+                <g id="m-ball" class="image" transform="translate(210 -500)">
+                  <image width="40px" height="40px" xlink:href="img/mobile-marketing/Beach ball.svg"></image>
+                </g>
+
+                <g id="m-phone-top" class="image" transform="translate(216.5 -427)">
+                  <image width="113px" height="207px" xlink:href="img/mobile-marketing/Top Phone Layer.svg"></image>
+                </g>
+
+                <g id="m-tube1" class="image" transform="translate(145 -500)">
+                  <image width="50px" height="207px" xlink:href="img/mobile-marketing/Black inner tube.svg"></image>
+                </g>
+
+                <g id="m-tube2" class="image" transform="translate(145 -500)">
+                  <image width="50px" height="207px" xlink:href="img/mobile-marketing/Black inner tube.svg"></image>
+                </g>
+
+                <g id="m-tube3" class="image" transform="translate(145 -500)">
+                  <image width="50px" height="207px" xlink:href="img/mobile-marketing/Black inner tube.svg"></image>
+                </g>
+
+                <g id="m-tube4" class="image" transform="translate(110 -500)">
+                  <image width="50px" height="207px" xlink:href="img/mobile-marketing/White inner tube.svg"></image>
+                </g>
+
+                <g id="m-ladder" class="image" transform="translate(550 -500)">
+                  <image width="40px" height="207px" xlink:href="img/mobile-marketing/Ladder.svg"></image>
+                </g>
+
+                <g id="m-wave1" class="image" transform="translate(460 155)">
+                  <image width="40px" height="207px" xlink:href="img/mobile-marketing/Wave.svg"></image>
+                </g>
+
+                <g id="m-wave2" class="image" transform="translate(290 225)">
+                  <image width="40px" height="207px" xlink:href="img/mobile-marketing/Wave.svg"></image>
+                </g>
+
+                <g id="m-wave3" class="image" transform="translate(450 250)">
+                  <image width="40px" height="207px" xlink:href="img/mobile-marketing/Wave.svg"></image>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <h1 class="block hide-l / absolute bottom1 / neue-bold white / zmax gradient">Mobile Moves Down The Funnel</h1>
+        </div>
+      </div>
+
+      <div class="scroll__text / relative / col col-4-l">
+        <div class="step / h100" data-step="mobile">
+          <p class="mt2 neue-roman white">Mobile commerce continues surging in the U.S., propelled by numerous factors including better connection speeds, bigger and more interactive screens, and increased retailer support for conversion-boosting mobile payments and buy buttons. To capture mobile’s full potential as a conversion point, brands need to consider ad links as a crucial bridge from the top to bottom of the funnel.</p> 
+
+          <p class="mt4 neue-roman white">More and more frequently, DTC brands link their ad creatives directly to their sites. In both 2016 and 2017, 68% of brand ads linked to the brands’ own sites. However, certain sectors are ramping up their ad linking strategy. For example, 67% of activewear ads in 2017 linked to a brand site, up from 60% in 2016, and department stores jumped from 53% to 72%.</p>
+
+          <h6 class="mt4 / neue-bold white">Distribution of Landing Page Destinations by Vertical</h6>
+          <h6 class="neue-roman white">2017, n = 562,882 Creatives Among 321 Brands With Ad Linking Strategies</h6>
+
+          <div class="mt3 ml1">
+            <div class="inline-block">
+              <div class="blue-square / vam / w1 h1 / inline-block"></div>
+              <h6 class="sky / vam / ml2 / inline-block">Brand Site</h6>
+            </div>
+
+            <div class="inline-block / ml4">
+              <div class="white-square / vam / w1 h1 / inline-block"></div>
+              <h6 class="white / vam / ml2 / inline-block">E-Tailer Site</h6>
+            </div>
+
+            <div class="inline-block / ml4">
+              <div class="grey-square / vam / w1 h1 / inline-block"></div>
+              <h6 class="grey / vam / ml2 / inline-block">Other</h6>
+            </div>
+          </div>
+
+          <div class="chart-container / mv5 / w100 vh25" data-chart="mobile"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports" class="scroll / relative">
+      <div>
+        <h5 class="neue-bold sky">Gartner L2 Digital Intelligence Research</h5>
+        <h1 class="mt3 neue-bold white">Reports Released in 2018</h1>
+      </div>
+
+      <div class="flex flex-wrap / grid / mt4 w100">
+        <div class="image col col-6 col-4-l" id="omnichannel-cover">
+          <a href="https://www.l2inc.com/research/omnichannel-2018" target="_blank">
+            <div class="cover aspect-ratio--16x9 h0" style="background: url('img/covers/omnichannel-cover.png') no-repeat center center; background-size: cover;"></div>
+          
+            <div class="mt3" style="margin-top: -3.2rem; padding: 1.25rem;">
+              <h5 class="sky neue-bold">Omnichannel</h5>
+              <p class="white mt2">To win in the omnichannel age, brands with brick-and-mortar footprints must orchestrate seamless integration between site, social media, digital marketing and store.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="image col col-6 col-4-l" id="content-cover">
+          <a href="https://www.l2inc.com/research/content-commerce-2018" target="_blank">
+            <div class="cover aspect-ratio--16x9 h0" style="background: url('img/covers/content-cover.png') no-repeat center center; background-size: cover;"></div>
+
+            <div class="mt3" style="margin-top: -3.2rem; padding: 1.25rem;">
+              <h5 class="sky neue-bold">Content & Commerce</h5>
+              <p class="white mt2">Leader brands embrace the mantra that less is more, deploying effective content that continually drives shoppers toward conversion.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="image col col-6 col-4-l" id="mobile-cover">
+          <a href="https://www.l2inc.com/research/mobile-marketing-2018" target="_blank">
+            <div class="cover aspect-ratio--16x9 h0" style="background: url('img/covers/mobile-cover.png') no-repeat center center; background-size: cover;"></div>
+
+            <div class="mt3" style="margin-top: -3.2rem; padding: 1.25rem;">
+              <h5 class="sky neue-bold">Mobile Marketing</h5>
+              <p class="white mt2">Mobile has expanded from a top-of-funnel device to a legitimate transaction point, thanks to improved operating systems, payment options and consumer comfort with mobile shopping.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="image col col-6 col-4-l" id="loyalty-cover">
+          <a href="https://www.l2inc.com/research/loyalty-2018" target="_blank">
+            <div class="cover aspect-ratio--16x9 h0" style="background: url('img/covers/loyalty-cover.png') no-repeat center center; background-size: cover;"></div>
+
+            <div class="mt3" style="margin-top: -3.2rem; padding: 1.25rem;">
+              <h5 class="sky neue-bold">Loyalty</h5>
+              <p class="white mt2">Successful brands adapt their loyalty programs to target audiences by diversifying both monetary and experiential rewards, boosting personalization efforts and creating seamless mobile experiences.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="image col col-6 col-4-l" id="social-cover">
+          <a href="https://www.l2inc.com/research/social-platforms-influencers-2018" target="_blank">
+            <div class="cover relative aspect-ratio--16x9 h0" style="background: url('img/covers/social-cover.png') no-repeat center center; background-size: cover;"></div>
+
+            <div class="mt3" style="margin-top: -3.2rem; padding: 1.25rem;">
+              <h5 class="sky neue-bold">Social Platform & Influencers</h5>
+              <p class="white mt2">The days of brands using social platforms for mere hype are long gone. These platforms race to the forefront to drive awareness, facilitate transactions and offer customer service.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="image col col-6 col-4-l" id="retailer-cover">
+          <a href="https://www.l2inc.com/research/retailers-marketplaces-2018" target="_blank">
+            <div class="cover relative aspect-ratio--16x9 h0" style="background: url('img/covers/retailer-cover.png') no-repeat center center; background-size: cover;"></div>
+
+            <div class="mt3" style="margin-top: -3.2rem; padding: 1.25rem;">
+              <h5 class="sky neue-bold">Retailers & Marketplaces</h5>
+              <p class="white mt2">Retailers take the cake when it comes to branded search. To effectively control both paid and organic listings, brands need to invest in different ad formats in addition to producing relevant and compelling site content.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="image col col-6 col-4-l" id="data-cover">
+          <a href="https://www.l2inc.com/research/data-and-targeting-2018" target="_blank">
+            <div class="cover relative aspect-ratio--16x9 h0" style="background: url('img/covers/data-cover.png') no-repeat center center; background-size: cover;"></div>
+
+            <div class="mt3" style="margin-top: -3.2rem; padding: 1.25rem;">
+              <h5 class="sky neue-bold">Data & Targeting</h5>
+              <p class="white mt2">To help users steer through content clutter, brands must curate disparate data, delivering targeted content that improves the user experience throughout the customer journey.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="tooltip"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-selection-multi.v1.min.js"></script>
+    <script src="js/d3-tip.js"></script>
+    <script src="js/jetpack.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/AttrPlugin.min.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
