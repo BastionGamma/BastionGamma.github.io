@@ -1,0 +1,94 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/* Variables */
+
+/*
+   SPACING
+   Docs: http://tachyons.io/docs/layout/spacing/
+
+   An eight step powers of two scale ranging from 0 to 16rem.
+
+   Base:
+     p = padding
+     m = margin
+
+   Modifiers:
+     a = all
+     h = horizontal
+     v = vertical
+     t = top
+     r = right
+     b = bottom
+     l = left
+
+    0 = none
+    1 = 2nd step in margin scale
+    2 = 3rd step in margin scale
+    3 = 4th step in margin scale
+    4 = 5th step in margin scale
+    5 = 6th step in margin scale
+    6 = 7th step in margin scale
+    7 = 8th step in margin scale  
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$spacing-map: (
+  0: $space-0,
+  1: $space-2,
+  2: $space-3,
+  3: $space-4,
+  4: $space-5,
+  5: $space-6,
+  6: $space-7,
+  7: $space-8,
+  auto : auto,
+  100: 100%
+);
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {    
+    // Spacing
+    @each $key, $value in $spacing-map {
+      // Padding
+      .pa#{$key}#{nth($screen-sizes, $index)} { padding: #{$value}; }
+      .pl#{$key}#{nth($screen-sizes, $index)} { padding-left: #{$value}; }
+      .pr#{$key}#{nth($screen-sizes, $index)} { padding-right: #{$value}; }
+      .pb#{$key}#{nth($screen-sizes, $index)} { padding-bottom: #{$value}; }
+      .pt#{$key}#{nth($screen-sizes, $index)} { padding-top: #{$value}; }
+
+      .pv#{$key}#{nth($screen-sizes, $index)} { 
+        padding-top: #{$value}; 
+        padding-bottom: #{$value}; 
+      }
+
+      .ph#{$key}#{nth($screen-sizes, $index)} { 
+        padding-right: #{$value};
+        padding-left: #{$value}; 
+      }
+        
+      // Margins
+      .ma#{$key}#{nth($screen-sizes, $index)} { margin: #{$value}; }
+      .ml#{$key}#{nth($screen-sizes, $index)} { margin-left: #{$value}; }
+      .mr#{$key}#{nth($screen-sizes, $index)} { margin-right: #{$value}; }
+      .mb#{$key}#{nth($screen-sizes, $index)} { margin-bottom: #{$value}; }
+      .mt#{$key}#{nth($screen-sizes, $index)} { margin-top: #{$value}; }
+
+      .mv#{$key}#{nth($screen-sizes, $index)} { 
+        margin-top: #{$value}; 
+        margin-bottom: #{$value}; 
+      }
+
+      .mh#{$key}#{nth($screen-sizes, $index)} { 
+        margin-right: #{$value}; 
+        margin-left: #{$value}; 
+      }
+    }
+  }
+} 

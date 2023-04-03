@@ -256,9 +256,9 @@ var l2Utils = (function () {
                              .attrs({
                                'xlink:href': function(d) {
                                  if (d.yoy > 0) {
-                                   return 'https://interactive.l2inc.com/loyalty_2019/img/up.svg';
+                                   return 'img/up.svg';
                                  } else if (d.yoy < 0) {
-                                   return 'https://interactive.l2inc.com/loyalty_2019/img/down.svg';
+                                   return 'img/down.svg';
                                  }
                                },
                                'width': '15px',
