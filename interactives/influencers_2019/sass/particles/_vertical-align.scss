@@ -1,0 +1,26 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+  VERTICAL ALIGN
+
+  Base:
+    va = vertical-align
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$vertical-align-map: (
+  b: baseline,
+  m: middle,
+  t: top
+);
+
+@each $key, $value in $vertical-align-map {
+  .va#{$key} { vertical-align: $value; }
+}

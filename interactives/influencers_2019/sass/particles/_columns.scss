@@ -1,0 +1,36 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+   COLUMNS
+
+  Base:
+    .one-col = one
+    .two-col = two 
+    .three-col = three
+    .four-col = four 
+
+  Media Query Extensions:
+    -xs = extra-small
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$column-map: (
+  two-col: 2,
+  three-col: 3,
+  four-col: 4
+);
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {
+    @each $key, $value in $column-map {
+      .#{$key}#{nth($screen-sizes, $index)} { column-count: $value; }
+      .#{$key}#{nth($screen-sizes, $index)} { -webkit-column-count: $value; }
+      .#{$key}#{nth($screen-sizes, $index)} { -moz-column-count: $value; }
+    }
+  }
+}

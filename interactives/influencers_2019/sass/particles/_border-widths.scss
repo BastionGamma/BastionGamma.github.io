@@ -1,0 +1,46 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+   BORDER WIDTHS
+
+   Base:
+     bw = border-width
+
+   Modifiers:
+     0 = 0 width border
+     1 = 1st step in border scale
+     2 = 2nd step in border scale
+     3 = 3rd step in border scale
+     4 = 4th step in border scale
+     5 = 5th step in border scale
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$border-width-map: (
+  bw0: (border-width, $space-0),
+  bw1: (border-width, $space-1),
+  bw2: (border-width, $space-2),
+  bw3: (border-width, $space-3),
+  bw4: (border-width, $space-4),
+  bw5: (border-width, $space-5),
+  bt0: (border-top-width, $space-0),
+  br0: (border-right-width, $space-0),
+  bb0: (border-bottom-width, $space-0),
+  bl0: (border-left-width, $space-0)
+);
+
+@each $key, $values in $border-width-map {
+  .#{$key} {
+    $width: nth($values, 1);        
+    $value: nth($values, 2);
+
+    #{$width}: $value;
+  }
+}

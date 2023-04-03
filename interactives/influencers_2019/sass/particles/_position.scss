@@ -1,0 +1,29 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+  POSITIONING
+  Docs: http://tachyons.io/docs/layout/position/
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$position-map: (
+  relative, 
+  absolute,
+  fixed,
+  sticky
+);
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {    
+    @each $value in $position-map {
+      .#{$value}#{nth($screen-sizes, $index)} { position: $value; }
+    }
+  }
+}

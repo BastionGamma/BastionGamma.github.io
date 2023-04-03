@@ -1,0 +1,308 @@
+
+/*
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+
+
+  ******************************************
+  **Grid classes applied to parent element**
+  ******************************************
+
+  .disp-grid : Initializes Grid CSS 
+
+
+  .col-rp-i : Columns repeated i times with same width size
+  .row-rp-i : Creates i number of rows with same height sizes
+      E.g.: .col-rp-3 -> Will generate 3 equally divided columns
+
+
+  .col-two-lw-i : 2 column grid, left col i times wider than right
+  .col-two-rw-i : 2 column grid, right col i times wider than left
+      E.g.: .col-two-lw-2 -> Left column is twice as wider than the right column
+  
+
+  .row-auto-i : i number of rows with height sizes automatically generated to fit its child element
+
+
+  .grid-(key)-gap : Creates gutters between both columns and rows 
+  .grid-col-(key)-gap : Creates gutters between columns  
+  .grid-row-(key)-gap : Creates gutters between rows  
+      E.g.: .grid-col-nrw-gap -> generates narrow gutters between columns
+
+   
+  .grid-justify-(key) : Algin child elements horizontally
+  .grid-align-(key) : Algin child elements vertically
+
+
+
+  *****************************************
+  **Grid classes applied to child element**
+  *****************************************
+  
+  .pin-col-i 
+  .pin-row-i : Pin the element to a specific column / row
+      .E.g.: .pin-col-2 -> locate the item in 2nd column
+
+
+  .pin-col-itoj 
+  .pin-row-itoj : Item will be placed from column/row i and span j track(s) 
+      .E.g.: .pin-col-2to1 -> locate the item in column 2 to 3
+
+  
+  .justify-self-(key) : align item horizontally
+  .align-self-(key) : align item vertically  
+
+*/
+
+
+
+// Variables
+$max_grids: 20;
+
+$space-map: (
+  wide: (calculate-rem(320): $space-5, calculate-rem(1030): $space-7),
+  norm: (calculate-rem(320): $space-4, calculate-rem(1030): $space-6),
+  nrw: (calculate-rem(320): $space-3, calculate-rem(1030): $space-5),
+);
+
+$grid-justify-map: (
+  start: start,
+  end: end,
+  center: center,
+  stretch: stretch,
+  between: space-between,
+  around: space-around,
+  even: space-evenly,
+);
+
+$abs-horiz: (calculate-rem(320): -($space-3), calculate-rem(1030): -($space-5));
+
+.gutters {
+  margin-top: 0; 
+  margin-bottom: 0; 
+
+  @include poly-fluid-sizing('margin-right', $abs-horiz);
+  @include poly-fluid-sizing('margin-left', $abs-horiz); 
+}
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) { 
+    .disp-grid#{nth($screen-sizes, $index)} {
+      display: grid;    
+    }
+
+    // Responsive gutter sizing
+    @each $key, $value in $space-map {
+      .grid-#{$key}-gap#{nth($screen-sizes, $index)} { 
+        @include poly-fluid-sizing( 'grid-column-gap', $value ); 
+        @include poly-fluid-sizing( 'grid-row-gap', $value ); 
+      }
+    }
+
+    @each $key, $value in $space-map {
+      .grid-col-#{$key}-gap#{nth($screen-sizes, $index)} { 
+        @include poly-fluid-sizing( '-ms-grid-column-gap', $value ); 
+        @include poly-fluid-sizing( 'grid-column-gap', $value ); 
+      }
+    }
+    
+    @each $key, $value in $space-map {
+      .grid-row-#{$key}-gap#{nth($screen-sizes, $index)} { 
+        @include poly-fluid-sizing( '-ms-grid-row-gap', $value ); 
+        @include poly-fluid-sizing( 'grid-row-gap', $value ); 
+      }
+    }
+
+    @for $i from 1 through $max-grids {
+      // Set columns
+      // Equallly sized columns
+      .col-rp-#{$i}#{nth($screen-sizes, $index)} { 
+        grid-template-columns: repeat(#{$i}, 1fr); 
+      }
+
+      // 2 Column grid: right column wider
+      .col-two-rw-#{$i}#{nth($screen-sizes, $index)} { 
+        grid-template-columns: 1fr #{$i}fr; 
+      }
+      
+      // 2 Column grid: left column wider
+      .col-two-lw-#{$i}#{nth($screen-sizes, $index)} { 
+        grid-template-columns: #{$i}fr 1fr; 
+      }
+
+      // Set rows
+      // Equallly sized rows
+      .row-rp-#{$i}#{nth($screen-sizes, $index)} { 
+        grid-template-rows: repeat(#{$i}, 1fr); 
+      }
+      // Auto height size for all rows
+      .row-auto-#{$i}#{nth($screen-sizes, $index)} { 
+        grid-template-rows: repeat(#{$i}, auto); 
+      }
+
+      // Locate items in certain columns/rows
+      .pin-col-#{$i}#{nth($screen-sizes, $index)} {
+        grid-column: #{$i}; 
+      }
+
+      .pin-row-#{$i}#{nth($screen-sizes, $index)} { 
+        grid-row: #{$i}; 
+      }
+
+      // Locate item from column/row i and span j track(s)
+      @for $j from 1 through $max-grids {
+        .pin-col-#{$i}to#{$j}#{nth($screen-sizes, $index)} { 
+          grid-column: #{$i} / span #{$j}; 
+        }
+        .pin-row-#{$i}to#{$j}#{nth($screen-sizes, $index)} { 
+          grid-row: #{$i} / span #{$j}; 
+        }
+      }
+    }
+
+    @each $key, $value in $grid-justify-map {
+      // Align child items horizontally. Can use every keys in the map.
+      // Default behavior is start
+      .grid-justify-#{$key}#{nth($screen-sizes, $index)} { justify-content: $value; }
+
+      // Align child items vertically. Only use keys: start,end,center and stretch.
+      .grid-align-#{$key}#{nth($screen-sizes, $index)} { align-items: $value; }
+
+      // Only use keys: start / center / end / stretch
+      .justify-self-#{$key}#{nth($screen-sizes, $index)} { 
+        justify-self: $value; 
+      }
+
+      // Only use keys: start / center / end / stretch
+      .align-self-#{$key}#{nth($screen-sizes, $index)} { 
+        align-self: $value; 
+      }
+    }
+
+  }
+}
+
+
+
+
+/*
+=============================
+Grid style for IE11
+=============================
+*/
+
+@for $index from 1 through length($screen-sizes) {
+  @include ie-breakpoints($index) { 
+    @for $i from 1 through $max-grids {
+      .col-two-lw-#{$i}#{nth($screen-sizes, $index)} { 
+        display: flex;
+         @if ($i == 2) {
+          > *:first-child {
+            width: 66.6%;
+          }     
+          > *:nth-child(2) {
+            width: 33.3%;
+          } 
+        }
+
+        @if ( $i == 3) {
+         > *:first-child {
+            width: 75%;
+          }     
+          > *:nth-child(2) {
+            width: 25%;
+          } 
+        }
+      }
+
+      .col-two-rw-#{$i}#{nth($screen-sizes, $index)} { 
+        display: flex;
+         @if ($i == 2) {
+          > *:first-child {
+            width: 33.3%;
+          }     
+          > *:nth-child(2) {
+            width: 66.6%;
+          } 
+        }
+
+        @if ( $i == 3) {
+         > *:first-child {
+            width: 25%;
+          }     
+          > *:nth-child(2) {
+            width: 75%;
+          } 
+        }
+      }
+    
+      .col-rp-#{$i}#{nth($screen-sizes, $index)} { 
+        display: flex;
+        flex-wrap: wrap;
+        @if ($i == 2) {
+          > * {
+            width: 50%;
+          }     
+        }
+        @if ($i == 3) {
+          > * {
+            width: 33.3%;
+          }
+        }
+        @if ($i == 4) {
+          > * {
+            width: 25%;
+          }
+        }
+         @if ($i == 5) {
+          > * {
+            width: 20%;
+          }
+        }
+      }
+
+      @each $key, $value in $space-map {
+        .grid-#{$key}-gap#{nth($screen-sizes, $index)} { 
+          > * {
+            @include poly-fluid-sizing( 'padding', (calculate-rem(320): $space-3, calculate-rem(1030): $space-5) ); 
+          }
+        }
+      }
+
+      @each $key, $value in $space-map {
+        .grid-col-#{$key}-gap#{nth($screen-sizes, $index)} { 
+          > * {
+            @include poly-fluid-sizing( 'padding-left', (calculate-rem(320): $space-3, calculate-rem(1030): $space-5) ); 
+            @include poly-fluid-sizing( 'padding-right', (calculate-rem(320): $space-3, calculate-rem(1030): $space-5) ); 
+          }
+        }
+      }
+    
+      @each $key, $value in $space-map {
+        .grid-row-#{$key}-gap#{nth($screen-sizes, $index)} { 
+          > * {
+            @include poly-fluid-sizing( 'padding-top', (calculate-rem(320): $space-3, calculate-rem(1030): $space-5) ); 
+            @include poly-fluid-sizing( 'padding-bottom', (calculate-rem(320): $space-3, calculate-rem(1030): $space-5) ); 
+          }
+        }
+      }
+    }
+
+
+    // Special classes for aside elements
+    .ie-aside-title#{nth($screen-sizes, $index)} {
+      width: 50% !important;
+    }
+
+    .ie-aside-btn#{nth($screen-sizes, $index)} {
+      width: 50% !important;
+      text-align: right !important;
+    }
+
+  }
+}
+

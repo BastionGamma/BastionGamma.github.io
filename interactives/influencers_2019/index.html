@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Food 2017 Share of Shelf</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <style type="text/css">
+      .body-copy { line-height: 1.75; }
+
+      .underline { text-decoration: underline !important; }
+
+      .axis line {
+        stroke-width: 1px;
+        stroke: #E5E6E6;
+      }   
+
+      .x2.axis line {
+        stroke-width: 1px;
+        stroke: #CCCCCC;
+      }   
+
+      .axis text {
+        font-size: 14px;
+        fill: #666666;
+      }   
+
+      .domain { display: none; }
+
+      .tooltip {
+        position: fixed;
+        top: -1000px;
+        padding: 0.75rem 1rem;
+        max-width: 250px;
+        background: rgba(255, 255, 255, .90);
+        border: 1px solid #9B9B9B;
+        pointer-events: none;
+        line-height: 1.4;
+      }
+
+      .tooltip-hidden{
+        opacity: 0;
+        transition: all .3s;
+        transition-delay: .1s;
+      }
+
+      text.label {
+        font-size: 16px;
+        font-family: "Helvetica Neue LT W01_57 Cond", "Ariel", sans-serif;
+      }
+
+      @media (max-width: 590px){
+        div.tooltip {
+          bottom: -1px;
+          width: calc(100%);
+          left: -1px !important;
+          right: -1px !important;
+          top: auto !important;
+          width: auto !important;
+        }
+      }
+
+      @media only screen and (max-width: 1030px) {
+        .axis text { font-size: 12px; }  
+
+        text.label { font-size: 12px; }
+      }
+
+      @media only screen and (max-width: 768px) {
+        .content { height: 105rem; }
+      }
+    </style>
+
+    <body class="l2-viz">
+      <section class="content / wrapper max-width-wrapper">
+        <div id="header_container"><div id="inject_header">
+          <div>
+            <div class="flex-wrap flex-l">
+              <div class="w-two-thirds-l pb3">
+                <h3 class="sky / mb2 lh-solid">
+                  <a href="/data-tools">Data Tools</a>
+                            </h3>
+                <h1 class="grey90">Influencers 2019</h1>
+              </div>
+
+              <div class="w100 w-third-l mt3 mt0-l tar-l justify-end-m inline-block">
+                  
+              </div>
+            </div>
+          </div>
+          <div class="tar">
+              
+          </div>
+          <div class="w100 mv3 / bg-grey20" id="division-line" style="height: 1px;"></div>
+        </div></div>
+        
+        <div class="copy / pv4 / w100 w75-l">
+          <p class="mb3">As outlined in the <a href="https://www.l2inc.com/research/social-platforms-influencers-2019" class="rose / link">Gartner L2 Intelligence: Social Platforms & Influencers 2019 Report</a>, a best practice is to group influencers into cohorts based on follower counts, including advocate (less than 5K followers), micro (5K to 25K followers), small (25K to 100K followers), medium (100K to 250K followers), large (250K to 1M followers), mega (1M to 7M followers) and celebrity (greater than 7M followers). After this, best-in-class brands construct a roster based on the desired outcome and campaign’s target audience.  A key first step for identifying the best influencers to partner with is to evaluate influencer cohorts based on relative and absolute engagement. The Influencer Selection Tool exhibits the top-performing influencer cohorts by sector and objective (audience engagement vs. reach).</p>
+        </div>
+
+        <div class="mobile key block none-l / w100">
+          <h5 class="mb2 ml2">Filter Sectors or Cohorts</h5>
+
+          <div class="flex w100">
+            <div id="" class="dropdown-container inline-block / w50 / ph0 pv3 mr2">
+              <img class="center-v--abs right1 z4" style="width: 20px;" src="img/arrow.png">
+
+              <select name="sector-select" id="sector-select" class="bold neue-condensed f4 filter-menu-drop / va-middle / w100" style="border-bottom: 2px solid #002856; border-top: none; border-left: none; border-right: none;">
+              </select>
+            </div>
+
+            <div id="" class="dropdown-container inline-block / w50 / ph0 pv3 ml2">
+              <img class="center-v--abs right1 z4" style="width: 20px;" src="img/arrow.png">
+
+              <select name="cohort-select" id="cohort-select" class="bold neue-condensed f4 filter-menu-drop / va-middle / w100" style="border-bottom: 2px solid #002856; border-top: none; border-left: none; border-right: none;">
+              </select>
+            </div>
+          </div>
+
+          <h5 class="mt2 ml2">Measure Success By</h5>
+
+          <div id="slider-container" class="w100"></div>
+
+          <div class="flex w100 / mb3">
+            <div class="w-third / pl2">
+              <h6 class="grey60 / tal">Reach</h6>
+            </div>
+            <div class="w-third">
+              <h6 class="grey60 / tac">Mix</h6>
+            </div>
+            <div class="w-third / pr2">
+              <h6 class="grey60 / tar">Audience Engagement</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative / flex-l / vh75">
+          <div class="desktop legend / center-v--rel / w20 / pr5" style="display: inline-table">
+            <h5 class="mb2 mb4-l">Influencer Cohort Performance</h5>
+          </div>
+
+          <div class="graph / w100 w50-l h100 / mb5 mb0-l">
+            <div class="graph__container / h75 h100-l">
+              
+              <div class="absolute bottom2 bottom4-l / w100">
+                <div class="flex">
+                  <div class="absolute left0 left4-l">
+                    <h6 class="grey60">Audience-Centric</h6> 
+                    <img src="img/left-arrow.svg" alt="">
+                  </div>
+
+                  <div class="absolute right0 right4-l">
+                    <h6 class="grey60">Reach-Centric</h6>
+                    <img src="img/right-arrow.svg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mobile flex / w100 h4 mt4">
+              <img src="img/dots.svg" alt="" class="center-v--rel mr4 / w3">
+
+              <h6 class="center-v--rel w75" style="display: inline-table;">Each circle represents the average performance of sector partnership with an influencer cohort.</h6>
+            </div>
+
+            <div class="mobile legend / w100 / mt4">
+              <h5 class="mb2 mb4-l">Influencer Cohort Performance</h5>
+            </div>
+          </div>
+          
+          <div class="desktop key / none block-l / w30 / pl5">
+            <h5 class="mb3 ml2">Filter Sectors or Cohorts</h5>
+
+            <div class="flex w100">
+              <div id="" class="dropdown-container inline-block / w50 / ph0 pv3 mr3">
+                <img class="center-v--abs right1 z4" style="width: 20px;" src="img/arrow.png">
+
+                <select name="sector-select" id="sector-select" class="bold neue-condensed f4 filter-menu-drop / va-middle / w100" style="border-bottom: 2px solid #002856; border-top: none; border-left: none; border-right: none;">
+                </select>
+              </div>
+
+              <div id="" class="dropdown-container inline-block / w50 / ph0 pv3 ml3">
+                <img class="center-v--abs right1 z4" style="width: 20px;" src="img/arrow.png">
+
+                <select name="cohort-select" id="cohort-select" class="bold neue-condensed f4 filter-menu-drop / va-middle / w100" style="border-bottom: 2px solid #002856; border-top: none; border-left: none; border-right: none;">
+                </select>
+              </div>
+            </div>
+
+            <h5 class="mt5 ml2">Measure Success By</h5>
+
+            <div id="slider-container" class="w100"></div>
+
+            <div class="flex w100 / mb5">
+              <div class="w-third / pl2">
+                <h6 class="grey60 / tal">Reach</h6>
+              </div>
+              <div class="w-third">
+                <h6 class="grey60 / tac">Mix</h6>
+              </div>
+              <div class="w-third / pr2">
+                <h6 class="grey60 / tar">Audience Engagement</h6>
+              </div>
+            </div>
+
+            <div class="w100 h4 ml2 mv4">
+              <div class="flex / h100">
+                <img src="img/dots.svg" alt="" class="center-v--rel mr4">
+
+                <h6 class="center-v--rel" style="display: inline-table;">Each circle represents the average performance of sector partnership with an influencer cohort.</h6>
+              </div>
+
+              <h6 class="tar / mt3 mr4">*Relative Engagement = Interactions per post divided by the number of followers.</h6>
+            </div>
+          </div>
+        </div>
+      </section>     
+
+      <div class='tooltip'></div>
+    </body>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-selection-multi.v1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/d3-jetpack@2.0.20/build/d3-jetpack.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+    
