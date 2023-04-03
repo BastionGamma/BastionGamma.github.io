@@ -1,0 +1,54 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+   BORDER RADIUS
+
+   Base:
+     .br = border-radius
+
+   Modifiers:
+    0 = 0/none
+    1 = 1st step in border scale
+    2 = 2nd step in border scale
+    3 = 3rd step in border scale
+    4 = 4th step in border scale
+    5 = 5th step in border scale
+
+   Literal values:
+     -100 = 100%
+     -pill = 9999px
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$border-radius-map: (
+  0: (border-radius, '', $space-0),
+  1: (border-radius, '', $space-1),
+  2: (border-radius, '', $space-2),
+  3: (border-radius, '', $space-3),
+  4: (border-radius, '', $space-4),
+  100: (border-radius, '', 100%),
+  -pill: (border-radius, '', 9999px),
+  -top: (border-bottom-left-radius, border-bottom-right-radius, $space-0),
+  -right: (border-top-left-radius, border-bottom-left-radius, $space-0),
+  -bottom: (border-top-left-radius, border-top-right-radius, $space-0),
+  -left: (border-top-right-radius, border-bottom-right-radius, $space-0)
+);
+
+@each $key, $values in $border-radius-map {
+  .br#{$key} {
+    $radius: nth($values, 1);
+    $radius2: nth($values, 2);
+    $value: nth($values, 3);
+
+    #{$radius}: $value;
+
+    @if $radius2 != '' { #{$radius2}: $value; }
+  }
+}

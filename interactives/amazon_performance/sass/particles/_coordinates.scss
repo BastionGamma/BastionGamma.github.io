@@ -1,0 +1,46 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+   COORDINATES
+   Docs: http://tachyons.io/docs/layout/position/
+
+   Use in combination with the position module.
+
+   Base:
+     top
+     bottom
+     right
+     left
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$coordinate-map: (
+  -2: -$space-5,
+  -1: -$space-4,
+  0: $space-0,
+  1: $space-4,
+  2: $space-5,
+  3: $space-6,
+  4: $space-7,
+  25: 25%,
+  33: 33.3333%,
+  50: 50%
+);
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {
+    @each $key, $value in $coordinate-map {
+      .top#{$key}#{nth($screen-sizes, $index)} { top: $value; }
+      .right#{$key}#{nth($screen-sizes, $index)} { right: $value; }
+      .bottom#{$key}#{nth($screen-sizes, $index)} { bottom: $value; }
+      .left#{$key}#{nth($screen-sizes, $index)} { left: $value; }
+    }
+  }
+}

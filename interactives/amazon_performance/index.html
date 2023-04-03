@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Amazon Performance Ranking</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src='//d3js.org/d3.v3.min.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.7/d3-queue.min.js"></script>
+
+    <link  rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.7.0/chosen.min.css" />
+    <script  src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.7.0/chosen.jquery.min.js"></script>
+    <script src="js/jetpack.js"></script>
+    
+    <script src="js/main.js"></script>
+
+    <style>
+      .chosen-container.chosen-container-single { width: 100% !important; }
+
+      .chosen-container-single .chosen-single {
+        height: 42px !important;
+        padding: 0 12px !important;
+        border: 1px solid #999999 !important;
+        border-radius: 0px !important;
+        background: initial !important;
+        background-color: #262626 !important;
+        box-shadow: none !important;
+        color: white !important;
+      }
+
+      .chosen-container-single .chosen-single span {
+        position: relative;
+        top: 11px;
+        font-size: 16px;
+        height: 100%;
+        font-family: "Helvetica Neue LT W01_57 Cond","Ariel",sans-serif;
+        line-height: 1em;
+      }    
+
+      .chosen-container-single .chosen-single div { 
+        width: 20px !important;
+        right: 12px !important; 
+      } 
+
+      @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+        .chosen-container-single .chosen-single div b {
+          -webkit-appearance: none !important; /* 1 */
+          -moz-appearance: none !important;
+          appearance: none !important;
+          background: url(/img/arrow.svg) no-repeat 0 16px !important;
+          background-size: contain !important;
+        }    
+      }
+
+      .chosen-container-single .chosen-single div b {
+        -webkit-appearance: none; /* 1 */
+        -moz-appearance: none;
+        appearance: none;
+        background: url(/img/arrow.svg) no-repeat 0 16px !important;
+        background-size: contain !important;
+      }  
+
+      .chosen-container-single .chosen-drop {
+        border-radius: 0 !important;
+        border: 1px solid #999999 !important;
+        background-color: #262626 !important;
+        border-top: none !important;
+        box-shadow: none !important;
+      }
+
+      .chosen-container { font-size: 1rem; }
+
+      .chosen-container .chosen-results { max-height: 500px; }
+
+      .chosen-container .chosen-results li {
+        color: white;
+        font-family: "Helvetica Neue LT W01_57 Cond","Ariel",sans-serif;
+      }
+
+      .chosen-container-active.chosen-with-drop .chosen-single {
+        border: 1px solid #999999 !important;
+        background-image: none !important;
+        box-shadow: none !important;
+      }
+
+      .chosen-container-active .chosen-single { box-shadow: none; }
+      .chosen-container-single .chosen-search input[type=text] { color: black; }
+
+      .chosen-container .chosen-drop .chosen-search .chosen-search-input {  
+        position: relative !important;
+        left: 50% !important;
+        -webkit-transform: translate(-50%, 0) !important;
+        -moz-transform: translate(-50%, 0) !important;
+        -ms-transform: translate(-50%, 0) !important;
+        transform: translate(-50%, 0) !important;
+        width: 95% !important;
+        margin: 0 auto !important;
+        border-radius: 100px !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-grey85">
+    <section class="content / wrapper w100 h100 / bg-grey85">
+      <div>
+        <div class="flex-wrap flex-l">
+          <div class="col-8-l pb3">
+            <a href="/data-tools">
+              <h3 class="neondemon / mb2">Data Tools</h3>
+            </a>
+
+            <h1 class="white">Gartner L2 Amazon Performance Rank</h1>
+          </div>
+
+          <div class="col-12 col-4-l mt3 mt0-l tar-l justify-end-m inline-block">
+            <a href="/membership">
+              <button class="button button--transparent">
+                <h5 class="neondemon">Membership</h5>
+              </button>
+            </a>          
+          </div>
+        </div>
+      </div>
+
+      <div class="w100 mv3  / bg-grey60" id="division-line" style="height: 1px;"></div>
+
+      <div class="content__header / col col-8-l / mt6">
+        <p class="center-v--rel / grey20">Gartner L2’s Amazon Performance Rank longitudinally tracks fashion and beauty brand performance on Amazon by measuring the rank, depth, and consistency of brands’ first-party and third-party listings on Amazon Best Seller rankings. Performance Scores are updated quarterly and calculated using the following formula:</p>
+        <p class="mt1 / grey20">R * (D + C + 1) * 10/3</p>
+        <h6 class="grey60">See footnote for complete methodology</h6>
+      </div>
+
+      <ul class="cb / h75 / gutters">
+        <li class="select-container / fl-l col col-3-l / mb4 mb0-l">
+          <h5 class="mb2 / white">Select Category</h5>
+
+          <select name="category-select" id="category-select" class="w100"></select>
+
+          <a href="/img/AmazonPerformanceRankingCategories.pdf" target="_blank" class="hierarchy / inline-block / mt3 / pointer link">
+            <h6 class="neondemon">View Amazon Category Hierarchy</h6>
+          </a>
+        </li>
+
+        <li class="fl-l col col-9-l / h100">
+          <div class="reletive / inline-block / w100">
+            <h3 class="category-title white / mt3"></h3>
+            <h5 class="grey20 / mt2"><span class="number-of-brands">n Brands</span></h5>
+            
+            <div class="inline-block / absolute-m top2 right0 / w100 w7-m / mb4 mb0-m">
+              <h6 class="graph-btn / active / inline-block / w50 / pv2 ph4 / tac / white ba b-grey60" data-graph="graph">Graph</h6>
+              <h6 class="graph-btn / inline-block / w50 / pv2 ph4 / tac / white ba b-grey60" data-graph="ranking">Ranking</h6>
+            </div>        
+          </div>
+
+          <div class="w100 mv3 / bg-grey60" id="division-line" style="height: 1px;"></div>
+
+          <div class="legend / w100 / inline-block"></div>
+
+          <div class="brand-legend / w100 / mt3 / hide">
+            <h5 class="inline-block / white / mr2">Active Brands: </h5>
+
+            <h6 class="clear-all / inline-block / neondemon / vam / pointer">Clear All</h6>
+          </div>
+
+          <div class="chart-container / h100 / ovr--hidden"></div>
+          
+          <!--
+            <div class="center-h--rel / inline-block / mt3">
+              <h6 class="timescale-btn / active / inline-block /  pv2 ph4 / white ba b-grey60" data-timescale="overall_score_1">Day</h6>
+              <h6 class="timescale-btn / inline-block /  pv2 ph4 / white ba b-grey60" data-timescale="overall_score_7">Week</h6>
+              <h6 class="timescale-btn / inline-block /  pv2 ph4 / white ba b-grey60" data-timescale="overall_score_14">2 Weeks</h6>
+              <h6 class="timescale-btn / inline-block /  pv2 ph4 / white ba b-grey60" data-timescale="overall_score_30">Month</h6>
+              <h6 class="timescale-btn / inline-block /  pv2 ph4 / white ba b-grey60" data-timescale="overall_score_90">3 Months</h6>
+              <h6 class="timescale-btn / inline-block /  pv2 ph4 / white ba b-grey60" data-timescale="overall_score_365">Year</h6>
+            </div>
+          -->
+
+          <h6 class="grey60 / pt3 mt4 / bt b-grey60 inline-block / w100">R = Amazon Best Seller rank of a brand’s top-performing ASIN averaged over measurement period</h6>
+          <h6 class="grey60 / w100">D = percent of 100 Best Seller list owned by brand’s ASINs averaged over measurement period</h6>
+          <h6 class="grey60 / w100">C = percent of days any brand ASIN appeared during measurement period</h6>
+
+          <h6 class="grey60 / pt3 / inline-block / w100">Source: Amazon Best Seller data and Gartner L2's proprietary Amazon Performance Score.</h6>
+
+          <h6 class="grey60 / pt3 mb4 / inline-block / w100">Credits: Michael Uzzi, Eddy Hintze, Jon Gibs (Data Science); Wright Rickman (Development); Aaron Bunge, Nick Felton, Katherine Dillon (Art and Design); Cooper Smith, Oweise Khazi, Evan Neufeld (Research).</h6>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+/*
+  GRID
+*/
+
+// Variables
+
+$max_columns: 12;
+$horiz: (calculate-rem(320): $space-3, calculate-rem(1030): $space-5);
+$abs-horiz: (calculate-rem(320): -($space-3), calculate-rem(1030): -($space-5));
+$vert: (calculate-rem(320): $space-5, calculate-rem(1030): $space-6);
+
+// Responsive Column and Offset Classes
+
+.col { width: 100%; }
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {
+    @for $i from 1 through $max-columns {
+      .col-#{$i}#{nth($screen-sizes, $index)} { width: percentage($i / $max_columns); }
+      .offset-#{$i}#{nth($screen-sizes, $index)} { margin-left: percentage($i / $max_columns); }
+    }
+  }
+}
+
+// Add gutters to the full grid
+
+// One row of horizontal items
+.gutters {
+  margin-top: 0; 
+  margin-bottom: 0; 
+
+  @include poly-fluid-sizing('margin-right', $abs-horiz);
+  @include poly-fluid-sizing('margin-left', $abs-horiz);
+  
+  & > .col { 
+    padding-top: 0;
+    padding-bottom: 0;
+    
+    @include poly-fluid-sizing('padding-right', $horiz);
+    @include poly-fluid-sizing('padding-left', $horiz);
+  }
+}
+
+// Multi-row grid
+.grid { 
+  margin-top: 0; 
+  margin-bottom: 0; 
+
+  @include poly-fluid-sizing('margin-right', $abs-horiz);
+  @include poly-fluid-sizing('margin-left', $abs-horiz);
+
+  & > .col { 
+    @include poly-fluid-sizing('padding-top', $vert);
+    @include poly-fluid-sizing('padding-right', $horiz);
+    @include poly-fluid-sizing('padding-bottom', $vert);
+    @include poly-fluid-sizing('padding-left', $horiz);
+  }
+}

@@ -1,0 +1,103 @@
+ // Converted Variables
+
+// Custom Media Query Variables
+
+/*
+  WIDTHS
+  Docs: http://tachyons.io/docs/layout/widths/
+
+  Base:
+    w = width
+
+  Modifiers
+    1 = 4th step in spacing scale
+    2 = 5th step in spacing scale
+    3 = 6th step in spacing scale
+    4 = 7th step in spacing scale
+    5 = 8th step in spacing scale
+    6 = 9th step in spacing scale
+    7 = 10th step in spacing scale
+    8 = 11th step in spacing scale
+    9 = 12th step in spacing scale
+
+    -10  = literal value 10%
+    -20  = literal value 20%
+    -25  = literal value 25%
+    -30  = literal value 30%
+    -40  = literal value 40%
+    -50  = literal value 50%
+    -60  = literal value 60%
+    -75  = literal value 75%
+    -80  = literal value 80%
+    -90  = literal value 90%
+    -100 = literal value 100%
+
+    -third = 100% / 3 (Not supported in opera mini or IE8)
+    -auto  = string value auto
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+/* Width Scale */
+
+$width-rem-map: (
+  1: $space-4,
+  2: $space-5,
+  3: $space-6,
+  4: $space-7,
+  5: $space-8,
+  6: $space-9,
+  7: $space-10,
+  8: $space-11,
+  9: $space-12
+);
+
+$width-percent-map: (0, 10, 20, 25, 30, 40, 48, 50, 60, 70, 75, 80, 90, 98, 100);
+
+$width-math-map: (
+  third: percentage( (100 / 3) / 100),
+  two-thirds: percentage( (100 / 1.5) / 100),
+  initial: initial
+);
+
+$width-vw-map: (
+  25: 25vw,
+  50: 50vw,
+  75: 75vw,
+  100: 100vw,
+);
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {
+    // Width (rem)
+    @each $key, $value in $width-rem-map {
+      .w#{$key}#{nth($screen-sizes, $index)} { width: #{$value}; }
+      .min-w#{$key}#{nth($screen-sizes, $index)} { min-width: #{$value}; }
+      .max-w#{$key}#{nth($screen-sizes, $index)} { max-width: #{$value}; }
+    }
+     
+    // Width (%)
+    @each $key in $width-percent-map {
+      .w#{$key}#{nth($screen-sizes, $index)} { width: percentage($key / 100); }
+      .min-w#{$key}#{nth($screen-sizes, $index)} { min-width: percentage($key / 100); }
+      .max-w#{$key}#{nth($screen-sizes, $index)} { max-width: percentage($key / 100); }
+    }
+  
+    @each $key, $value in $width-math-map {
+      .w-#{$key}#{nth($screen-sizes, $index)} { width: $value; }
+      .min-w-#{$key}#{nth($screen-sizes, $index)} { min-width: $value; }
+      .max-w-#{$key}#{nth($screen-sizes, $index)} { max-width: $value; }
+    }
+    
+    // Width (vw)
+    @each $key, $value in $width-vw-map {
+      .vw#{$key}#{nth($screen-sizes, $index)} { width: $value; }
+      .min-vw#{$key}#{nth($screen-sizes, $index)} { min-width: $value; }
+      .max-vw#{$key}#{nth($screen-sizes, $index)} { max-width: $value; }
+    }
+  }
+}
