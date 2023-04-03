@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Social Commerce Channels</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12281975-16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-12281975-16');
+    </script>    
+
+    <style>
+      html, body { 
+        width: 100%;
+        height: 100%;
+        overflow: hidden !important; 
+      }
+
+      body { 
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+
+      @import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=e4c74e07-1206-4018-8f56-143a8a11c9b1");
+
+      @font-face {
+        font-family: "Helvetica Neue LT W01_71488914";
+        src: url("Fonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix");
+        src: url("Fonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix") format("eot"),
+             url("Fonts/531c5a28-5575-4f58-96d4-a80f7b702d7b.woff2") format("woff2"),
+             url("Fonts/439c5962-f9fe-4eaf-a1f6-f41d42edba75.woff") format("woff"),
+             url("Fonts/419a308d-b777-4f84-9235-2caf4a98ec23.ttf") format("truetype"),
+             url("Fonts/e4d5b881-6835-45b7-8766-3e5b9e7cab8b.svg#e4d5b881-6835-45b7-8766-3e5b9e7cab8b") format("svg");
+      }
+
+      @font-face {
+        font-family: "Helvetica Neue LT W01_55 Roman";
+        src: url("Fonts/a58359b2-ab6c-4eb7-a2ed-b567c68b3388.eot?#iefix");
+        src: url("Fonts/a58359b2-ab6c-4eb7-a2ed-b567c68b3388.eot?#iefix") format("eot"),
+             url("Fonts/02963ef0-dbb8-4ec9-a06d-939c6f252739.woff2") format("woff2"),
+             url("Fonts/411f40ef-ca35-4f60-93ce-b394d5485b62.woff") format("woff"),
+             url("Fonts/aee958bd-461a-4843-929b-4127e918a85e.ttf") format("truetype"),
+             url("Fonts/a5239550-7c80-4408-8598-671485ac7994.svg#a5239550-7c80-4408-8598-671485ac7994") format("svg");
+      }
+
+      p { line-height: 1.5; }
+
+      .bold { font-weight: 700; }
+
+      .vam { vertical-align: middle; }
+
+      .ttu {
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+      }
+
+      .usn {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+
+      .js-reveal { opacity: 0; }
+
+      .js-hide { display: none; }
+
+      .js-trigger * { pointer-events: none; }
+
+      .neue-bold,
+      .tick text,
+      .label { font-family: "Helvetica Neue LT W01_71488914", "Ariel", sans-serif; }
+
+      .neue-roman { font-family: "Helvetica Neue LT W01_55 Roman", "Ariel", sans-serif; }
+
+      .domain { display: none; }
+
+      .tick text,
+      .label {
+        fill: white;
+        font-size: 12px;
+      }
+
+      .avg-line {
+        stroke: #FEC10D;
+        stroke-width: 3;
+        stroke-dasharray: 5 6;
+      }
+
+      .overlay { background-color: rgba(0, 0, 0, 0.8); }
+
+      .lemon-square { background-color: #FEC10D; }
+
+      .lemon60-square { 
+        background-color: #FEC10D;
+        opacity: 0.6;
+      }
+
+      .lemon35-square { 
+        background-color: #FEC10D;
+        opacity: 0.35;
+      }
+
+      .slide-box {
+        position: absolute; 
+        top: 10%;
+      }
+
+      .slide-box svg {
+        width: 80%;
+        height: 80%;
+      }
+
+      .slide-box h3 {
+        font-size: 1.1rem;
+      }
+
+      .slide-box h4 {
+        font-size: 0.9rem;
+      }
+
+      .slide-box h5 {
+        font-size: 0.7rem;
+      }
+
+      .continue-btn {
+        font-size: 0.7rem;
+      }
+
+      #new-path-popup .center-v--rel {
+        top: 40%;
+      }
+ 
+      @media (min-height: 580px) {
+        .intro-desc {
+          margin-bottom: 2.5rem;
+        }
+
+
+        .logo {
+          margin-top: 1.3rem;
+          margin-bottom: 1.3rem;
+        }
+
+        .slide-box {
+          top: 13% !important;
+        }  
+
+        .option-box {
+          width: 90%;
+        }
+
+        .slide-box h3 {
+          font-size: 1.5rem;
+        }
+
+        .slide-box h4 {
+          font-size: 1.1rem;
+        }
+
+        .slide-box h5 {
+          font-size: 0.9rem;
+        }
+
+        #new-path-popup .center-v--rel {
+          top: 50%;
+        }
+      }
+
+      @media (min-height: 740px) {
+        .slide-box {
+          top: 17% !important;
+        }  
+
+        .slide-box svg {
+          width: 100%;
+          height: 100%;
+        }
+
+       .title-margin {
+          margin-bottom: 2rem;
+        }
+
+        .option-box {
+          width: 100%;
+        }
+
+        .option-box > div {
+          padding: 2rem 3rem;
+        }
+
+        .slide-end-option {
+          padding-top: 2rem; 
+          padding-bottom: 2rem;
+        }
+
+        .slide-end-option .h5 {
+          height: 9rem;
+        }
+
+        .change-platform-font {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (min-height: 945px) {
+        .slide-box {
+          top: 23% !important;
+        }  
+
+        .intro-desc {
+          margin-bottom: 6rem;
+        }
+
+        .slide-box h3 {
+          font-size: 1.85rem;
+        }
+
+        .slide-box h4 {
+          font-size: 1.25rem;
+        }
+
+        .slide-box h5 {
+          font-size: 1rem;
+        }
+
+        .img-box {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          height: 13rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="wrapper / bg-black">
+    <div id="support" class="w75 / mt5 mb5 mlauto mrauto pt2 pb2 pr5 pl5 / ba b-glow / tac hide">
+      <h4 class="white / neue-bold / mb3">Device Not Supported</h4>
+      <h6 class="white / neue-roman">Please view on a desktop or enlarge your browser window.</h6>
+    </div>
+
+    <div id="slide-container" class=" / w100 h100">
+      <section id="slide" class="js-trigger / w100 h100" data-path="intro" data-slide="0" data-goto="1">
+        <a href="https://l2inc.com" target="_blank" class="hide block-l / mb3-l">
+          <img src="http://interactive.l2inc.com/social_commerce/img/gartner-l2-logo.svg" alt="Gartner + L2 logo" class="center-h--rel-l / w5">
+        </a>
+
+        <h6 class="lemon / neue-bold / tac">L2 Intelligence: Social Platforms</h6>
+
+        <div class="center-a--abs / w100 / tac">
+          <h1 class="tac / neue-bold / white / mb3">Social Commerce Channels</h1>
+
+          <h4 class="tac / neue-bold / white / mb6-l">A Primer on Instagram and Facebook Capabilities</h4>
+
+          <p class="hide block-l / center-h--rel / tac / white / w50">The days of brands using social platforms for only top-of-funnel hype are long gone. With two-thirds of users purchasing directly from social media posts at least once in the past year, platforms are quickly rolling out additional commerce features.</p>
+
+          <h6 class="grey40 mt4">Credits: Karen Lee (research); Wright Rickman, Julia Kim (development); Minh-Anh Nguyen (design)</h6>
+        </div>
+
+        <h6 id="click1" class="js-reveal / center-h--abs bottom0 / lemon / w100 / neue-bold / tac ttu / pointer"><span id="click-or-tap">Click</span> Anywhere to Continue</h6>
+      </section>
+    </div>
+
+    <div id="new-path-popup" class="js-hide / full-screen wrapper overlay">
+      <div class="center-v--rel / w100" style="max-width: 1440px; margin: 0 auto; height: 70vh;">
+        <h6 class="neue-bold / lemon / tac ttu / mb3 mb4-l">CHOOSE ANOTHER <span id="platform-text"></span> COMMERCE CHANNEL</h6>
+
+        <div class="js-hide channel-select / flex / w100 / mb3 mb4-l" data-platform="facebook">
+          <div class="slide-end-option / js-trigger / p-facebook p-sn / pv3 ph4 ph5-l / relative / col col-4 ba b-glow bg-black / mr4" data-path="facebook" data-goto="1" data-func="sn1()">
+            <h4 class="neue-bold white / tac">"Shop Now" Button</h4>
+
+            <div class="mv2 mv3-l h5">
+              <img src="http://interactive.l2inc.com/social_commerce/img/Icon - Shop Now.svg" alt="" class="center-a--rel max-h90 max-w100 max-w50-l">
+            </div>
+
+            <p class="hide block-l / center-h--rel / tac / neue-roman / white">The Shop Now button connects users from a brand’s Facebook page to whichever site the brand decides.</p>
+          </div>
+
+          <div class="slide-end-option / js-trigger / p-facebook p-sp / pv3 ph4 ph5-l / relative / col col-4 ba b-glow bg-black / mr4" data-path="facebook" data-goto="2" data-func="sp1()">
+            <h4 class="neue-bold white / tac">Shoppable Pages</h4>
+
+            <div class="mv2 mv3-l h5">
+              <img src="http://interactive.l2inc.com/social_commerce/img/Icon - FB Shoppable FB.svg" alt="" class="center-a--rel max-h90 max-w100 max-w50-l">
+            </div>
+
+            <p class="hide block-l / center-h--rel / tac / neue-roman / white">These shoppable pages are accessed through a link titled Shop. However, it does not bring the user to a landing page outside of Facebook.</p>
+          </div>
+
+          <div class="slide-end-option / js-trigger / p-facebook p-dp / pv3 ph4 ph5-l / relative / col col-4 ba b-glow bg-black /" data-path="facebook" data-goto="3" data-func="dp1()">
+            <h4 class="neue-bold white / tac">Dark Posts</h4>
+
+            <div class="mv2 mv3-l h5">
+              <img src="http://interactive.l2inc.com/social_commerce/img/Icon - FB Dark Post.svg" alt="" class="center-a--rel max-h90 max-w100 max-w50-l">
+            </div>
+
+            <p class="hide block-l / center-h--rel / tac / neue-roman / white">Across analyzed brands, Gartner L2 found that Facebook drives the lion’s share of social desktop traffic.</p>
+          </div>
+        </div>
+
+        <div class="js-hide channel-select / flex / w100 / mb3 mb4-l" data-platform="instagram">
+          <div class="slide-end-option / js-trigger / p-instagram p-sp / pv3 ph4 ph5-l / relative / col col-4 ba b-glow bg-black / mr4" data-path="instagram" data-goto="1" data-func="igsp1()">
+            <h4 class="neue-bold white / tac">Shoppable Pages</h4>
+
+            <div class="mv2 mv3-l h5">
+              <img src="http://interactive.l2inc.com/social_commerce/img/Icon - Shoppable IG Pages.svg" alt="" class="center-a--rel max-h90 max-w100 max-w50-l">
+            </div>
+
+            <p class="hide block-l / center-h--rel / tac / neue-roman / white">Shoppable products on Instagram profiles are easily accessed through the Shop button located directly underneath the brand’s bio.</p>
+          </div>
+
+          <div class="slide-end-option / js-trigger / p-instagram p-is / pv3 ph4 ph5-l / relative / col col-4 ba b-glow bg-black / mr4" data-path="instagram" data-goto="2" data-func="is1()">
+            <h4 class="neue-bold white / tac">Instagram Stories</h4>
+
+            <div class="mv2 mv3-l h5">
+              <img src="http://interactive.l2inc.com/social_commerce/img/Icon - Stories.svg" alt="" class="center-a--rel max-h90 max-w100 max-w50-l">
+            </div>
+
+            <p class="hide block-l / center-h--rel / tac / neue-roman / white">With an ever-increasing amount of Instagram Stories features, brands have a plethora of tools with which to experiment and drive engagement.</p>
+          </div>
+
+          <div class="slide-end-option / js-trigger / p-instagram p-if / pv3 ph4 ph5-l / relative / col col-4 ba b-glow bg-black /" data-path="instagram" data-goto="3" data-func="if1()">
+            <h4 class="neue-bold white / tac">Influencers</h4>
+
+            <div class="mv2 mv3-l h5">
+              <img src="http://interactive.l2inc.com/social_commerce/img/Icon - Influencers.svg" alt="" class="center-a--rel max-h90 max-w100 max-w50-l">
+            </div>
+
+            <p class="hide block-l / center-h--rel / tac / neue-roman / white">Influencers are commonly seen as a tool to boost awareness, but they are also useful further down the purchase funnel.</p>
+          </div>
+        </div>
+
+        <div class="flex-l w100">
+          <div class="hide block-l / pv4 ph5 / relative / col col-4 mr4"></div>
+
+          <div class="js-trigger / pv3 ph4 ph5-l / relative / col col-4-l ba b-glow bg-black / mr4-l" data-path="intro" data-goto="1">
+            <h5 class="change-platform-font / neue-bold white / tac" style="margin-top: 4px;">Or Choose Another Platform</h5>
+          </div>
+
+          <div class="hide block-l / pv4 ph5 / relative / col col-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-selection-multi.v1.min.js"></script>
+    <script src="js/jetpack.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/AttrPlugin.min.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

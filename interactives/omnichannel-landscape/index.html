@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Omnichannel Landscape</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css"> 
+
+    <style>
+      :root { 
+        --sky: #009AD7; 
+        --sky-shadow: 0 0 20px rgba(0, 154, 215, 0.6);
+      }
+
+      html, body { 
+        width: 100%;
+        height: 100%;
+        overflow: hidden !important; 
+      }
+
+      body { 
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+
+      @import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=e4c74e07-1206-4018-8f56-143a8a11c9b1");
+
+      @font-face {
+        font-family: "Helvetica Neue LT W01_71488914";
+        src: url("/css/webfonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix");
+        src: url("/css/webfonts/8a6c3e5a-88a5-430c-91d8-7767ce971d12.eot?#iefix") format("eot"),
+             url("/css/webfonts/531c5a28-5575-4f58-96d4-a80f7b702d7b.woff2") format("woff2"),
+             url("/css/webfonts/439c5962-f9fe-4eaf-a1f6-f41d42edba75.woff") format("woff"),
+             url("/css/webfonts/419a308d-b777-4f84-9235-2caf4a98ec23.ttf") format("truetype"),
+             url("/css/webfonts/e4d5b881-6835-45b7-8766-3e5b9e7cab8b.svg#e4d5b881-6835-45b7-8766-3e5b9e7cab8b") format("svg");
+      }
+
+      @font-face {
+        font-family: "Helvetica Neue LT W01_55 Roman";
+        src: url("/css/webfonts/a58359b2-ab6c-4eb7-a2ed-b567c68b3388.eot?#iefix");
+        src: url("/css/webfonts/a58359b2-ab6c-4eb7-a2ed-b567c68b3388.eot?#iefix") format("eot"),
+             url("/css/webfonts/02963ef0-dbb8-4ec9-a06d-939c6f252739.woff2") format("woff2"),
+             url("/css/webfonts/411f40ef-ca35-4f60-93ce-b394d5485b62.woff") format("woff"),
+             url("/css/webfonts/aee958bd-461a-4843-929b-4127e918a85e.ttf") format("truetype"),
+             url("/css/webfonts/a5239550-7c80-4408-8598-671485ac7994.svg#a5239550-7c80-4408-8598-671485ac7994") format("svg");
+      }
+
+      p { line-height: 1.5; }
+
+      .bold { font-weight: 700; }
+
+      .see-through { color: rgba(255, 255, 255, 0.5); }
+
+      .vam { vertical-align: middle; }
+
+      .ttu {
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+      }
+
+      .usn {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      .js-reveal { opacity: 0; }
+
+      .js-hide { display: none; }
+
+      .js-trigger * { 
+        pointer-events: none; 
+        cursor: pointer;
+      }
+
+      [id*="-click"]:not(#i0-click) { bottom: 5.5rem; }
+
+      @media only screen and (max-width: 768px) {
+        [id*="-click"]:not(#i0-click) { bottom: 3.5rem; }        
+      }
+
+      .neue-bold,
+      .tick text,
+      .label { font-family: "Helvetica Neue LT W01_71488914", "Ariel", sans-serif; }
+
+      .neue-bold { font-weight: 700; }
+
+      .tick text,
+      text, 
+      .label {
+        fill: white;
+        font-size: 12px;
+      }
+
+      .neue-roman { font-family: "Helvetica Neue LT W01_55 Roman", "Ariel", sans-serif; }
+
+      .line { height: 2px; }
+
+      .domain { display: none; }
+
+      .white-square { background-color: #FFFFFF; }
+      .blue-square { background-color: var(--sky); }
+
+      .sky-line { 
+        height: 3px;
+        background-color: var(--sky); 
+      }
+
+      .path {
+        stroke: var(--sky);
+        stroke-width: 3px;
+      }
+
+      .hexagon,
+      .hexagon-sm {
+        position: relative;
+        top: 4rem;
+        background-color: #000000;
+        box-shadow: 0 0 20px var(--sky-shadow);
+        border-left: solid 5px var(--sky);
+        border-right: solid 5px var(--sky);
+      }
+
+      .hexagon {
+        left: 10px;
+        width: 200px; 
+        height: 115.47px;
+      }
+
+      .hexagon-sm {
+        width: 155px; 
+        height: 89.49px;
+      }
+
+      .hexagon:before,
+      .hexagon:after,
+      .hexagon-sm:before,
+      .hexagon-sm:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        transform: scaleY(0.5774) rotate(-45deg);
+        background-color: inherit;
+        box-shadow: 0 0 20px var(--sky-shadow);
+      }
+
+      .hexagon:before,
+      .hexagon:after {
+        width: 141.42px;
+        height: 141.42px;
+        left: 24.2893px;
+      }
+
+      .hexagon-sm:before,
+      .hexagon-sm:after {
+        width: 109.60px;
+        height: 109.60px;
+        left: 17.6992px;
+      }
+
+      .hexagon:before, 
+      .hexagon-sm:before {
+        border-top: solid 7.0711px var(--sky);
+        border-right: solid 7.0711px var(--sky);
+      }
+
+      .hexagon:before { top: -70.7107px; }
+
+      .hexagon-sm:before { top: -54.8008px; }
+
+      .hexagon:after,
+      .hexagon-sm:after {
+        border-bottom: solid 7.0711px var(--sky);
+        border-left: solid 7.0711px var(--sky);
+      }
+
+      .hexagon:after { bottom: -70.7107px; }
+
+      .hexagon-sm:after { bottom: -54.8008px; }
+
+      .hexagon span,
+      .hexagon-sm span {
+        display: block;
+        position: absolute;
+        top: 2.8867513459481287px;
+        left: 0;
+        z-index: 2;
+        background: inherit;
+      }
+
+      .hexagon span {
+        width: 190px;
+        height: 109.6966px; 
+      }
+
+      .hexagon-sm span {
+        width: 145px;
+        height: 83.7158px;
+      }
+
+      .cardbox {
+        list-style: none;
+        max-height: 800px;
+      }
+
+      .front {
+        top: 8rem !important;
+        transform: scale(1) !important;
+        opacity: 1 !important;
+      }
+      
+      [data-card='4'] { top: 0rem; }
+      [data-card='3'] { top: 2rem; }
+      [data-card='2'] { top: 4rem; }
+      [data-card='1'] { top: 6rem; }
+
+      @media only screen and (max-width: 768px) {
+        [data-card='4'] { top: 0rem; }
+        [data-card='3'] { top: 1rem; }
+        [data-card='2'] { top: 2rem; }
+        [data-card='1'] { top: 3rem; }
+
+        .front { top: 4rem !important; }
+      }
+
+      .donezo {
+        top: 100vh !important;
+        opacity: 0 !important;
+        transform: scale(4) !important;
+      }
+
+      .dotstyle { bottom: 0rem; }
+
+      @media only screen and (max-width: 768px) {
+        .dotstyle { bottom: 4rem; }
+      }
+
+      .dotstyle ul { list-style: none; }
+
+      .dotstyle li a {
+        top: 0;
+        left: 0;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.3);
+        text-indent: -999em;
+      }
+
+      .dotstyle li a:focus { outline: none; }
+
+      .dotstyle-fillin li a {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 2px var(--sky);
+      }
+
+      /*.dotstyle-fillin li a:hover,
+      .dotstyle-fillin li a:focus { box-shadow: inset 0 0 0 3px var(--sky); }*/
+
+      .dotstyle-fillin li.current a { box-shadow: inset 0 0 0 8px var(--sky); }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+      }
+
+      .dot a { cursor: default !important; }
+
+      .sky-bar { 
+        stroke: var(--sky); 
+        fill: #000000;
+      }
+
+      .blue-bar { fill: var(--sky); }
+
+      .white-label { fill: white; }
+    </style>
+  </head>
+
+  <body class="bg-black">
+    <div id="support" class="w75 / mt5 mb5 mlauto mrauto pt2 pb2 pr5 pl5 / ba b-glow / tac hide">
+      <h4 class="white / neue-bold / mb3">Device Not Supported</h4>
+      <h6 class="white / neue-roman">For an optimal experience, please enlarge your browser window or view on a different device.</h6>
+    </div>
+
+    <div id="slide-container" class="relative / w100 h100 / z1">
+      <!-- Slides go here -->
+    </div>
+
+    <div id="card-container" class="relative / w100 h100 / z1" style="bottom: -75%;">
+      <!-- Cards go here -->
+    </div>
+
+    <div id="line-0" class="line js-reveal / absolute left0 / bg-sky / w100 / z0" style="top: 98vh;"></div>
+    <div id="line-1" class="line js-reveal / absolute left0 / bg-sky / w100 / z0" style="top: 75.5vh;"></div>
+    <div id="line-2" class="line js-reveal / absolute left0 / bg-sky / w100 / z0" style="top: 60vh;"></div>
+    <div id="line-3" class="line js-reveal / absolute left0 / bg-sky / w100 / z0" style="top: 50vh;"></div>
+    <div id="line-4" class="line js-reveal / absolute left0 / bg-sky / w100 / z0" style="top: 44vh;"></div>
+    <div id="line-5" class="line js-reveal / absolute left0 / bg-sky / w100 / z0" style="top: 40vh;"></div>
+    <div id="line-6" class="line js-reveal / absolute left0 / bg-sky / w100 / z0" style="top: 37vh;"></div>
+    <div id="line-7" class="line js-reveal / absolute left0 / bg-sky / w100 / z0" style="top: 35vh;"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-selection-multi.v1.min.js"></script>
+    <script src="//d3js.org/d3-format.v1.min.js"></script>
+    <script src="js/jetpack.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/AttrPlugin.min.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

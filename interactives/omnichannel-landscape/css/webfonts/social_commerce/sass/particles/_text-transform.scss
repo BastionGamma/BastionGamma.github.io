@@ -1,0 +1,33 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+  TEXT TRANSFORM
+  Docs: http://tachyons.io/docs/typography/text-transform/
+
+  Base:
+    tt = text-transform
+
+  Modifiers
+    c = capitalize
+    l = lowercase
+    u = uppercase
+    n = none
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$text-transform-map: (
+  c: capitalize,
+  l: lowercase,
+  u: uppercase
+);
+  
+@each $key, $value in $text-transform-map {
+  .tt#{$key} { text-transform: $value; }
+}

@@ -1,0 +1,83 @@
+//  ==========================================================================
+//  Variables
+//  ==========================================================================
+
+// Set to 'false' to disable responsive classes
+$generate-responsive-classes: true !default;
+
+$helvetica: "Helvetica", "Ariel", sans-serif;
+$neue-roman: "Helvetica Neue LT W01_55 Roman", "Ariel", sans-serif;
+$neue-italic: "Helvetica Neue LT W01_56 It", "Ariel", sans-serif;
+$neue-black: "Helvetica Neue LT W01_95 Black", "Ariel", sans-serif;
+$neue-black-italic: "Helvetica Neue LT W01_96 BlkIt", "Ariel", sans-serif;
+$neue-condensed: "Helvetica Neue LT W01_57 Cond", "Ariel", sans-serif;
+$neue-oblique: "Helvetica Neue LT W01_57 CnObl", "Ariel", sans-serif; 
+
+// Custom Media Query Variables
+$breakpoint-small: calculate-rem(320);
+$breakpoint-medium: calculate-rem(768);
+$breakpoint-medium: calculate-rem(768);
+$breakpoint-large: calculate-rem(1030);
+$breakpoint-xtra-large: calculate-rem(1800);
+
+$screen-sizes: ('', '-s', '-m', '-l', '-xl');
+
+$transparent: transparent !default;
+
+// Custom Colors
+$black: #000000 !default;
+
+$grey90: #1A1A1A;
+$grey85: #262626;
+$grey60: #666666;
+$grey40: #999999;
+$grey20: #CCCCCC;
+$grey10: #E5E6E6;
+$grey05: #F1F1F1;
+$white: #FFFFFF;
+
+// Gartner Colors
+$gartner-blue: #002856;
+$sky: #009AD7;
+$tangerine: #FF540A;
+$lemon: #FEC10D;
+$rose: #E81159;
+$rose-shade: #AF0D43;
+$steel: #6F7878;
+$steel-shade: #535A5A;
+
+// Spacing Scale
+$space-0: 0; // pa0, br0
+$space-1: 0.125rem; // br1
+$space-2: 0.25rem; // pa1, br2 
+$space-3: 0.5rem; // pa2, br3 
+$space-4: 1rem; // pa3, w1, h1, br4
+$space-5: 2rem; // pa4, w2, h2 
+$space-6: 3rem; // pa5, w3, h3  
+$space-7: 4rem; // pa6, w4, h4
+$space-8: 8rem; // pa7, w5, h5
+$space-9: 13rem; // w6, h6
+$space-10: 21rem; // w7, h7
+$space-11: 34rem; // w8, h8
+$space-12: 55rem; // w9, h9
+
+// Type Scale
+$base-font-size: 16px !default; // 16px = 1rem
+
+// Desktop font sizes
+$text-1: calculate-rem(50) !default; // 50px
+$text-2: calculate-rem(40) !default; // 40px
+$text-3: calculate-rem(30) !default; // 30px
+$text-4: calculate-rem(20) !default; // 20px
+$text-5: calculate-rem(16) !default; // 16px
+$text-6: calculate-rem(12) !default; // 12px
+$text-base: calculate-rem(15) !default; // 15px
+
+// Mobile font sizes
+$mobile-text-1: calculate-rem(34) !default; // 34px
+$mobile-text-2: calculate-rem(28) !default; // 28px
+$mobile-text-3: calculate-rem(24) !default; // 24px
+$mobile-text-4: calculate-rem(18) !default; // 18px
+$mobile-text-5: calculate-rem(14) !default; // 14px
+$mobile-text-6: calculate-rem(11) !default; // 11px
+$mobile-text-base: calculate-rem(13) !default; // 13px

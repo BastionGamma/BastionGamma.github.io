@@ -1,0 +1,58 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+  BORDERS
+
+  Base:
+    b = border
+
+  Modifiers:
+    a = all
+    t = top
+    r = right
+    b = bottom
+    l = left
+    n = none
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$border-map: (
+  ba: (border-style, solid, border-width, 1px),
+  bt: (border-top-style, solid, border-top-width, 1px),
+  br: (border-right-style, solid, border-right-width, 1px),
+  bb: (border-bottom-style, solid, border-bottom-width, 1px),
+  bl: (border-left-style, solid, border-left-width, 1px),
+  bn: (border-style, none, border-width, 0)
+);
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {
+    @each $key, $values in $border-map {
+      .#{$key}#{nth($screen-sizes, $index)} {
+        $style: nth($values, 1);        
+        $style-value: nth($values, 2);
+        $width: nth($values, 3);
+        $width-value: nth($values, 4);
+
+        #{$style}: $style-value;
+        #{$width}: $width-value;
+      }
+    }
+  }
+}
+
+.b-glow {
+  border: 1px solid $sky;
+  @include box-shadow(inset 0px 0px 0px 0px $sky, 0px 0px 20px 5px rgba(0, 154, 215, 0.5));
+
+  @include animate();
+
+  &.front { @include box-shadow(inset 0px 0px 0px 3px $sky, 0px 0px 35px 8px rgba(0, 154, 215, 0.75)); }
+}

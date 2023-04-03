@@ -1,0 +1,92 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+  FLEXBOX
+  align-items:
+    Base:
+      .items-
+
+    Modifiers:
+      start = flex-start
+      end = flex-end
+      center = center
+      baseline = baseline
+
+    E.g.:
+      .items-start
+      .items-baseline
+
+  display: 
+    .flex
+    .inline-flex
+
+  flex-direction:
+    Base:
+      .flex
+    
+    Modifiers:
+      -column
+      -row
+
+  flex-wrap:
+    .flex-wrap
+    .flex-nowrap
+
+  justify:
+    Base:
+      .justify-
+
+    Modifiers;
+      start = flex-start
+      end = flex-end
+      center = center
+      between = space-between
+      around = space-around
+
+  Media Query Extensions:
+    -s = small
+    -m = medium
+    -l = large
+    -xl = extra-large
+*/
+
+$direction-map: ( column, row );
+
+$items-map: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline
+);
+
+$justify-map: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around
+);
+
+@for $index from 1 through length($screen-sizes) {
+  @include breakpoints($index) {
+    .flex#{nth($screen-sizes, $index)} { @include display-flex; }
+    .inline-flex#{nth($screen-sizes, $index)} { display: inline-flex; }
+
+    .flex-wrap#{nth($screen-sizes, $index)} { flex-wrap: wrap; }
+    .flex-nowrap#{nth($screen-sizes, $index)} { flex-wrap: nowrap; }
+
+    @each $key in $direction-map {
+      .flex-#{$key}#{nth($screen-sizes, $index)} { flex-direction: $key; }
+    }
+
+    @each $key, $value in $items-map {
+      .items-#{$key}#{nth($screen-sizes, $index)} { align-items: $value; }
+    }
+
+    @each $key, $value in $justify-map {
+      .justify-#{$key}#{nth($screen-sizes, $index)} { justify-content: $value; }
+    }
+  }
+}

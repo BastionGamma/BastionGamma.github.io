@@ -1,0 +1,33 @@
+.button {
+  font-size: $text-6;
+  border-radius: 0px !important;
+  max-height: 42px;
+  width: 170px;
+  cursor: pointer;
+  outline: none;
+  opacity: 1;
+  z-index: 4; 
+  @include animate();
+  @extend %--form-sizing-regression;
+
+  &--glow { 
+    background-color: $transparent;
+
+    border: 1px solid $lemon;
+    @include box-shadow(inset 0px 0px 0px 0px $lemon, 0px 0px 20px 5px rgba(254, 193, 13, 0.5));
+
+    @include animate();
+
+    &:hover {
+      @include box-shadow(inset 0px 0px 0px 3px $lemon, 0px 0px 35px 8px rgba(254,193,13,0.75));
+    }
+  }
+
+  h6 { 
+    letter-spacing: 0.03rem; 
+    text-align: center;
+    line-height: 1;
+    color: $white;
+    font-family: "Helvetica Neue LT W01_71488914", "Ariel", sans-serif;
+  }
+}
