@@ -1,0 +1,31 @@
+// Converted Variables
+
+// Custom Media Query Variables
+
+/*
+   FORMS 
+*/
+
+// L2 In Your Inbox Email Submit //  
+.input {
+  select.selector {
+    background-color: white;
+    border-radius: 0;
+    outline: none;
+    color: $grey90;
+    font-size: $base-font-size;
+    z-index: 1;
+    max-height: 42px;
+    @include appearance(none);
+
+    &::-ms-expand { display: none; }
+  }
+}
+
+.drop-down-triangle {
+  display: inline-block;
+  float: right;
+  top: 30px;
+  z-index: 99;
+  margin-right: 15px;
+}
