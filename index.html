@@ -19,18 +19,19 @@
 <!-- 
   1. Add "about me" descripton
   2. Make sure site is fully accessible (screen readers, aria labels, etc.)
+  3. Mobile nav
   4. Add Vue or React. Convert gallery-item to a component
   6. Figure out a case study (for the UX thing)
   7. Add in animations or other cool stuf
   8. Consider a full redesign
 -->
 <body class="max-w-7xl mx-auto my-0 bg-white">
-  <nav id="cd-vertical-nav" class="fixed right-9 top-1/2 bottom-auto -translate-y-1/2 z-10">
+  <nav id="cd-vertical-nav" class="hidden md:block fixed right-9 top-1/2 bottom-auto -translate-y-1/2 z-10">
     <ul>
       <li class="text-right">
         <a href="#section1" data-number="1" class="inline-block">
           <span class="cd-dot"></span>
-          <span class="cd-label">Intro</span>
+          <span class="cd-label">About</span>
         </a>
       </li>
       <li class="text-right">
@@ -57,7 +58,7 @@
   <section id="section1" class="w-full h-screen px-6 py-4">
     <div class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
       <h1 class="font-sans font-thin text-5xl mb-3">Wright Rickman</h1>
-      <h4 class="font-sans font-thin text-2xl">Front-End Development&#32;&#32;&#8226;&#32;&#32;UX Engineering & Design&#32;&#32;&#8226;&#32;&#32;Data Visualization</h4>
+      <h4 class="font-sans font-thin text-2xl mb-3">Front-End Development&#32;&#32;&#8226;&#32;&#32;UX Engineering & Design&#32;&#32;&#8226;&#32;&#32;Data Visualization</h4>
     </div>
 
     <img src="img/scroll.svg" alt="" class="absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-24">

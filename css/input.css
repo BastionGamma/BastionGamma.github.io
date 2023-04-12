@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: linear-gradient(-45deg, #928df2, #ee77a5, #9ee2fa, #88f6dc);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .overlay {
   @apply h-0 opacity-0;
   background-color: rgba(0, 0, 0, 0.5);
@@ -31,7 +62,7 @@
 }
 
 #cd-vertical-nav .cd-label {
-  @apply relative mr-0.5 px-2.5 py-1 text-base text-black bg-white rounded-full transition-all origin-center opacity-0;
+  @apply relative mr-1.5 px-2.5 py-1 text-base text-black bg-white rounded-full transition-all origin-center opacity-0;
 }
 
 #cd-vertical-nav a:hover .cd-label {
@@ -39,7 +70,7 @@
 }
 
 #cd-vertical-nav .cd-dot {
-  @apply relative top-2 h-4 w-4 rounded-full bg-cyan-300 transition-all origin-center;
+  @apply relative top-1 h-6 w-6 rounded-full bg-slate-200 transition-all origin-center;
 }
 
 #cd-vertical-nav a.is-selected .cd-dot {
