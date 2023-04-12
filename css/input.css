@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.overlay {
+  @apply h-0 opacity-0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item:hover a .overlay {
+  @apply h-full opacity-100;
+}
+
+#cd-vertical-nav a {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#cd-vertical-nav a:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#cd-vertical-nav a span {
+  @apply inline-block float-right scale-50;
+}
+
+#cd-vertical-nav a:hover span {
+  @apply scale-100;
+}
+
+#cd-vertical-nav .cd-label {
+  @apply relative mr-0.5 px-2.5 py-1 text-base text-black bg-white rounded-full transition-all origin-center opacity-0;
+}
+
+#cd-vertical-nav a:hover .cd-label {
+  @apply opacity-100;
+}
+
+#cd-vertical-nav .cd-dot {
+  @apply relative top-2 h-4 w-4 rounded-full bg-cyan-300 transition-all origin-center;
+}
+
+#cd-vertical-nav a.is-selected .cd-dot {
+  @apply bg-white;
+}
