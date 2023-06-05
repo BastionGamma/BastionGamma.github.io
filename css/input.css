@@ -1,3 +1,5 @@
+/* ./tailwindcss -i ./css/input.css -o ./css/output.css --watch */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -70,9 +72,9 @@ body {
 }
 
 #cd-vertical-nav .cd-dot {
-  @apply relative top-1 h-6 w-6 rounded-full bg-slate-200 transition-all origin-center;
+  @apply relative top-1 h-6 w-6 rounded-full bg-white border border-slate-200 transition-all origin-center;
 }
 
 #cd-vertical-nav a.is-selected .cd-dot {
-  @apply bg-white;
+  @apply bg-cyan-400;
 }
